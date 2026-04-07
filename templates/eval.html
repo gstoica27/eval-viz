@@ -86,9 +86,9 @@ body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--tex
     <select id="taskFilter"><option value="">All tasks</option></select>
     <label>Sort:</label>
     <select id="sortBy">
-      <option value="name">Name</option>
-      <option value="error_desc">Error (high first)</option>
       <option value="error_asc">Error (low first)</option>
+      <option value="error_desc">Error (high first)</option>
+      <option value="name">Name</option>
     </select>
     <span id="clipCount" style="font-size:0.75rem;color:var(--text-muted);margin-left:auto;"></span>
   </div>
@@ -148,16 +148,7 @@ async function init() {
   activeModel = models[0] || '';
   sel.addEventListener('change', () => {
     activeModel = sel.value;
-    // Redraw all loaded pred panels with new model
-    for (const id in viewers) {
-      const v = viewers[id];
-      if (v.clipData) {
-        const T = v.clipData.gt_pts3d ? v.clipData.gt_pts3d[0].length : 1;
-        const fi = v.video && v.video.duration
-          ? Math.round((v.video.currentTime / v.video.duration) * Math.max(T - 1, 0)) : 0;
-        draw3DFrame(id, 'pred', fi);
-      }
-    }
+    renderClips();
   });
 
   // Populate task filter
@@ -181,7 +172,18 @@ function renderClips() {
   viewers = {};
 
   const taskFilter = document.getElementById('taskFilter').value;
+  const sortBy = document.getElementById('sortBy').value;
   let clips = (manifest.eval || []).filter(c => !taskFilter || c.task === taskFilter);
+
+  // Sort by error for the active model
+  const safeName = activeModel.replace(/-/g, '_').replace(/\//g, '_');
+  if (sortBy === 'error_asc' || sortBy === 'error_desc') {
+    clips = clips.slice().sort((a, b) => {
+      const ea = (a.errors && a.errors[safeName]) || 999;
+      const eb = (b.errors && b.errors[safeName]) || 999;
+      return sortBy === 'error_asc' ? ea - eb : eb - ea;
+    });
+  }
 
   document.getElementById('clipCount').textContent = clips.length + ' clips';
 
@@ -200,7 +202,7 @@ function renderClips() {
           <span class="task">${clip.task.replace(/_/g,' ')}</span>
           <div style="font-size:0.72rem;color:var(--text-muted);margin-top:2px;">${clip.text || ''}</div>
         </div>
-        <span class="metrics" id="${id}_metrics"></span>
+        <span class="metrics">${clip.errors && clip.errors[safeName] != null ? 'L2=' + clip.errors[safeName].toFixed(4) : ''}</span>
       </div>
       <div class="side-by-side">
         <div class="panel">
