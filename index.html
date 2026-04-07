@@ -561,7 +561,7 @@ function prepare3DViewer(id) {
     g.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3));
     g.setAttribute('color', new THREE.Float32BufferAttribute(col, 3));
     v.scene.add(new THREE.Points(g, new THREE.PointsMaterial({
-      vertexColors: true, size: 0.008, sizeAttenuation: true, transparent: true, opacity: 0.5
+      vertexColors: true, size: 0.008, sizeAttenuation: true, transparent: true, opacity: 0.75
     })));
   }
 
@@ -593,7 +593,7 @@ function prepare3DViewer(id) {
   v.scene.add(grid);
 
   v.camTarget.set(cx, cy, cz);
-  v.camDist = half * 3.5;
+  v.camDist = half * 2.0;
 
   if (cd.cam_fwd) {
     const cf = cd.cam_fwd[0];
@@ -684,7 +684,7 @@ function draw3DFrame(id, frameIdx) {
       const g = new THREE.BufferGeometry();
       g.setAttribute('position', new THREE.Float32BufferAttribute(ptP, 3));
       g.setAttribute('color', new THREE.Float32BufferAttribute(ptC, 3));
-      v.dynamicGroup.add(new THREE.Points(g, new THREE.PointsMaterial({vertexColors:true, size:0.025, sizeAttenuation:true})));
+      v.dynamicGroup.add(new THREE.Points(g, new THREE.PointsMaterial({vertexColors:true, size:0.01, sizeAttenuation:true})));
     }
   }
 
