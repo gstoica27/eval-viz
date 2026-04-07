@@ -84,12 +84,6 @@ body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--tex
     <select id="modelSelect"></select>
     <label>Task filter:</label>
     <select id="taskFilter"><option value="">All tasks</option></select>
-    <label>Sort:</label>
-    <select id="sortBy">
-      <option value="error_asc">Error (low first)</option>
-      <option value="error_desc">Error (high first)</option>
-      <option value="name">Name</option>
-    </select>
     <span id="clipCount" style="font-size:0.75rem;color:var(--text-muted);margin-left:auto;"></span>
   </div>
 
@@ -156,7 +150,6 @@ async function init() {
   const tf = document.getElementById('taskFilter');
   tasks.forEach(t => { const o = document.createElement('option'); o.value = t; o.textContent = t.replace(/_/g, ' '); tf.appendChild(o); });
   tf.addEventListener('change', renderClips);
-  document.getElementById('sortBy').addEventListener('change', renderClips);
 
   renderClips();
 }
@@ -172,18 +165,15 @@ function renderClips() {
   viewers = {};
 
   const taskFilter = document.getElementById('taskFilter').value;
-  const sortBy = document.getElementById('sortBy').value;
   let clips = (manifest.eval || []).filter(c => !taskFilter || c.task === taskFilter);
 
-  // Sort by error for the active model
+  // Always sort by L2 error ascending for the active model
   const safeName = activeModel.replace(/-/g, '_').replace(/\//g, '_');
-  if (sortBy === 'error_asc' || sortBy === 'error_desc') {
-    clips = clips.slice().sort((a, b) => {
-      const ea = (a.errors && a.errors[safeName]) || 999;
-      const eb = (b.errors && b.errors[safeName]) || 999;
-      return sortBy === 'error_asc' ? ea - eb : eb - ea;
-    });
-  }
+  clips = clips.slice().sort((a, b) => {
+    const ea = (a.errors && a.errors[safeName]) || 999;
+    const eb = (b.errors && b.errors[safeName]) || 999;
+    return ea - eb;
+  });
 
   document.getElementById('clipCount').textContent = clips.length + ' clips';
 
