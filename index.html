@@ -493,6 +493,7 @@ function init3DViewer(id) {
 
   canvas.addEventListener('mousedown', e => {
     v.isDragging = true; v.prevMouse = {x: e.clientX, y: e.clientY};
+    activeViewerId = id;
   });
   canvas.addEventListener('contextmenu', e => e.preventDefault());
   window.addEventListener('mouseup', () => { v.isDragging = false; });
@@ -803,6 +804,45 @@ function draw2DViewer(id, frameIdx) {
   }
   ctx.globalAlpha = 1;
 }
+
+// ============================================================
+// WASD movement — applies to the viewer whose canvas was last interacted with
+// ============================================================
+let activeViewerId = null;
+const keysDown = {};
+document.addEventListener('keydown', e => {
+  if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+  const k = e.key.toLowerCase();
+  if (['w','a','s','d','q','e','arrowup','arrowdown','arrowleft','arrowright'].includes(k)) {
+    keysDown[k] = true;
+    e.preventDefault();
+  }
+  if (e.key === ' ') {
+    if (activeViewerId) togglePlayV(activeViewerId);
+    e.preventDefault();
+  }
+});
+document.addEventListener('keyup', e => { keysDown[e.key.toLowerCase()] = false; });
+
+(function camMoveLoop() {
+  if (activeViewerId && viewers[activeViewerId]) {
+    const v = viewers[activeViewerId];
+    if (v.camYaw !== undefined) {
+      const speed = 0.03 * v.camDist;
+      const fwdX = -Math.sin(v.camYaw), fwdZ = -Math.cos(v.camYaw);
+      const rightX = Math.cos(v.camYaw), rightZ = -Math.sin(v.camYaw);
+      let moved = false;
+      if (keysDown['w']||keysDown['arrowup']) { v.camTarget.x+=fwdX*speed; v.camTarget.z+=fwdZ*speed; moved=true; }
+      if (keysDown['s']||keysDown['arrowdown']) { v.camTarget.x-=fwdX*speed; v.camTarget.z-=fwdZ*speed; moved=true; }
+      if (keysDown['a']||keysDown['arrowleft']) { v.camTarget.x-=rightX*speed; v.camTarget.z-=rightZ*speed; moved=true; }
+      if (keysDown['d']||keysDown['arrowright']) { v.camTarget.x+=rightX*speed; v.camTarget.z+=rightZ*speed; moved=true; }
+      if (keysDown['q']) { v.camTarget.y-=speed; moved=true; }
+      if (keysDown['e']) { v.camTarget.y+=speed; moved=true; }
+      if (moved) updateOrbit(activeViewerId);
+    }
+  }
+  requestAnimationFrame(camMoveLoop);
+})();
 
 // ============================================================
 // Init
