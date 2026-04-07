@@ -1,0 +1,2174 @@
+{
+  "egodex": [
+    {
+      "id": "part2_assemble_disassemble_furniture_bench_chair_6712",
+      "task": "assemble_disassemble_furniture_bench_chair",
+      "text": "insert white wooden block into white wooden structure",
+      "rgb_url": "/video/egodex/part2_assemble_disassemble_furniture_bench_chair_6712",
+      "data_url": "/static/data/egodex/part2_assemble_disassemble_furniture_bench_chair_6712.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part2_assemble_disassemble_furniture_bench_chair_6712.mp4"
+    },
+    {
+      "id": "part2_assemble_disassemble_furniture_bench_chair_4458",
+      "task": "assemble_disassemble_furniture_bench_chair",
+      "text": "remove white puzzle piece from white puzzle",
+      "rgb_url": "/video/egodex/part2_assemble_disassemble_furniture_bench_chair_4458",
+      "data_url": "/static/data/egodex/part2_assemble_disassemble_furniture_bench_chair_4458.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part2_assemble_disassemble_furniture_bench_chair_4458.mp4"
+    },
+    {
+      "id": "part2_assemble_disassemble_furniture_bench_chair_5849",
+      "task": "assemble_disassemble_furniture_bench_chair",
+      "text": "remove white puzzle piece from white puzzle",
+      "rgb_url": "/video/egodex/part2_assemble_disassemble_furniture_bench_chair_5849",
+      "data_url": "/static/data/egodex/part2_assemble_disassemble_furniture_bench_chair_5849.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part2_assemble_disassemble_furniture_bench_chair_5849.mp4"
+    },
+    {
+      "id": "part2_assemble_disassemble_furniture_bench_desk_4615",
+      "task": "assemble_disassemble_furniture_bench_desk",
+      "text": "insert white plastic piece into white plastic structure",
+      "rgb_url": "/video/egodex/part2_assemble_disassemble_furniture_bench_desk_4615",
+      "data_url": "/static/data/egodex/part2_assemble_disassemble_furniture_bench_desk_4615.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part2_assemble_disassemble_furniture_bench_desk_4615.mp4"
+    },
+    {
+      "id": "part2_assemble_disassemble_furniture_bench_desk_865",
+      "task": "assemble_disassemble_furniture_bench_desk",
+      "text": "remove white plastic piece from white plastic base",
+      "rgb_url": "/video/egodex/part2_assemble_disassemble_furniture_bench_desk_865",
+      "data_url": "/static/data/egodex/part2_assemble_disassemble_furniture_bench_desk_865.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part2_assemble_disassemble_furniture_bench_desk_865.mp4"
+    },
+    {
+      "id": "part2_assemble_disassemble_furniture_bench_desk_4181",
+      "task": "assemble_disassemble_furniture_bench_desk",
+      "text": "remove white plastic piece from white plastic base",
+      "rgb_url": "/video/egodex/part2_assemble_disassemble_furniture_bench_desk_4181",
+      "data_url": "/static/data/egodex/part2_assemble_disassemble_furniture_bench_desk_4181.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part2_assemble_disassemble_furniture_bench_desk_4181.mp4"
+    },
+    {
+      "id": "part2_assemble_disassemble_furniture_bench_drawer_4971",
+      "task": "assemble_disassemble_furniture_bench_drawer",
+      "text": "remove white paper from white box",
+      "rgb_url": "/video/egodex/part2_assemble_disassemble_furniture_bench_drawer_4971",
+      "data_url": "/static/data/egodex/part2_assemble_disassemble_furniture_bench_drawer_4971.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part2_assemble_disassemble_furniture_bench_drawer_4971.mp4"
+    },
+    {
+      "id": "part2_assemble_disassemble_furniture_bench_drawer_7130",
+      "task": "assemble_disassemble_furniture_bench_drawer",
+      "text": "insert white plastic drawer into white plastic box",
+      "rgb_url": "/video/egodex/part2_assemble_disassemble_furniture_bench_drawer_7130",
+      "data_url": "/static/data/egodex/part2_assemble_disassemble_furniture_bench_drawer_7130.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part2_assemble_disassemble_furniture_bench_drawer_7130.mp4"
+    },
+    {
+      "id": "part2_assemble_disassemble_furniture_bench_drawer_1670",
+      "task": "assemble_disassemble_furniture_bench_drawer",
+      "text": "put white puzzle piece into white puzzle box",
+      "rgb_url": "/video/egodex/part2_assemble_disassemble_furniture_bench_drawer_1670",
+      "data_url": "/static/data/egodex/part2_assemble_disassemble_furniture_bench_drawer_1670.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part2_assemble_disassemble_furniture_bench_drawer_1670.mp4"
+    },
+    {
+      "id": "part2_assemble_disassemble_furniture_bench_lamp_2310",
+      "task": "assemble_disassemble_furniture_bench_lamp",
+      "text": "insert white cup into white stand",
+      "rgb_url": "/video/egodex/part2_assemble_disassemble_furniture_bench_lamp_2310",
+      "data_url": "/static/data/egodex/part2_assemble_disassemble_furniture_bench_lamp_2310.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part2_assemble_disassemble_furniture_bench_lamp_2310.mp4"
+    },
+    {
+      "id": "part2_assemble_disassemble_furniture_bench_lamp_224",
+      "task": "assemble_disassemble_furniture_bench_lamp",
+      "text": "put white plastic cup on white statue",
+      "rgb_url": "/video/egodex/part2_assemble_disassemble_furniture_bench_lamp_224",
+      "data_url": "/static/data/egodex/part2_assemble_disassemble_furniture_bench_lamp_224.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part2_assemble_disassemble_furniture_bench_lamp_224.mp4"
+    },
+    {
+      "id": "part2_assemble_disassemble_furniture_bench_lamp_2313",
+      "task": "assemble_disassemble_furniture_bench_lamp",
+      "text": "remove white cup from white stand",
+      "rgb_url": "/video/egodex/part2_assemble_disassemble_furniture_bench_lamp_2313",
+      "data_url": "/static/data/egodex/part2_assemble_disassemble_furniture_bench_lamp_2313.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part2_assemble_disassemble_furniture_bench_lamp_2313.mp4"
+    },
+    {
+      "id": "part2_assemble_disassemble_furniture_bench_stool_3638",
+      "task": "assemble_disassemble_furniture_bench_stool",
+      "text": "insert white puzzle piece into white puzzle",
+      "rgb_url": "/video/egodex/part2_assemble_disassemble_furniture_bench_stool_3638",
+      "data_url": "/static/data/egodex/part2_assemble_disassemble_furniture_bench_stool_3638.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part2_assemble_disassemble_furniture_bench_stool_3638.mp4"
+    },
+    {
+      "id": "part2_assemble_disassemble_furniture_bench_stool_1340",
+      "task": "assemble_disassemble_furniture_bench_stool",
+      "text": "remove white ball from white base",
+      "rgb_url": "/video/egodex/part2_assemble_disassemble_furniture_bench_stool_1340",
+      "data_url": "/static/data/egodex/part2_assemble_disassemble_furniture_bench_stool_1340.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part2_assemble_disassemble_furniture_bench_stool_1340.mp4"
+    },
+    {
+      "id": "part1_assemble_disassemble_legos_3105",
+      "task": "assemble_disassemble_legos",
+      "text": "take apart lego structure",
+      "rgb_url": "/video/egodex/part1_assemble_disassemble_legos_3105",
+      "data_url": "/static/data/egodex/part1_assemble_disassemble_legos_3105.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part1_assemble_disassemble_legos_3105.mp4"
+    },
+    {
+      "id": "part1_assemble_disassemble_legos_2765",
+      "task": "assemble_disassemble_legos",
+      "text": "take red plastic piece from blue plastic piece",
+      "rgb_url": "/video/egodex/part1_assemble_disassemble_legos_2765",
+      "data_url": "/static/data/egodex/part1_assemble_disassemble_legos_2765.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part1_assemble_disassemble_legos_2765.mp4"
+    },
+    {
+      "id": "part1_assemble_disassemble_legos_755",
+      "task": "assemble_disassemble_legos",
+      "text": "pick up red and yellow lego piece",
+      "rgb_url": "/video/egodex/part1_assemble_disassemble_legos_755",
+      "data_url": "/static/data/egodex/part1_assemble_disassemble_legos_755.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part1_assemble_disassemble_legos_755.mp4"
+    },
+    {
+      "id": "part1_assemble_disassemble_soft_legos_250",
+      "task": "assemble_disassemble_soft_legos",
+      "text": "move lego piece to the right",
+      "rgb_url": "/video/egodex/part1_assemble_disassemble_soft_legos_250",
+      "data_url": "/static/data/egodex/part1_assemble_disassemble_soft_legos_250.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part1_assemble_disassemble_soft_legos_250.mp4"
+    },
+    {
+      "id": "part1_assemble_disassemble_soft_legos_262",
+      "task": "assemble_disassemble_soft_legos",
+      "text": "stack red and yellow lego pieces together",
+      "rgb_url": "/video/egodex/part1_assemble_disassemble_soft_legos_262",
+      "data_url": "/static/data/egodex/part1_assemble_disassemble_soft_legos_262.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part1_assemble_disassemble_soft_legos_262.mp4"
+    },
+    {
+      "id": "part1_assemble_disassemble_soft_legos_316",
+      "task": "assemble_disassemble_soft_legos",
+      "text": "tear down multicolor lego structure",
+      "rgb_url": "/video/egodex/part1_assemble_disassemble_soft_legos_316",
+      "data_url": "/static/data/egodex/part1_assemble_disassemble_soft_legos_316.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part1_assemble_disassemble_soft_legos_316.mp4"
+    },
+    {
+      "id": "part1_assemble_disassemble_structures_0",
+      "task": "assemble_disassemble_structures",
+      "text": "dismantle yellow toy car",
+      "rgb_url": "/video/egodex/part1_assemble_disassemble_structures_0",
+      "data_url": "/static/data/egodex/part1_assemble_disassemble_structures_0.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part1_assemble_disassemble_structures_0.mp4"
+    },
+    {
+      "id": "part1_assemble_disassemble_structures_305",
+      "task": "assemble_disassemble_structures",
+      "text": "assemble wooden construction toy",
+      "rgb_url": "/video/egodex/part1_assemble_disassemble_structures_305",
+      "data_url": "/static/data/egodex/part1_assemble_disassemble_structures_305.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part1_assemble_disassemble_structures_305.mp4"
+    },
+    {
+      "id": "part1_assemble_disassemble_tiles_0",
+      "task": "assemble_disassemble_tiles",
+      "text": "pick up pink puzzle piece with multiple shapes, rotate it, and place it on the table",
+      "rgb_url": "/video/egodex/part1_assemble_disassemble_tiles_0",
+      "data_url": "/static/data/egodex/part1_assemble_disassemble_tiles_0.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part1_assemble_disassemble_tiles_0.mp4"
+    },
+    {
+      "id": "part1_assemble_jenga_126",
+      "task": "assemble_jenga",
+      "text": "remove wooden block from wooden block tower",
+      "rgb_url": "/video/egodex/part1_assemble_jenga_126",
+      "data_url": "/static/data/egodex/part1_assemble_jenga_126.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part1_assemble_jenga_126.mp4"
+    },
+    {
+      "id": "part1_assemble_jenga_431",
+      "task": "assemble_jenga",
+      "text": "build wooden blocks into square shape",
+      "rgb_url": "/video/egodex/part1_assemble_jenga_431",
+      "data_url": "/static/data/egodex/part1_assemble_jenga_431.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part1_assemble_jenga_431.mp4"
+    },
+    {
+      "id": "part1_assemble_jenga_0",
+      "task": "assemble_jenga",
+      "text": "stack wooden blocks on bed",
+      "rgb_url": "/video/egodex/part1_assemble_jenga_0",
+      "data_url": "/static/data/egodex/part1_assemble_jenga_0.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part1_assemble_jenga_0.mp4"
+    },
+    {
+      "id": "part2_basic_fold_7244",
+      "task": "basic_fold",
+      "text": "fold purple t-shirt on bed",
+      "rgb_url": "/video/egodex/part2_basic_fold_7244",
+      "data_url": "/static/data/egodex/part2_basic_fold_7244.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part2_basic_fold_7244.mp4"
+    },
+    {
+      "id": "part2_basic_fold_6551",
+      "task": "basic_fold",
+      "text": "fold gray t-shirt on table",
+      "rgb_url": "/video/egodex/part2_basic_fold_6551",
+      "data_url": "/static/data/egodex/part2_basic_fold_6551.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part2_basic_fold_6551.mp4"
+    },
+    {
+      "id": "part2_basic_fold_1160",
+      "task": "basic_fold",
+      "text": "unfold black t-shirt with orange print on bed",
+      "rgb_url": "/video/egodex/part2_basic_fold_1160",
+      "data_url": "/static/data/egodex/part2_basic_fold_1160.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part2_basic_fold_1160.mp4"
+    },
+    {
+      "id": "part2_basic_pick_place_13417",
+      "task": "basic_pick_place",
+      "text": "put orange toy in blue bowl",
+      "rgb_url": "/video/egodex/part2_basic_pick_place_13417",
+      "data_url": "/static/data/egodex/part2_basic_pick_place_13417.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part2_basic_pick_place_13417.mp4"
+    },
+    {
+      "id": "part2_basic_pick_place_10971",
+      "task": "basic_pick_place",
+      "text": "put red plastic toy into bowl",
+      "rgb_url": "/video/egodex/part2_basic_pick_place_10971",
+      "data_url": "/static/data/egodex/part2_basic_pick_place_10971.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part2_basic_pick_place_10971.mp4"
+    },
+    {
+      "id": "part2_basic_pick_place_18177",
+      "task": "basic_pick_place",
+      "text": "pick up gray phone from orange bowl",
+      "rgb_url": "/video/egodex/part2_basic_pick_place_18177",
+      "data_url": "/static/data/egodex/part2_basic_pick_place_18177.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part2_basic_pick_place_18177.mp4"
+    },
+    {
+      "id": "part1_boil_serve_egg_451",
+      "task": "boil_serve_egg",
+      "text": "take metal pot",
+      "rgb_url": "/video/egodex/part1_boil_serve_egg_451",
+      "data_url": "/static/data/egodex/part1_boil_serve_egg_451.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part1_boil_serve_egg_451.mp4"
+    },
+    {
+      "id": "part1_boil_serve_egg_97",
+      "task": "boil_serve_egg",
+      "text": "put silver pot on stove",
+      "rgb_url": "/video/egodex/part1_boil_serve_egg_97",
+      "data_url": "/static/data/egodex/part1_boil_serve_egg_97.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part1_boil_serve_egg_97.mp4"
+    },
+    {
+      "id": "part1_boil_serve_egg_164",
+      "task": "boil_serve_egg",
+      "text": "turn on the knob of the induction cooker",
+      "rgb_url": "/video/egodex/part1_boil_serve_egg_164",
+      "data_url": "/static/data/egodex/part1_boil_serve_egg_164.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part1_boil_serve_egg_164.mp4"
+    },
+    {
+      "id": "part1_braid_unbraid_261",
+      "task": "braid_unbraid",
+      "text": "tie pink striped rope on yellow surface",
+      "rgb_url": "/video/egodex/part1_braid_unbraid_261",
+      "data_url": "/static/data/egodex/part1_braid_unbraid_261.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part1_braid_unbraid_261.mp4"
+    },
+    {
+      "id": "part1_braid_unbraid_244",
+      "task": "braid_unbraid",
+      "text": "tie red shoelace on table",
+      "rgb_url": "/video/egodex/part1_braid_unbraid_244",
+      "data_url": "/static/data/egodex/part1_braid_unbraid_244.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part1_braid_unbraid_244.mp4"
+    },
+    {
+      "id": "part1_braid_unbraid_371",
+      "task": "braid_unbraid",
+      "text": "tie red string on yellow table",
+      "rgb_url": "/video/egodex/part1_braid_unbraid_371",
+      "data_url": "/static/data/egodex/part1_braid_unbraid_371.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part1_braid_unbraid_371.mp4"
+    },
+    {
+      "id": "part1_build_unstack_lego_491",
+      "task": "build_unstack_lego",
+      "text": "build lego blocks together",
+      "rgb_url": "/video/egodex/part1_build_unstack_lego_491",
+      "data_url": "/static/data/egodex/part1_build_unstack_lego_491.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part1_build_unstack_lego_491.mp4"
+    },
+    {
+      "id": "part1_build_unstack_lego_36",
+      "task": "build_unstack_lego",
+      "text": "dismantle lego structure",
+      "rgb_url": "/video/egodex/part1_build_unstack_lego_36",
+      "data_url": "/static/data/egodex/part1_build_unstack_lego_36.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part1_build_unstack_lego_36.mp4"
+    },
+    {
+      "id": "part1_build_unstack_lego_15",
+      "task": "build_unstack_lego",
+      "text": "take apart the lego blocks",
+      "rgb_url": "/video/egodex/part1_build_unstack_lego_15",
+      "data_url": "/static/data/egodex/part1_build_unstack_lego_15.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part1_build_unstack_lego_15.mp4"
+    },
+    {
+      "id": "part1_charge_uncharge_airpods_4455",
+      "task": "charge_uncharge_airpods",
+      "text": "insert earbud charging case into charging cable",
+      "rgb_url": "/video/egodex/part1_charge_uncharge_airpods_4455",
+      "data_url": "/static/data/egodex/part1_charge_uncharge_airpods_4455.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part1_charge_uncharge_airpods_4455.mp4"
+    },
+    {
+      "id": "part1_charge_uncharge_airpods_4529",
+      "task": "charge_uncharge_airpods",
+      "text": "pick up white plastic earphone case",
+      "rgb_url": "/video/egodex/part1_charge_uncharge_airpods_4529",
+      "data_url": "/static/data/egodex/part1_charge_uncharge_airpods_4529.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part1_charge_uncharge_airpods_4529.mp4"
+    },
+    {
+      "id": "part1_charge_uncharge_airpods_1204",
+      "task": "charge_uncharge_airpods",
+      "text": "unplug white charging cable from white square-shaped object",
+      "rgb_url": "/video/egodex/part1_charge_uncharge_airpods_1204",
+      "data_url": "/static/data/egodex/part1_charge_uncharge_airpods_1204.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part1_charge_uncharge_airpods_1204.mp4"
+    },
+    {
+      "id": "part1_charge_uncharge_device_5098",
+      "task": "charge_uncharge_device",
+      "text": "unplug white charging cable from smartphone",
+      "rgb_url": "/video/egodex/part1_charge_uncharge_device_5098",
+      "data_url": "/static/data/egodex/part1_charge_uncharge_device_5098.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part1_charge_uncharge_device_5098.mp4"
+    },
+    {
+      "id": "part1_charge_uncharge_device_5666",
+      "task": "charge_uncharge_device",
+      "text": "unplug white charging cable from white smartphone",
+      "rgb_url": "/video/egodex/part1_charge_uncharge_device_5666",
+      "data_url": "/static/data/egodex/part1_charge_uncharge_device_5666.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part1_charge_uncharge_device_5666.mp4"
+    },
+    {
+      "id": "part1_charge_uncharge_device_563",
+      "task": "charge_uncharge_device",
+      "text": "unplug white charging cable from smartphone",
+      "rgb_url": "/video/egodex/part1_charge_uncharge_device_563",
+      "data_url": "/static/data/egodex/part1_charge_uncharge_device_563.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part1_charge_uncharge_device_563.mp4"
+    },
+    {
+      "id": "part1_clean_cups_930",
+      "task": "clean_cups",
+      "text": "use sponge to clean cup",
+      "rgb_url": "/video/egodex/part1_clean_cups_930",
+      "data_url": "/static/data/egodex/part1_clean_cups_930.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part1_clean_cups_930.mp4"
+    },
+    {
+      "id": "part1_clean_cups_2960",
+      "task": "clean_cups",
+      "text": "use blue sponge to clean green cup",
+      "rgb_url": "/video/egodex/part1_clean_cups_2960",
+      "data_url": "/static/data/egodex/part1_clean_cups_2960.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part1_clean_cups_2960.mp4"
+    },
+    {
+      "id": "part1_clean_cups_250",
+      "task": "clean_cups",
+      "text": "wash yellow plastic cup with blue sponge",
+      "rgb_url": "/video/egodex/part1_clean_cups_250",
+      "data_url": "/static/data/egodex/part1_clean_cups_250.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part1_clean_cups_250.mp4"
+    },
+    {
+      "id": "part1_clean_surface_4146",
+      "task": "clean_surface",
+      "text": "spray cleaning solution on cloth",
+      "rgb_url": "/video/egodex/part1_clean_surface_4146",
+      "data_url": "/static/data/egodex/part1_clean_surface_4146.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part1_clean_surface_4146.mp4"
+    },
+    {
+      "id": "part1_clean_surface_776",
+      "task": "clean_surface",
+      "text": "wipe yellow table with blue cloth",
+      "rgb_url": "/video/egodex/part1_clean_surface_776",
+      "data_url": "/static/data/egodex/part1_clean_surface_776.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part1_clean_surface_776.mp4"
+    },
+    {
+      "id": "part1_clean_surface_1215",
+      "task": "clean_surface",
+      "text": "iron orange t-shirt with ironing board",
+      "rgb_url": "/video/egodex/part1_clean_surface_1215",
+      "data_url": "/static/data/egodex/part1_clean_surface_1215.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part1_clean_surface_1215.mp4"
+    },
+    {
+      "id": "part1_clean_tableware_1129",
+      "task": "clean_tableware",
+      "text": "squeeze yellow mustard container on blue napkin",
+      "rgb_url": "/video/egodex/part1_clean_tableware_1129",
+      "data_url": "/static/data/egodex/part1_clean_tableware_1129.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part1_clean_tableware_1129.mp4"
+    },
+    {
+      "id": "part1_crumple_flatten_paper_198",
+      "task": "crumple_flatten_paper",
+      "text": "fold white paper into ball",
+      "rgb_url": "/video/egodex/part1_crumple_flatten_paper_198",
+      "data_url": "/static/data/egodex/part1_crumple_flatten_paper_198.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part1_crumple_flatten_paper_198.mp4"
+    },
+    {
+      "id": "part1_crumple_flatten_paper_251",
+      "task": "crumple_flatten_paper",
+      "text": "fold white paper with both hands",
+      "rgb_url": "/video/egodex/part1_crumple_flatten_paper_251",
+      "data_url": "/static/data/egodex/part1_crumple_flatten_paper_251.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part1_crumple_flatten_paper_251.mp4"
+    },
+    {
+      "id": "part1_crumple_flatten_paper_12",
+      "task": "crumple_flatten_paper",
+      "text": "unfold white paper on table",
+      "rgb_url": "/video/egodex/part1_crumple_flatten_paper_12",
+      "data_url": "/static/data/egodex/part1_crumple_flatten_paper_12.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part1_crumple_flatten_paper_12.mp4"
+    },
+    {
+      "id": "part1_dry_hands_410",
+      "task": "dry_hands",
+      "text": "knead pink clay in hands",
+      "rgb_url": "/video/egodex/part1_dry_hands_410",
+      "data_url": "/static/data/egodex/part1_dry_hands_410.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part1_dry_hands_410.mp4"
+    },
+    {
+      "id": "part1_dry_hands_813",
+      "task": "dry_hands",
+      "text": "wipe hands with light blue towel",
+      "rgb_url": "/video/egodex/part1_dry_hands_813",
+      "data_url": "/static/data/egodex/part1_dry_hands_813.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part1_dry_hands_813.mp4"
+    },
+    {
+      "id": "part1_dry_hands_2404",
+      "task": "dry_hands",
+      "text": "cut green plastic block with toy saw",
+      "rgb_url": "/video/egodex/part1_dry_hands_2404",
+      "data_url": "/static/data/egodex/part1_dry_hands_2404.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part1_dry_hands_2404.mp4"
+    },
+    {
+      "id": "part1_fidget_magnetic_spinner_rings_196",
+      "task": "fidget_magnetic_spinner_rings",
+      "text": "manipulate fidget spinner with both hands",
+      "rgb_url": "/video/egodex/part1_fidget_magnetic_spinner_rings_196",
+      "data_url": "/static/data/egodex/part1_fidget_magnetic_spinner_rings_196.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part1_fidget_magnetic_spinner_rings_196.mp4"
+    },
+    {
+      "id": "part1_fidget_magnetic_spinner_rings_530",
+      "task": "fidget_magnetic_spinner_rings",
+      "text": "twirl fidget spinner with fingers",
+      "rgb_url": "/video/egodex/part1_fidget_magnetic_spinner_rings_530",
+      "data_url": "/static/data/egodex/part1_fidget_magnetic_spinner_rings_530.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part1_fidget_magnetic_spinner_rings_530.mp4"
+    },
+    {
+      "id": "part1_fidget_magnetic_spinner_rings_1029",
+      "task": "fidget_magnetic_spinner_rings",
+      "text": "spin fidget spinner with right hand",
+      "rgb_url": "/video/egodex/part1_fidget_magnetic_spinner_rings_1029",
+      "data_url": "/static/data/egodex/part1_fidget_magnetic_spinner_rings_1029.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part1_fidget_magnetic_spinner_rings_1029.mp4"
+    },
+    {
+      "id": "part1_flip_coin_21",
+      "task": "flip_coin",
+      "text": "toss coin between hands",
+      "rgb_url": "/video/egodex/part1_flip_coin_21",
+      "data_url": "/static/data/egodex/part1_flip_coin_21.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part1_flip_coin_21.mp4"
+    },
+    {
+      "id": "part1_flip_coin_106",
+      "task": "flip_coin",
+      "text": "take coin from bed",
+      "rgb_url": "/video/egodex/part1_flip_coin_106",
+      "data_url": "/static/data/egodex/part1_flip_coin_106.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part1_flip_coin_106.mp4"
+    },
+    {
+      "id": "part1_flip_coin_116",
+      "task": "flip_coin",
+      "text": "toss coin on bed",
+      "rgb_url": "/video/egodex/part1_flip_coin_116",
+      "data_url": "/static/data/egodex/part1_flip_coin_116.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part1_flip_coin_116.mp4"
+    },
+    {
+      "id": "part1_flip_pages_2",
+      "task": "flip_pages",
+      "text": "flip through pages of book",
+      "rgb_url": "/video/egodex/part1_flip_pages_2",
+      "data_url": "/static/data/egodex/part1_flip_pages_2.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part1_flip_pages_2.mp4"
+    },
+    {
+      "id": "part1_flip_pages_376",
+      "task": "flip_pages",
+      "text": "flip through pages of book",
+      "rgb_url": "/video/egodex/part1_flip_pages_376",
+      "data_url": "/static/data/egodex/part1_flip_pages_376.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part1_flip_pages_376.mp4"
+    },
+    {
+      "id": "part1_flip_pages_129",
+      "task": "flip_pages",
+      "text": "turn page of book",
+      "rgb_url": "/video/egodex/part1_flip_pages_129",
+      "data_url": "/static/data/egodex/part1_flip_pages_129.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part1_flip_pages_129.mp4"
+    },
+    {
+      "id": "part2_fold_stack_unstack_unfold_cloths_598",
+      "task": "fold_stack_unstack_unfold_cloths",
+      "text": "take blue towel from pile",
+      "rgb_url": "/video/egodex/part2_fold_stack_unstack_unfold_cloths_598",
+      "data_url": "/static/data/egodex/part2_fold_stack_unstack_unfold_cloths_598.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part2_fold_stack_unstack_unfold_cloths_598.mp4"
+    },
+    {
+      "id": "part2_fold_stack_unstack_unfold_cloths_599",
+      "task": "fold_stack_unstack_unfold_cloths",
+      "text": "fold blue microfiber cloth",
+      "rgb_url": "/video/egodex/part2_fold_stack_unstack_unfold_cloths_599",
+      "data_url": "/static/data/egodex/part2_fold_stack_unstack_unfold_cloths_599.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part2_fold_stack_unstack_unfold_cloths_599.mp4"
+    },
+    {
+      "id": "part2_fold_stack_unstack_unfold_cloths_6",
+      "task": "fold_stack_unstack_unfold_cloths",
+      "text": "fold blue towel on yellow towel",
+      "rgb_url": "/video/egodex/part2_fold_stack_unstack_unfold_cloths_6",
+      "data_url": "/static/data/egodex/part2_fold_stack_unstack_unfold_cloths_6.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part2_fold_stack_unstack_unfold_cloths_6.mp4"
+    },
+    {
+      "id": "part2_fold_unfold_paper_basic_953",
+      "task": "fold_unfold_paper_basic",
+      "text": "fold white paper in half",
+      "rgb_url": "/video/egodex/part2_fold_unfold_paper_basic_953",
+      "data_url": "/static/data/egodex/part2_fold_unfold_paper_basic_953.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part2_fold_unfold_paper_basic_953.mp4"
+    },
+    {
+      "id": "part2_fold_unfold_paper_basic_668",
+      "task": "fold_unfold_paper_basic",
+      "text": "tear white paper in half",
+      "rgb_url": "/video/egodex/part2_fold_unfold_paper_basic_668",
+      "data_url": "/static/data/egodex/part2_fold_unfold_paper_basic_668.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part2_fold_unfold_paper_basic_668.mp4"
+    },
+    {
+      "id": "part2_fold_unfold_paper_basic_845",
+      "task": "fold_unfold_paper_basic",
+      "text": "fold white paper in half",
+      "rgb_url": "/video/egodex/part2_fold_unfold_paper_basic_845",
+      "data_url": "/static/data/egodex/part2_fold_unfold_paper_basic_845.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part2_fold_unfold_paper_basic_845.mp4"
+    },
+    {
+      "id": "part2_fold_unfold_paper_origami_305",
+      "task": "fold_unfold_paper_origami",
+      "text": "fold white paper on table",
+      "rgb_url": "/video/egodex/part2_fold_unfold_paper_origami_305",
+      "data_url": "/static/data/egodex/part2_fold_unfold_paper_origami_305.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part2_fold_unfold_paper_origami_305.mp4"
+    },
+    {
+      "id": "part2_fold_unfold_paper_origami_266",
+      "task": "fold_unfold_paper_origami",
+      "text": "fold white paper on table",
+      "rgb_url": "/video/egodex/part2_fold_unfold_paper_origami_266",
+      "data_url": "/static/data/egodex/part2_fold_unfold_paper_origami_266.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part2_fold_unfold_paper_origami_266.mp4"
+    },
+    {
+      "id": "part2_fold_unfold_paper_origami_87",
+      "task": "fold_unfold_paper_origami",
+      "text": "fold white paper on table",
+      "rgb_url": "/video/egodex/part2_fold_unfold_paper_origami_87",
+      "data_url": "/static/data/egodex/part2_fold_unfold_paper_origami_87.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part2_fold_unfold_paper_origami_87.mp4"
+    },
+    {
+      "id": "part1_fry_bread_0",
+      "task": "fry_bread",
+      "text": "take bread off pan",
+      "rgb_url": "/video/egodex/part1_fry_bread_0",
+      "data_url": "/static/data/egodex/part1_fry_bread_0.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part1_fry_bread_0.mp4"
+    },
+    {
+      "id": "part1_fry_bread_2",
+      "task": "fry_bread",
+      "text": "take red plate from oven",
+      "rgb_url": "/video/egodex/part1_fry_bread_2",
+      "data_url": "/static/data/egodex/part1_fry_bread_2.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part1_fry_bread_2.mp4"
+    },
+    {
+      "id": "part1_fry_bread_1",
+      "task": "fry_bread",
+      "text": "take frying pan from wall",
+      "rgb_url": "/video/egodex/part1_fry_bread_1",
+      "data_url": "/static/data/egodex/part1_fry_bread_1.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part1_fry_bread_1.mp4"
+    },
+    {
+      "id": "part1_fry_egg_11",
+      "task": "fry_egg",
+      "text": "put egg carton on shelf",
+      "rgb_url": "/video/egodex/part1_fry_egg_11",
+      "data_url": "/static/data/egodex/part1_fry_egg_11.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part1_fry_egg_11.mp4"
+    },
+    {
+      "id": "part1_fry_egg_5",
+      "task": "fry_egg",
+      "text": "take fork from bowl",
+      "rgb_url": "/video/egodex/part1_fry_egg_5",
+      "data_url": "/static/data/egodex/part1_fry_egg_5.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part1_fry_egg_5.mp4"
+    },
+    {
+      "id": "part1_fry_egg_7",
+      "task": "fry_egg",
+      "text": "hang silver pot on wall",
+      "rgb_url": "/video/egodex/part1_fry_egg_7",
+      "data_url": "/static/data/egodex/part1_fry_egg_7.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part1_fry_egg_7.mp4"
+    },
+    {
+      "id": "part3_insert_remove_airpods_974",
+      "task": "insert_remove_airpods",
+      "text": "tear open white plastic package",
+      "rgb_url": "/video/egodex/part3_insert_remove_airpods_974",
+      "data_url": "/static/data/egodex/part3_insert_remove_airpods_974.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part3_insert_remove_airpods_974.mp4"
+    },
+    {
+      "id": "part3_insert_remove_airpods_684",
+      "task": "insert_remove_airpods",
+      "text": "turn red crank clockwise",
+      "rgb_url": "/video/egodex/part3_insert_remove_airpods_684",
+      "data_url": "/static/data/egodex/part3_insert_remove_airpods_684.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part3_insert_remove_airpods_684.mp4"
+    },
+    {
+      "id": "part3_insert_remove_airpods_803",
+      "task": "insert_remove_airpods",
+      "text": "use hammer to open lighter",
+      "rgb_url": "/video/egodex/part3_insert_remove_airpods_803",
+      "data_url": "/static/data/egodex/part3_insert_remove_airpods_803.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part3_insert_remove_airpods_803.mp4"
+    },
+    {
+      "id": "part3_insert_remove_bagging_997",
+      "task": "insert_remove_bagging",
+      "text": "open white canvas bag with red logo",
+      "rgb_url": "/video/egodex/part3_insert_remove_bagging_997",
+      "data_url": "/static/data/egodex/part3_insert_remove_bagging_997.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part3_insert_remove_bagging_997.mp4"
+    },
+    {
+      "id": "part3_insert_remove_bagging_978",
+      "task": "insert_remove_bagging",
+      "text": "open canvas bag with red logo",
+      "rgb_url": "/video/egodex/part3_insert_remove_bagging_978",
+      "data_url": "/static/data/egodex/part3_insert_remove_bagging_978.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part3_insert_remove_bagging_978.mp4"
+    },
+    {
+      "id": "part3_insert_remove_bagging_147",
+      "task": "insert_remove_bagging",
+      "text": "put pink toy duck into bag",
+      "rgb_url": "/video/egodex/part3_insert_remove_bagging_147",
+      "data_url": "/static/data/egodex/part3_insert_remove_bagging_147.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part3_insert_remove_bagging_147.mp4"
+    },
+    {
+      "id": "part3_insert_remove_bookshelf_2266",
+      "task": "insert_remove_bookshelf",
+      "text": "take out book from box",
+      "rgb_url": "/video/egodex/part3_insert_remove_bookshelf_2266",
+      "data_url": "/static/data/egodex/part3_insert_remove_bookshelf_2266.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part3_insert_remove_bookshelf_2266.mp4"
+    },
+    {
+      "id": "part3_insert_remove_bookshelf_2848",
+      "task": "insert_remove_bookshelf",
+      "text": "put red book into shelf, put green book into shelf",
+      "rgb_url": "/video/egodex/part3_insert_remove_bookshelf_2848",
+      "data_url": "/static/data/egodex/part3_insert_remove_bookshelf_2848.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part3_insert_remove_bookshelf_2848.mp4"
+    },
+    {
+      "id": "part3_insert_remove_bookshelf_1968",
+      "task": "insert_remove_bookshelf",
+      "text": "put green book into shelf, put red book into shelf, put blue book into shelf",
+      "rgb_url": "/video/egodex/part3_insert_remove_bookshelf_1968",
+      "data_url": "/static/data/egodex/part3_insert_remove_bookshelf_1968.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part3_insert_remove_bookshelf_1968.mp4"
+    },
+    {
+      "id": "part3_insert_remove_cups_from_rack_415",
+      "task": "insert_remove_cups_from_rack",
+      "text": "put cups in basket",
+      "rgb_url": "/video/egodex/part3_insert_remove_cups_from_rack_415",
+      "data_url": "/static/data/egodex/part3_insert_remove_cups_from_rack_415.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part3_insert_remove_cups_from_rack_415.mp4"
+    },
+    {
+      "id": "part3_insert_remove_cups_from_rack_663",
+      "task": "insert_remove_cups_from_rack",
+      "text": "put cups in drying rack",
+      "rgb_url": "/video/egodex/part3_insert_remove_cups_from_rack_663",
+      "data_url": "/static/data/egodex/part3_insert_remove_cups_from_rack_663.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part3_insert_remove_cups_from_rack_663.mp4"
+    },
+    {
+      "id": "part3_insert_remove_cups_from_rack_748",
+      "task": "insert_remove_cups_from_rack",
+      "text": "put down red yellow and blue cup in basket",
+      "rgb_url": "/video/egodex/part3_insert_remove_cups_from_rack_748",
+      "data_url": "/static/data/egodex/part3_insert_remove_cups_from_rack_748.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part3_insert_remove_cups_from_rack_748.mp4"
+    },
+    {
+      "id": "part3_insert_remove_drawer_292",
+      "task": "insert_remove_drawer",
+      "text": "put white and red toy in drawer",
+      "rgb_url": "/video/egodex/part3_insert_remove_drawer_292",
+      "data_url": "/static/data/egodex/part3_insert_remove_drawer_292.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part3_insert_remove_drawer_292.mp4"
+    },
+    {
+      "id": "part3_insert_remove_drawer_492",
+      "task": "insert_remove_drawer",
+      "text": "open white drawer",
+      "rgb_url": "/video/egodex/part3_insert_remove_drawer_492",
+      "data_url": "/static/data/egodex/part3_insert_remove_drawer_492.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part3_insert_remove_drawer_492.mp4"
+    },
+    {
+      "id": "part3_insert_remove_drawer_107",
+      "task": "insert_remove_drawer",
+      "text": "take out small white stuffed animal from drawer",
+      "rgb_url": "/video/egodex/part3_insert_remove_drawer_107",
+      "data_url": "/static/data/egodex/part3_insert_remove_drawer_107.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part3_insert_remove_drawer_107.mp4"
+    },
+    {
+      "id": "part2_insert_remove_furniture_bench_cabinet_1013",
+      "task": "insert_remove_furniture_bench_cabinet",
+      "text": "take out picture from box",
+      "rgb_url": "/video/egodex/part2_insert_remove_furniture_bench_cabinet_1013",
+      "data_url": "/static/data/egodex/part2_insert_remove_furniture_bench_cabinet_1013.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part2_insert_remove_furniture_bench_cabinet_1013.mp4"
+    },
+    {
+      "id": "part2_insert_remove_furniture_bench_cabinet_2051",
+      "task": "insert_remove_furniture_bench_cabinet",
+      "text": "open white plastic cabinet",
+      "rgb_url": "/video/egodex/part2_insert_remove_furniture_bench_cabinet_2051",
+      "data_url": "/static/data/egodex/part2_insert_remove_furniture_bench_cabinet_2051.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part2_insert_remove_furniture_bench_cabinet_2051.mp4"
+    },
+    {
+      "id": "part2_insert_remove_furniture_bench_cabinet_3909",
+      "task": "insert_remove_furniture_bench_cabinet",
+      "text": "flip white dice with hand",
+      "rgb_url": "/video/egodex/part2_insert_remove_furniture_bench_cabinet_3909",
+      "data_url": "/static/data/egodex/part2_insert_remove_furniture_bench_cabinet_3909.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part2_insert_remove_furniture_bench_cabinet_3909.mp4"
+    },
+    {
+      "id": "part3_insert_remove_plug_socket_2980",
+      "task": "insert_remove_plug_socket",
+      "text": "unplug black plug from power strip",
+      "rgb_url": "/video/egodex/part3_insert_remove_plug_socket_2980",
+      "data_url": "/static/data/egodex/part3_insert_remove_plug_socket_2980.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part3_insert_remove_plug_socket_2980.mp4"
+    },
+    {
+      "id": "part3_load_dispense_ice_0",
+      "task": "load_dispense_ice",
+      "text": "take yellow plastic cup from countertop",
+      "rgb_url": "/video/egodex/part3_load_dispense_ice_0",
+      "data_url": "/static/data/egodex/part3_load_dispense_ice_0.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part3_load_dispense_ice_0.mp4"
+    },
+    {
+      "id": "part3_lock_unlock_key_1480",
+      "task": "lock_unlock_key",
+      "text": "put red keychain on pink surface",
+      "rgb_url": "/video/egodex/part3_lock_unlock_key_1480",
+      "data_url": "/static/data/egodex/part3_lock_unlock_key_1480.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part3_lock_unlock_key_1480.mp4"
+    },
+    {
+      "id": "part3_lock_unlock_key_1478",
+      "task": "lock_unlock_key",
+      "text": "put red and silver keychain on bed",
+      "rgb_url": "/video/egodex/part3_lock_unlock_key_1478",
+      "data_url": "/static/data/egodex/part3_lock_unlock_key_1478.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part3_lock_unlock_key_1478.mp4"
+    },
+    {
+      "id": "part3_lock_unlock_key_1482",
+      "task": "lock_unlock_key",
+      "text": "insert pink key into red lock",
+      "rgb_url": "/video/egodex/part3_lock_unlock_key_1482",
+      "data_url": "/static/data/egodex/part3_lock_unlock_key_1482.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part3_lock_unlock_key_1482.mp4"
+    },
+    {
+      "id": "part3_make_sandwich_0",
+      "task": "make_sandwich",
+      "text": "assemble toy burger",
+      "rgb_url": "/video/egodex/part3_make_sandwich_0",
+      "data_url": "/static/data/egodex/part3_make_sandwich_0.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part3_make_sandwich_0.mp4"
+    },
+    {
+      "id": "part3_measure_objects_797",
+      "task": "measure_objects",
+      "text": "measure white wooden jewelry box with yellow tape measure",
+      "rgb_url": "/video/egodex/part3_measure_objects_797",
+      "data_url": "/static/data/egodex/part3_measure_objects_797.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part3_measure_objects_797.mp4"
+    },
+    {
+      "id": "part3_measure_objects_790",
+      "task": "measure_objects",
+      "text": "measure black smartphone with yellow tape",
+      "rgb_url": "/video/egodex/part3_measure_objects_790",
+      "data_url": "/static/data/egodex/part3_measure_objects_790.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part3_measure_objects_790.mp4"
+    },
+    {
+      "id": "part3_measure_objects_832",
+      "task": "measure_objects",
+      "text": "measure black keyboard with yellow tape",
+      "rgb_url": "/video/egodex/part3_measure_objects_832",
+      "data_url": "/static/data/egodex/part3_measure_objects_832.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part3_measure_objects_832.mp4"
+    },
+    {
+      "id": "part3_open_close_insert_remove_box_962",
+      "task": "open_close_insert_remove_box",
+      "text": "take out white oval-shaped object from box",
+      "rgb_url": "/video/egodex/part3_open_close_insert_remove_box_962",
+      "data_url": "/static/data/egodex/part3_open_close_insert_remove_box_962.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part3_open_close_insert_remove_box_962.mp4"
+    },
+    {
+      "id": "part3_open_close_insert_remove_box_663",
+      "task": "open_close_insert_remove_box",
+      "text": "pack toys into box",
+      "rgb_url": "/video/egodex/part3_open_close_insert_remove_box_663",
+      "data_url": "/static/data/egodex/part3_open_close_insert_remove_box_663.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part3_open_close_insert_remove_box_663.mp4"
+    },
+    {
+      "id": "part3_open_close_insert_remove_box_164",
+      "task": "open_close_insert_remove_box",
+      "text": "put white eyeglass case into brown cardboard box",
+      "rgb_url": "/video/egodex/part3_open_close_insert_remove_box_164",
+      "data_url": "/static/data/egodex/part3_open_close_insert_remove_box_164.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part3_open_close_insert_remove_box_164.mp4"
+    },
+    {
+      "id": "part3_open_close_insert_remove_case_1484",
+      "task": "open_close_insert_remove_case",
+      "text": "take out white tablet from black box",
+      "rgb_url": "/video/egodex/part3_open_close_insert_remove_case_1484",
+      "data_url": "/static/data/egodex/part3_open_close_insert_remove_case_1484.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part3_open_close_insert_remove_case_1484.mp4"
+    },
+    {
+      "id": "part3_open_close_insert_remove_case_1654",
+      "task": "open_close_insert_remove_case",
+      "text": "take out white circular object from box",
+      "rgb_url": "/video/egodex/part3_open_close_insert_remove_case_1654",
+      "data_url": "/static/data/egodex/part3_open_close_insert_remove_case_1654.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part3_open_close_insert_remove_case_1654.mp4"
+    },
+    {
+      "id": "part3_open_close_insert_remove_case_661",
+      "task": "open_close_insert_remove_case",
+      "text": "take out white tube from black box",
+      "rgb_url": "/video/egodex/part3_open_close_insert_remove_case_661",
+      "data_url": "/static/data/egodex/part3_open_close_insert_remove_case_661.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part3_open_close_insert_remove_case_661.mp4"
+    },
+    {
+      "id": "part3_open_close_insert_remove_tupperware_456",
+      "task": "open_close_insert_remove_tupperware",
+      "text": "put pink flower in glass container",
+      "rgb_url": "/video/egodex/part3_open_close_insert_remove_tupperware_456",
+      "data_url": "/static/data/egodex/part3_open_close_insert_remove_tupperware_456.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part3_open_close_insert_remove_tupperware_456.mp4"
+    },
+    {
+      "id": "part3_open_close_insert_remove_tupperware_3955",
+      "task": "open_close_insert_remove_tupperware",
+      "text": "remove lid from glass container",
+      "rgb_url": "/video/egodex/part3_open_close_insert_remove_tupperware_3955",
+      "data_url": "/static/data/egodex/part3_open_close_insert_remove_tupperware_3955.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part3_open_close_insert_remove_tupperware_3955.mp4"
+    },
+    {
+      "id": "part3_open_close_insert_remove_tupperware_3359",
+      "task": "open_close_insert_remove_tupperware",
+      "text": "remove battery from remote control",
+      "rgb_url": "/video/egodex/part3_open_close_insert_remove_tupperware_3359",
+      "data_url": "/static/data/egodex/part3_open_close_insert_remove_tupperware_3359.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part3_open_close_insert_remove_tupperware_3359.mp4"
+    },
+    {
+      "id": "part3_paint_clean_brush_953",
+      "task": "paint_clean_brush",
+      "text": "take white paper",
+      "rgb_url": "/video/egodex/part3_paint_clean_brush_953",
+      "data_url": "/static/data/egodex/part3_paint_clean_brush_953.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part3_paint_clean_brush_953.mp4"
+    },
+    {
+      "id": "part3_paint_clean_brush_170",
+      "task": "paint_clean_brush",
+      "text": "color in object with color paint",
+      "rgb_url": "/video/egodex/part3_paint_clean_brush_170",
+      "data_url": "/static/data/egodex/part3_paint_clean_brush_170.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part3_paint_clean_brush_170.mp4"
+    },
+    {
+      "id": "part3_paint_clean_brush_473",
+      "task": "paint_clean_brush",
+      "text": "dip paintbrush into water, dip paintbrush into paint, paint heart on paper",
+      "rgb_url": "/video/egodex/part3_paint_clean_brush_473",
+      "data_url": "/static/data/egodex/part3_paint_clean_brush_473.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part3_paint_clean_brush_473.mp4"
+    },
+    {
+      "id": "part3_peel_place_sticker_182",
+      "task": "peel_place_sticker",
+      "text": "tear off white sticker from blue paper",
+      "rgb_url": "/video/egodex/part3_peel_place_sticker_182",
+      "data_url": "/static/data/egodex/part3_peel_place_sticker_182.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part3_peel_place_sticker_182.mp4"
+    },
+    {
+      "id": "part3_peel_place_sticker_82",
+      "task": "peel_place_sticker",
+      "text": "cut sticker along edge with scissors",
+      "rgb_url": "/video/egodex/part3_peel_place_sticker_82",
+      "data_url": "/static/data/egodex/part3_peel_place_sticker_82.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part3_peel_place_sticker_82.mp4"
+    },
+    {
+      "id": "part3_peel_place_sticker_549",
+      "task": "peel_place_sticker",
+      "text": "pick up cutout eye from paper booklet",
+      "rgb_url": "/video/egodex/part3_peel_place_sticker_549",
+      "data_url": "/static/data/egodex/part3_peel_place_sticker_549.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part3_peel_place_sticker_549.mp4"
+    },
+    {
+      "id": "part4_pick_place_food_524",
+      "task": "pick_place_food",
+      "text": "pick up red plastic strawberry",
+      "rgb_url": "/video/egodex/part4_pick_place_food_524",
+      "data_url": "/static/data/egodex/part4_pick_place_food_524.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part4_pick_place_food_524.mp4"
+    },
+    {
+      "id": "part4_pick_place_food_3387",
+      "task": "pick_place_food",
+      "text": "put hot dog bun into basket",
+      "rgb_url": "/video/egodex/part4_pick_place_food_3387",
+      "data_url": "/static/data/egodex/part4_pick_place_food_3387.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part4_pick_place_food_3387.mp4"
+    },
+    {
+      "id": "part4_pick_place_food_992",
+      "task": "pick_place_food",
+      "text": "take yellow banana from wicker basket",
+      "rgb_url": "/video/egodex/part4_pick_place_food_992",
+      "data_url": "/static/data/egodex/part4_pick_place_food_992.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part4_pick_place_food_992.mp4"
+    },
+    {
+      "id": "part3_pick_up_and_put_down_case_or_bag_474",
+      "task": "pick_up_and_put_down_case_or_bag",
+      "text": "lift black briefcase",
+      "rgb_url": "/video/egodex/part3_pick_up_and_put_down_case_or_bag_474",
+      "data_url": "/static/data/egodex/part3_pick_up_and_put_down_case_or_bag_474.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part3_pick_up_and_put_down_case_or_bag_474.mp4"
+    },
+    {
+      "id": "part3_pick_up_and_put_down_case_or_bag_335",
+      "task": "pick_up_and_put_down_case_or_bag",
+      "text": "pick up black briefcase",
+      "rgb_url": "/video/egodex/part3_pick_up_and_put_down_case_or_bag_335",
+      "data_url": "/static/data/egodex/part3_pick_up_and_put_down_case_or_bag_335.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part3_pick_up_and_put_down_case_or_bag_335.mp4"
+    },
+    {
+      "id": "part3_pick_up_and_put_down_case_or_bag_900",
+      "task": "pick_up_and_put_down_case_or_bag",
+      "text": "lift black briefcase",
+      "rgb_url": "/video/egodex/part3_pick_up_and_put_down_case_or_bag_900",
+      "data_url": "/static/data/egodex/part3_pick_up_and_put_down_case_or_bag_900.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part3_pick_up_and_put_down_case_or_bag_900.mp4"
+    },
+    {
+      "id": "part4_play_mancala_147",
+      "task": "play_mancala",
+      "text": "use chopsticks to pick up marbles from the tray",
+      "rgb_url": "/video/egodex/part4_play_mancala_147",
+      "data_url": "/static/data/egodex/part4_play_mancala_147.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part4_play_mancala_147.mp4"
+    },
+    {
+      "id": "part4_play_mancala_942",
+      "task": "play_mancala",
+      "text": "arrange marbles in cup",
+      "rgb_url": "/video/egodex/part4_play_mancala_942",
+      "data_url": "/static/data/egodex/part4_play_mancala_942.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part4_play_mancala_942.mp4"
+    },
+    {
+      "id": "part4_play_mancala_314",
+      "task": "play_mancala",
+      "text": "move marbles in marble run",
+      "rgb_url": "/video/egodex/part4_play_mancala_314",
+      "data_url": "/static/data/egodex/part4_play_mancala_314.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part4_play_mancala_314.mp4"
+    },
+    {
+      "id": "part3_play_piano_1250",
+      "task": "play_piano",
+      "text": "play black and white piano keyboard",
+      "rgb_url": "/video/egodex/part3_play_piano_1250",
+      "data_url": "/static/data/egodex/part3_play_piano_1250.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part3_play_piano_1250.mp4"
+    },
+    {
+      "id": "part3_play_piano_334",
+      "task": "play_piano",
+      "text": "play black and white piano keyboard",
+      "rgb_url": "/video/egodex/part3_play_piano_334",
+      "data_url": "/static/data/egodex/part3_play_piano_334.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part3_play_piano_334.mp4"
+    },
+    {
+      "id": "part3_play_piano_870",
+      "task": "play_piano",
+      "text": "play black and white piano keyboard",
+      "rgb_url": "/video/egodex/part3_play_piano_870",
+      "data_url": "/static/data/egodex/part3_play_piano_870.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part3_play_piano_870.mp4"
+    },
+    {
+      "id": "part4_play_reset_connect_four_594",
+      "task": "play_reset_connect_four",
+      "text": "remove red circular game piece from blue plastic game board",
+      "rgb_url": "/video/egodex/part4_play_reset_connect_four_594",
+      "data_url": "/static/data/egodex/part4_play_reset_connect_four_594.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part4_play_reset_connect_four_594.mp4"
+    },
+    {
+      "id": "part4_play_reset_connect_four_582",
+      "task": "play_reset_connect_four",
+      "text": "remove red and yellow plastic pieces from blue plastic board",
+      "rgb_url": "/video/egodex/part4_play_reset_connect_four_582",
+      "data_url": "/static/data/egodex/part4_play_reset_connect_four_582.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part4_play_reset_connect_four_582.mp4"
+    },
+    {
+      "id": "part4_play_reset_connect_four_702",
+      "task": "play_reset_connect_four",
+      "text": "remove red circular game piece from blue plastic game board",
+      "rgb_url": "/video/egodex/part4_play_reset_connect_four_702",
+      "data_url": "/static/data/egodex/part4_play_reset_connect_four_702.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part4_play_reset_connect_four_702.mp4"
+    },
+    {
+      "id": "part4_point_and_click_remote_2123",
+      "task": "point_and_click_remote",
+      "text": "move gray remote control",
+      "rgb_url": "/video/egodex/part4_point_and_click_remote_2123",
+      "data_url": "/static/data/egodex/part4_point_and_click_remote_2123.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part4_point_and_click_remote_2123.mp4"
+    },
+    {
+      "id": "part4_point_and_click_remote_1092",
+      "task": "point_and_click_remote",
+      "text": "try to turn on the monitor with the remote",
+      "rgb_url": "/video/egodex/part4_point_and_click_remote_1092",
+      "data_url": "/static/data/egodex/part4_point_and_click_remote_1092.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part4_point_and_click_remote_1092.mp4"
+    },
+    {
+      "id": "part4_point_and_click_remote_1415",
+      "task": "point_and_click_remote",
+      "text": "drag white remote control back and forth",
+      "rgb_url": "/video/egodex/part4_point_and_click_remote_1415",
+      "data_url": "/static/data/egodex/part4_point_and_click_remote_1415.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part4_point_and_click_remote_1415.mp4"
+    },
+    {
+      "id": "part4_pour_204",
+      "task": "pour",
+      "text": "pour liquid from silver water bottle into brown cup",
+      "rgb_url": "/video/egodex/part4_pour_204",
+      "data_url": "/static/data/egodex/part4_pour_204.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part4_pour_204.mp4"
+    },
+    {
+      "id": "part4_pour_2976",
+      "task": "pour",
+      "text": "pour water from bottle into cup",
+      "rgb_url": "/video/egodex/part4_pour_2976",
+      "data_url": "/static/data/egodex/part4_pour_2976.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part4_pour_2976.mp4"
+    },
+    {
+      "id": "part4_pour_2760",
+      "task": "pour",
+      "text": "pour water from plastic bottle into cup",
+      "rgb_url": "/video/egodex/part4_pour_2760",
+      "data_url": "/static/data/egodex/part4_pour_2760.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part4_pour_2760.mp4"
+    },
+    {
+      "id": "part4_push_pop_toy_2319",
+      "task": "push_pop_toy",
+      "text": "squeeze circular fidget toy with rainbow-colored bubbles",
+      "rgb_url": "/video/egodex/part4_push_pop_toy_2319",
+      "data_url": "/static/data/egodex/part4_push_pop_toy_2319.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part4_push_pop_toy_2319.mp4"
+    },
+    {
+      "id": "part4_push_pop_toy_1184",
+      "task": "push_pop_toy",
+      "text": "squeeze circular fidget toy with rainbow colors",
+      "rgb_url": "/video/egodex/part4_push_pop_toy_1184",
+      "data_url": "/static/data/egodex/part4_push_pop_toy_1184.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part4_push_pop_toy_1184.mp4"
+    },
+    {
+      "id": "part4_push_pop_toy_1731",
+      "task": "push_pop_toy",
+      "text": "squeeze rainbow-colored silicone toy with water",
+      "rgb_url": "/video/egodex/part4_push_pop_toy_1731",
+      "data_url": "/static/data/egodex/part4_push_pop_toy_1731.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part4_push_pop_toy_1731.mp4"
+    },
+    {
+      "id": "part4_rake_smooth_zen_garden_0",
+      "task": "rake_smooth_zen_garden",
+      "text": "move yellow brush over white sand",
+      "rgb_url": "/video/egodex/part4_rake_smooth_zen_garden_0",
+      "data_url": "/static/data/egodex/part4_rake_smooth_zen_garden_0.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part4_rake_smooth_zen_garden_0.mp4"
+    },
+    {
+      "id": "part4_roll_ball_341",
+      "task": "roll_ball",
+      "text": "roll orange ball on green table",
+      "rgb_url": "/video/egodex/part4_roll_ball_341",
+      "data_url": "/static/data/egodex/part4_roll_ball_341.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part4_roll_ball_341.mp4"
+    },
+    {
+      "id": "part4_roll_ball_34",
+      "task": "roll_ball",
+      "text": "roll orange ball on table",
+      "rgb_url": "/video/egodex/part4_roll_ball_34",
+      "data_url": "/static/data/egodex/part4_roll_ball_34.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part4_roll_ball_34.mp4"
+    },
+    {
+      "id": "part4_roll_ball_339",
+      "task": "roll_ball",
+      "text": "roll yellow tennis ball on green surface",
+      "rgb_url": "/video/egodex/part4_roll_ball_339",
+      "data_url": "/static/data/egodex/part4_roll_ball_339.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part4_roll_ball_339.mp4"
+    },
+    {
+      "id": "part4_scoop_dump_ice_3040",
+      "task": "scoop_dump_ice",
+      "text": "pour water from yellow cup into gray container",
+      "rgb_url": "/video/egodex/part4_scoop_dump_ice_3040",
+      "data_url": "/static/data/egodex/part4_scoop_dump_ice_3040.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part4_scoop_dump_ice_3040.mp4"
+    },
+    {
+      "id": "part4_scoop_dump_ice_3227",
+      "task": "scoop_dump_ice",
+      "text": "scoop ice from gray plastic container with purple scoop",
+      "rgb_url": "/video/egodex/part4_scoop_dump_ice_3227",
+      "data_url": "/static/data/egodex/part4_scoop_dump_ice_3227.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part4_scoop_dump_ice_3227.mp4"
+    },
+    {
+      "id": "part4_scoop_dump_ice_3517",
+      "task": "scoop_dump_ice",
+      "text": "pick up yellow plastic cup",
+      "rgb_url": "/video/egodex/part4_scoop_dump_ice_3517",
+      "data_url": "/static/data/egodex/part4_scoop_dump_ice_3517.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part4_scoop_dump_ice_3517.mp4"
+    },
+    {
+      "id": "part4_screw_unscrew_allen_fixture_991",
+      "task": "screw_unscrew_allen_fixture",
+      "text": "pick up black metal bracket, place it on black metal plate, insert screws, tighten screws with Allen wrench",
+      "rgb_url": "/video/egodex/part4_screw_unscrew_allen_fixture_991",
+      "data_url": "/static/data/egodex/part4_screw_unscrew_allen_fixture_991.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part4_screw_unscrew_allen_fixture_991.mp4"
+    },
+    {
+      "id": "part4_screw_unscrew_allen_fixture_16",
+      "task": "screw_unscrew_allen_fixture",
+      "text": "place black plastic bracket on black square base",
+      "rgb_url": "/video/egodex/part4_screw_unscrew_allen_fixture_16",
+      "data_url": "/static/data/egodex/part4_screw_unscrew_allen_fixture_16.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part4_screw_unscrew_allen_fixture_16.mp4"
+    },
+    {
+      "id": "part4_screw_unscrew_allen_fixture_154",
+      "task": "screw_unscrew_allen_fixture",
+      "text": "install black plastic bracket on black metal base",
+      "rgb_url": "/video/egodex/part4_screw_unscrew_allen_fixture_154",
+      "data_url": "/static/data/egodex/part4_screw_unscrew_allen_fixture_154.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part4_screw_unscrew_allen_fixture_154.mp4"
+    },
+    {
+      "id": "part4_screw_unscrew_bottle_cap_2122",
+      "task": "screw_unscrew_bottle_cap",
+      "text": "open clear plastic bottle with orange cap",
+      "rgb_url": "/video/egodex/part4_screw_unscrew_bottle_cap_2122",
+      "data_url": "/static/data/egodex/part4_screw_unscrew_bottle_cap_2122.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part4_screw_unscrew_bottle_cap_2122.mp4"
+    },
+    {
+      "id": "part4_screw_unscrew_bottle_cap_2675",
+      "task": "screw_unscrew_bottle_cap",
+      "text": "close black plastic bottle cap",
+      "rgb_url": "/video/egodex/part4_screw_unscrew_bottle_cap_2675",
+      "data_url": "/static/data/egodex/part4_screw_unscrew_bottle_cap_2675.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part4_screw_unscrew_bottle_cap_2675.mp4"
+    },
+    {
+      "id": "part4_screw_unscrew_bottle_cap_716",
+      "task": "screw_unscrew_bottle_cap",
+      "text": "open clear plastic bottle with orange cap",
+      "rgb_url": "/video/egodex/part4_screw_unscrew_bottle_cap_716",
+      "data_url": "/static/data/egodex/part4_screw_unscrew_bottle_cap_716.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part4_screw_unscrew_bottle_cap_716.mp4"
+    },
+    {
+      "id": "part4_screw_unscrew_fingers_fixture_840",
+      "task": "screw_unscrew_fingers_fixture",
+      "text": "screw black metal bracket onto black metal base",
+      "rgb_url": "/video/egodex/part4_screw_unscrew_fingers_fixture_840",
+      "data_url": "/static/data/egodex/part4_screw_unscrew_fingers_fixture_840.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part4_screw_unscrew_fingers_fixture_840.mp4"
+    },
+    {
+      "id": "part4_screw_unscrew_fingers_fixture_1150",
+      "task": "screw_unscrew_fingers_fixture",
+      "text": "remove black metal object from black metal plate",
+      "rgb_url": "/video/egodex/part4_screw_unscrew_fingers_fixture_1150",
+      "data_url": "/static/data/egodex/part4_screw_unscrew_fingers_fixture_1150.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part4_screw_unscrew_fingers_fixture_1150.mp4"
+    },
+    {
+      "id": "part4_screw_unscrew_fingers_fixture_804",
+      "task": "screw_unscrew_fingers_fixture",
+      "text": "remove black plastic piece from black plastic base",
+      "rgb_url": "/video/egodex/part4_screw_unscrew_fingers_fixture_804",
+      "data_url": "/static/data/egodex/part4_screw_unscrew_fingers_fixture_804.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part4_screw_unscrew_fingers_fixture_804.mp4"
+    },
+    {
+      "id": "part5_stack_remove_jenga_1617",
+      "task": "stack_remove_jenga",
+      "text": "remove light brown wooden block from stack",
+      "rgb_url": "/video/egodex/part5_stack_remove_jenga_1617",
+      "data_url": "/static/data/egodex/part5_stack_remove_jenga_1617.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part5_stack_remove_jenga_1617.mp4"
+    },
+    {
+      "id": "part5_stack_remove_jenga_629",
+      "task": "stack_remove_jenga",
+      "text": "insert rectangular wooden block into jenga tower",
+      "rgb_url": "/video/egodex/part5_stack_remove_jenga_629",
+      "data_url": "/static/data/egodex/part5_stack_remove_jenga_629.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part5_stack_remove_jenga_629.mp4"
+    },
+    {
+      "id": "part5_stack_remove_jenga_1974",
+      "task": "stack_remove_jenga",
+      "text": "remove rectangular wooden block from wooden block tower",
+      "rgb_url": "/video/egodex/part5_stack_remove_jenga_1974",
+      "data_url": "/static/data/egodex/part5_stack_remove_jenga_1974.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part5_stack_remove_jenga_1974.mp4"
+    },
+    {
+      "id": "part5_stack_unstack_bowls_2167",
+      "task": "stack_unstack_bowls",
+      "text": "stack bowls",
+      "rgb_url": "/video/egodex/part5_stack_unstack_bowls_2167",
+      "data_url": "/static/data/egodex/part5_stack_unstack_bowls_2167.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part5_stack_unstack_bowls_2167.mp4"
+    },
+    {
+      "id": "part5_stack_unstack_bowls_1171",
+      "task": "stack_unstack_bowls",
+      "text": "nest bowls inside each other",
+      "rgb_url": "/video/egodex/part5_stack_unstack_bowls_1171",
+      "data_url": "/static/data/egodex/part5_stack_unstack_bowls_1171.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part5_stack_unstack_bowls_1171.mp4"
+    },
+    {
+      "id": "part5_stack_unstack_bowls_1808",
+      "task": "stack_unstack_bowls",
+      "text": "take orange bowl from stack of bowls",
+      "rgb_url": "/video/egodex/part5_stack_unstack_bowls_1808",
+      "data_url": "/static/data/egodex/part5_stack_unstack_bowls_1808.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part5_stack_unstack_bowls_1808.mp4"
+    },
+    {
+      "id": "part5_stack_unstack_cups_802",
+      "task": "stack_unstack_cups",
+      "text": "stack red plastic cup into another red plastic cup",
+      "rgb_url": "/video/egodex/part5_stack_unstack_cups_802",
+      "data_url": "/static/data/egodex/part5_stack_unstack_cups_802.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part5_stack_unstack_cups_802.mp4"
+    },
+    {
+      "id": "part5_stack_unstack_cups_788",
+      "task": "stack_unstack_cups",
+      "text": "stack white paper cup into another white paper cup",
+      "rgb_url": "/video/egodex/part5_stack_unstack_cups_788",
+      "data_url": "/static/data/egodex/part5_stack_unstack_cups_788.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part5_stack_unstack_cups_788.mp4"
+    },
+    {
+      "id": "part5_stack_unstack_cups_634",
+      "task": "stack_unstack_cups",
+      "text": "stack white paper cups",
+      "rgb_url": "/video/egodex/part5_stack_unstack_cups_634",
+      "data_url": "/static/data/egodex/part5_stack_unstack_cups_634.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part5_stack_unstack_cups_634.mp4"
+    },
+    {
+      "id": "part5_stack_unstack_plates_5437",
+      "task": "stack_unstack_plates",
+      "text": "stack plates",
+      "rgb_url": "/video/egodex/part5_stack_unstack_plates_5437",
+      "data_url": "/static/data/egodex/part5_stack_unstack_plates_5437.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part5_stack_unstack_plates_5437.mp4"
+    },
+    {
+      "id": "part5_stack_unstack_plates_4122",
+      "task": "stack_unstack_plates",
+      "text": "separate the stack of plates",
+      "rgb_url": "/video/egodex/part5_stack_unstack_plates_4122",
+      "data_url": "/static/data/egodex/part5_stack_unstack_plates_4122.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part5_stack_unstack_plates_4122.mp4"
+    },
+    {
+      "id": "part5_stack_unstack_plates_4924",
+      "task": "stack_unstack_plates",
+      "text": "move blue plastic plate to the right",
+      "rgb_url": "/video/egodex/part5_stack_unstack_plates_4924",
+      "data_url": "/static/data/egodex/part5_stack_unstack_plates_4924.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part5_stack_unstack_plates_4924.mp4"
+    },
+    {
+      "id": "part5_stack_unstack_tupperware_104",
+      "task": "stack_unstack_tupperware",
+      "text": "take out glass container from oven",
+      "rgb_url": "/video/egodex/part5_stack_unstack_tupperware_104",
+      "data_url": "/static/data/egodex/part5_stack_unstack_tupperware_104.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part5_stack_unstack_tupperware_104.mp4"
+    },
+    {
+      "id": "part5_stack_unstack_tupperware_472",
+      "task": "stack_unstack_tupperware",
+      "text": "take out plastic container from shelf",
+      "rgb_url": "/video/egodex/part5_stack_unstack_tupperware_472",
+      "data_url": "/static/data/egodex/part5_stack_unstack_tupperware_472.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part5_stack_unstack_tupperware_472.mp4"
+    },
+    {
+      "id": "part5_stack_unstack_tupperware_1004",
+      "task": "stack_unstack_tupperware",
+      "text": "take out glass container from cabinet",
+      "rgb_url": "/video/egodex/part5_stack_unstack_tupperware_1004",
+      "data_url": "/static/data/egodex/part5_stack_unstack_tupperware_1004.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part5_stack_unstack_tupperware_1004.mp4"
+    },
+    {
+      "id": "part5_type_keyboard_139",
+      "task": "type_keyboard",
+      "text": "type on black keyboard",
+      "rgb_url": "/video/egodex/part5_type_keyboard_139",
+      "data_url": "/static/data/egodex/part5_type_keyboard_139.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part5_type_keyboard_139.mp4"
+    },
+    {
+      "id": "part5_type_keyboard_1029",
+      "task": "type_keyboard",
+      "text": "type on black keyboard",
+      "rgb_url": "/video/egodex/part5_type_keyboard_1029",
+      "data_url": "/static/data/egodex/part5_type_keyboard_1029.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part5_type_keyboard_1029.mp4"
+    },
+    {
+      "id": "part5_type_keyboard_1020",
+      "task": "type_keyboard",
+      "text": "type on black keyboard",
+      "rgb_url": "/video/egodex/part5_type_keyboard_1020",
+      "data_url": "/static/data/egodex/part5_type_keyboard_1020.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part5_type_keyboard_1020.mp4"
+    },
+    {
+      "id": "part5_use_chopsticks_0",
+      "task": "use_chopsticks",
+      "text": "use chopsticks to transfer ice cubes from pink bowl to yellow bowl",
+      "rgb_url": "/video/egodex/part5_use_chopsticks_0",
+      "data_url": "/static/data/egodex/part5_use_chopsticks_0.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part5_use_chopsticks_0.mp4"
+    },
+    {
+      "id": "part5_use_rubiks_cube_5648",
+      "task": "use_rubiks_cube",
+      "text": "turn rubik's cube clockwise",
+      "rgb_url": "/video/egodex/part5_use_rubiks_cube_5648",
+      "data_url": "/static/data/egodex/part5_use_rubiks_cube_5648.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part5_use_rubiks_cube_5648.mp4"
+    },
+    {
+      "id": "part5_use_rubiks_cube_5521",
+      "task": "use_rubiks_cube",
+      "text": "turn rubik's cube clockwise with both hands",
+      "rgb_url": "/video/egodex/part5_use_rubiks_cube_5521",
+      "data_url": "/static/data/egodex/part5_use_rubiks_cube_5521.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part5_use_rubiks_cube_5521.mp4"
+    },
+    {
+      "id": "part5_use_rubiks_cube_5625",
+      "task": "use_rubiks_cube",
+      "text": "turn rubik's cube with right hand",
+      "rgb_url": "/video/egodex/part5_use_rubiks_cube_5625",
+      "data_url": "/static/data/egodex/part5_use_rubiks_cube_5625.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part5_use_rubiks_cube_5625.mp4"
+    },
+    {
+      "id": "part5_vertical_pick_place_12801",
+      "task": "vertical_pick_place",
+      "text": "put hand sanitizer in box",
+      "rgb_url": "/video/egodex/part5_vertical_pick_place_12801",
+      "data_url": "/static/data/egodex/part5_vertical_pick_place_12801.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part5_vertical_pick_place_12801.mp4"
+    },
+    {
+      "id": "part5_vertical_pick_place_11329",
+      "task": "vertical_pick_place",
+      "text": "put gray toy mouse into clear plastic container",
+      "rgb_url": "/video/egodex/part5_vertical_pick_place_11329",
+      "data_url": "/static/data/egodex/part5_vertical_pick_place_11329.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part5_vertical_pick_place_11329.mp4"
+    },
+    {
+      "id": "part5_vertical_pick_place_12096",
+      "task": "vertical_pick_place",
+      "text": "put white clay figurine into container",
+      "rgb_url": "/video/egodex/part5_vertical_pick_place_12096",
+      "data_url": "/static/data/egodex/part5_vertical_pick_place_12096.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part5_vertical_pick_place_12096.mp4"
+    },
+    {
+      "id": "part5_wash_fruit_3",
+      "task": "wash_fruit",
+      "text": "wash yellow plastic banana with water",
+      "rgb_url": "/video/egodex/part5_wash_fruit_3",
+      "data_url": "/static/data/egodex/part5_wash_fruit_3.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part5_wash_fruit_3.mp4"
+    },
+    {
+      "id": "part5_wash_fruit_9",
+      "task": "wash_fruit",
+      "text": "wash green grapes in sink",
+      "rgb_url": "/video/egodex/part5_wash_fruit_9",
+      "data_url": "/static/data/egodex/part5_wash_fruit_9.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part5_wash_fruit_9.mp4"
+    },
+    {
+      "id": "part5_wash_fruit_6",
+      "task": "wash_fruit",
+      "text": "put white bowl with fruits into wicker basket",
+      "rgb_url": "/video/egodex/part5_wash_fruit_6",
+      "data_url": "/static/data/egodex/part5_wash_fruit_6.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part5_wash_fruit_6.mp4"
+    },
+    {
+      "id": "part5_wash_kitchen_dishes_34",
+      "task": "wash_kitchen_dishes",
+      "text": "put yellow plastic fork on drying rack",
+      "rgb_url": "/video/egodex/part5_wash_kitchen_dishes_34",
+      "data_url": "/static/data/egodex/part5_wash_kitchen_dishes_34.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part5_wash_kitchen_dishes_34.mp4"
+    },
+    {
+      "id": "part5_wash_kitchen_dishes_11",
+      "task": "wash_kitchen_dishes",
+      "text": "wash plastic cutlery with sponge",
+      "rgb_url": "/video/egodex/part5_wash_kitchen_dishes_11",
+      "data_url": "/static/data/egodex/part5_wash_kitchen_dishes_11.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part5_wash_kitchen_dishes_11.mp4"
+    },
+    {
+      "id": "part5_wash_kitchen_dishes_16",
+      "task": "wash_kitchen_dishes",
+      "text": "put down silver pot",
+      "rgb_url": "/video/egodex/part5_wash_kitchen_dishes_16",
+      "data_url": "/static/data/egodex/part5_wash_kitchen_dishes_16.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part5_wash_kitchen_dishes_16.mp4"
+    },
+    {
+      "id": "part5_wash_put_away_dishes_112",
+      "task": "wash_put_away_dishes",
+      "text": "take out green plate from oven",
+      "rgb_url": "/video/egodex/part5_wash_put_away_dishes_112",
+      "data_url": "/static/data/egodex/part5_wash_put_away_dishes_112.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part5_wash_put_away_dishes_112.mp4"
+    },
+    {
+      "id": "part5_wash_put_away_dishes_1",
+      "task": "wash_put_away_dishes",
+      "text": "take dish from sink",
+      "rgb_url": "/video/egodex/part5_wash_put_away_dishes_1",
+      "data_url": "/static/data/egodex/part5_wash_put_away_dishes_1.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part5_wash_put_away_dishes_1.mp4"
+    },
+    {
+      "id": "part5_wash_put_away_dishes_121",
+      "task": "wash_put_away_dishes",
+      "text": "take yellow plate",
+      "rgb_url": "/video/egodex/part5_wash_put_away_dishes_121",
+      "data_url": "/static/data/egodex/part5_wash_put_away_dishes_121.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part5_wash_put_away_dishes_121.mp4"
+    },
+    {
+      "id": "part5_wipe_kitchen_surfaces_0",
+      "task": "wipe_kitchen_surfaces",
+      "text": "wipe gray plastic surface with blue cloth",
+      "rgb_url": "/video/egodex/part5_wipe_kitchen_surfaces_0",
+      "data_url": "/static/data/egodex/part5_wipe_kitchen_surfaces_0.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part5_wipe_kitchen_surfaces_0.mp4"
+    },
+    {
+      "id": "part5_wipe_screen_0",
+      "task": "wipe_screen",
+      "text": "wipe smartphone screen with cloth",
+      "rgb_url": "/video/egodex/part5_wipe_screen_0",
+      "data_url": "/static/data/egodex/part5_wipe_screen_0.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part5_wipe_screen_0.mp4"
+    },
+    {
+      "id": "part5_wrap_1499",
+      "task": "wrap",
+      "text": "fold colorful paper on table",
+      "rgb_url": "/video/egodex/part5_wrap_1499",
+      "data_url": "/static/data/egodex/part5_wrap_1499.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part5_wrap_1499.mp4"
+    },
+    {
+      "id": "part5_wrap_1476",
+      "task": "wrap",
+      "text": "seal white envelope with colorful stripes using tape",
+      "rgb_url": "/video/egodex/part5_wrap_1476",
+      "data_url": "/static/data/egodex/part5_wrap_1476.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part5_wrap_1476.mp4"
+    },
+    {
+      "id": "part5_wrap_0",
+      "task": "wrap",
+      "text": "close birthday card with tape",
+      "rgb_url": "/video/egodex/part5_wrap_0",
+      "data_url": "/static/data/egodex/part5_wrap_0.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part5_wrap_0.mp4"
+    },
+    {
+      "id": "part5_zip_unzip_bag_1280",
+      "task": "zip_unzip_bag",
+      "text": "put pink donut and brown cube into clear plastic bag",
+      "rgb_url": "/video/egodex/part5_zip_unzip_bag_1280",
+      "data_url": "/static/data/egodex/part5_zip_unzip_bag_1280.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part5_zip_unzip_bag_1280.mp4"
+    },
+    {
+      "id": "part5_zip_unzip_bag_1042",
+      "task": "zip_unzip_bag",
+      "text": "put yellow rubber duck into plastic bag",
+      "rgb_url": "/video/egodex/part5_zip_unzip_bag_1042",
+      "data_url": "/static/data/egodex/part5_zip_unzip_bag_1042.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part5_zip_unzip_bag_1042.mp4"
+    },
+    {
+      "id": "part5_zip_unzip_bag_1230",
+      "task": "zip_unzip_bag",
+      "text": "take out lemon and lemon seed from plastic bag",
+      "rgb_url": "/video/egodex/part5_zip_unzip_bag_1230",
+      "data_url": "/static/data/egodex/part5_zip_unzip_bag_1230.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part5_zip_unzip_bag_1230.mp4"
+    },
+    {
+      "id": "part5_zip_unzip_case_740",
+      "task": "zip_unzip_case",
+      "text": "open black oval case",
+      "rgb_url": "/video/egodex/part5_zip_unzip_case_740",
+      "data_url": "/static/data/egodex/part5_zip_unzip_case_740.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part5_zip_unzip_case_740.mp4"
+    },
+    {
+      "id": "part5_zip_unzip_case_0",
+      "task": "zip_unzip_case",
+      "text": "open black case",
+      "rgb_url": "/video/egodex/part5_zip_unzip_case_0",
+      "data_url": "/static/data/egodex/part5_zip_unzip_case_0.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/part5_zip_unzip_case_0.mp4"
+    }
+  ],
+  "hdepic": [
+    {
+      "id": "P01-20240203-130505-228",
+      "participant": "P01",
+      "text": "pick up four pieces of carrot with left hand",
+      "rgb_url": "/video/hdepic/P01-20240203-130505-228",
+      "data_url": "/static/data/hdepic/P01-20240203-130505-228.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/P01-20240203-130505-228.mp4"
+    },
+    {
+      "id": "P01-20240202-110250-210",
+      "participant": "P01",
+      "text": "tilt the food processor bowl with the right hand to pour juice into the glass",
+      "rgb_url": "/video/hdepic/P01-20240202-110250-210",
+      "data_url": "/static/data/hdepic/P01-20240202-110250-210.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/P01-20240202-110250-210.mp4"
+    },
+    {
+      "id": "P01-20240202-161354-49",
+      "participant": "P01",
+      "text": "place the mug under the tap with the left hand. open the tap with the right hand",
+      "rgb_url": "/video/hdepic/P01-20240202-161354-49",
+      "data_url": "/static/data/hdepic/P01-20240202-161354-49.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/P01-20240202-161354-49.mp4"
+    },
+    {
+      "id": "P02-20240211-111822-184",
+      "participant": "P02",
+      "text": "place the scales instructions down onto the box with the left hand",
+      "rgb_url": "/video/hdepic/P02-20240211-111822-184",
+      "data_url": "/static/data/hdepic/P02-20240211-111822-184.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/P02-20240211-111822-184.mp4"
+    },
+    {
+      "id": "P02-20240211-175138-1032",
+      "participant": "P02",
+      "text": "open the cupboard door with the left hand",
+      "rgb_url": "/video/hdepic/P02-20240211-175138-1032",
+      "data_url": "/static/data/hdepic/P02-20240211-175138-1032.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/P02-20240211-175138-1032.mp4"
+    },
+    {
+      "id": "P02-20240211-120927-1058",
+      "participant": "P02",
+      "text": "place the rubber ring onto the jam jar lid with the right hand",
+      "rgb_url": "/video/hdepic/P02-20240211-120927-1058",
+      "data_url": "/static/data/hdepic/P02-20240211-120927-1058.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/P02-20240211-120927-1058.mp4"
+    },
+    {
+      "id": "P03-20240218-202148-197",
+      "participant": "P03",
+      "text": "start the dishwasher with the right hand",
+      "rgb_url": "/video/hdepic/P03-20240218-202148-197",
+      "data_url": "/static/data/hdepic/P03-20240218-202148-197.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/P03-20240218-202148-197.mp4"
+    },
+    {
+      "id": "P03-20240216-185832-1314",
+      "participant": "P03",
+      "text": "pick up a bit of onion skin from the chopping board with the left hand",
+      "rgb_url": "/video/hdepic/P03-20240216-185832-1314",
+      "data_url": "/static/data/hdepic/P03-20240216-185832-1314.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/P03-20240216-185832-1314.mp4"
+    },
+    {
+      "id": "P03-20240218-144430-233",
+      "participant": "P03",
+      "text": "dry hands using the cloth",
+      "rgb_url": "/video/hdepic/P03-20240218-144430-233",
+      "data_url": "/static/data/hdepic/P03-20240218-144430-233.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/P03-20240218-144430-233.mp4"
+    },
+    {
+      "id": "P04-20240413-142619-86",
+      "participant": "P04",
+      "text": "transfer the knife from the left hand to the right hand",
+      "rgb_url": "/video/hdepic/P04-20240413-142619-86",
+      "data_url": "/static/data/hdepic/P04-20240413-142619-86.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/P04-20240413-142619-86.mp4"
+    },
+    {
+      "id": "P04-20240414-072251-39",
+      "participant": "P04",
+      "text": "place the plastic container in the kitchen sink with the left hand",
+      "rgb_url": "/video/hdepic/P04-20240414-072251-39",
+      "data_url": "/static/data/hdepic/P04-20240414-072251-39.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/P04-20240414-072251-39.mp4"
+    },
+    {
+      "id": "P04-20240413-142619-159",
+      "participant": "P04",
+      "text": "dry wet hands with the kitchen rag",
+      "rgb_url": "/video/hdepic/P04-20240413-142619-159",
+      "data_url": "/static/data/hdepic/P04-20240413-142619-159.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/P04-20240413-142619-159.mp4"
+    },
+    {
+      "id": "P05-20240425-171455-263",
+      "participant": "P05",
+      "text": "put down the wooden spoon and pan with my right hand",
+      "rgb_url": "/video/hdepic/P05-20240425-171455-263",
+      "data_url": "/static/data/hdepic/P05-20240425-171455-263.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/P05-20240425-171455-263.mp4"
+    },
+    {
+      "id": "P05-20240427-145526-105",
+      "participant": "P05",
+      "text": "pour the soy sauce into the pan with the right hand",
+      "rgb_url": "/video/hdepic/P05-20240427-145526-105",
+      "data_url": "/static/data/hdepic/P05-20240427-145526-105.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/P05-20240427-145526-105.mp4"
+    },
+    {
+      "id": "P05-20240425-180658-75",
+      "participant": "P05",
+      "text": "shift the pan towards the back of the counter with my left hand",
+      "rgb_url": "/video/hdepic/P05-20240425-180658-75",
+      "data_url": "/static/data/hdepic/P05-20240425-180658-75.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/P05-20240425-180658-75.mp4"
+    },
+    {
+      "id": "P06-20240510-100047-320",
+      "participant": "P06",
+      "text": "pick up the cup from the sink with the left hand",
+      "rgb_url": "/video/hdepic/P06-20240510-100047-320",
+      "data_url": "/static/data/hdepic/P06-20240510-100047-320.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/P06-20240510-100047-320.mp4"
+    },
+    {
+      "id": "P06-20240510-104642-1036",
+      "participant": "P06",
+      "text": "put the plate in the tray with the left hand",
+      "rgb_url": "/video/hdepic/P06-20240510-104642-1036",
+      "data_url": "/static/data/hdepic/P06-20240510-104642-1036.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/P06-20240510-104642-1036.mp4"
+    },
+    {
+      "id": "P06-20240510-100047-285",
+      "participant": "P06",
+      "text": "place the cup and the bowl in the sink with both hands",
+      "rgb_url": "/video/hdepic/P06-20240510-100047-285",
+      "data_url": "/static/data/hdepic/P06-20240510-100047-285.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/P06-20240510-100047-285.mp4"
+    },
+    {
+      "id": "P07-20240529-134410-120",
+      "participant": "P07",
+      "text": "pick up both halves of the tomato in the left hand. drop them into the bowl",
+      "rgb_url": "/video/hdepic/P07-20240529-134410-120",
+      "data_url": "/static/data/hdepic/P07-20240529-134410-120.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/P07-20240529-134410-120.mp4"
+    },
+    {
+      "id": "P07-20240529-134410-62",
+      "participant": "P07",
+      "text": "pick up the last lettuce leaf from the colander with the right hand",
+      "rgb_url": "/video/hdepic/P07-20240529-134410-62",
+      "data_url": "/static/data/hdepic/P07-20240529-134410-62.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/P07-20240529-134410-62.mp4"
+    },
+    {
+      "id": "P07-20240531-201703-247",
+      "participant": "P07",
+      "text": "pick up the pen and make a note on the piece of paper",
+      "rgb_url": "/video/hdepic/P07-20240531-201703-247",
+      "data_url": "/static/data/hdepic/P07-20240531-201703-247.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/P07-20240531-201703-247.mp4"
+    },
+    {
+      "id": "P08-20240614-085000-60",
+      "participant": "P08",
+      "text": "scoop up food scraps from kitchen counter with both hands",
+      "rgb_url": "/video/hdepic/P08-20240614-085000-60",
+      "data_url": "/static/data/hdepic/P08-20240614-085000-60.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/P08-20240614-085000-60.mp4"
+    },
+    {
+      "id": "P08-20240613-122900-27",
+      "participant": "P08",
+      "text": "stir through the raspberry and lemon curd mixture with a spoon",
+      "rgb_url": "/video/hdepic/P08-20240613-122900-27",
+      "data_url": "/static/data/hdepic/P08-20240613-122900-27.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/P08-20240613-122900-27.mp4"
+    },
+    {
+      "id": "P08-20240613-123547-18",
+      "participant": "P08",
+      "text": "open the bag of rocket salad with both hands",
+      "rgb_url": "/video/hdepic/P08-20240613-123547-18",
+      "data_url": "/static/data/hdepic/P08-20240613-123547-18.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/P08-20240613-123547-18.mp4"
+    },
+    {
+      "id": "P09-20240622-150155-804",
+      "participant": "P09",
+      "text": "place the fork on the chop board with my right hand",
+      "rgb_url": "/video/hdepic/P09-20240622-150155-804",
+      "data_url": "/static/data/hdepic/P09-20240622-150155-804.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/P09-20240622-150155-804.mp4"
+    },
+    {
+      "id": "P09-20240622-150155-795",
+      "participant": "P09",
+      "text": "transfer the fork from my left hand to my right hand",
+      "rgb_url": "/video/hdepic/P09-20240622-150155-795",
+      "data_url": "/static/data/hdepic/P09-20240622-150155-795.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/P09-20240622-150155-795.mp4"
+    },
+    {
+      "id": "P09-20240621-153208-106",
+      "participant": "P09",
+      "text": "fill the saucepan with water from the running tap using my right hand",
+      "rgb_url": "/video/hdepic/P09-20240621-153208-106",
+      "data_url": "/static/data/hdepic/P09-20240621-153208-106.npz",
+      "rgb_path": "/weka/prior-default/jianingz/home/project/_GenTraj/vipe/vipe_results/rgb/P09-20240621-153208-106.mp4"
+    }
+  ],
+  "xperience": [
+    {
+      "id": "8fe68e5c-be4c-4b20-8ded-ef27fae4074b__ep2__clip_003_place_pill_into_box",
+      "clip_rel": "8fe68e5c-be4c-4b20-8ded-ef27fae4074b/ep2/clip_003_place_pill_into_box",
+      "text": "Place pill into box \u2014 The hand moves a blue pill from the table surface into the cardboard shipping box.",
+      "label": "Place pill into box",
+      "rgb_url": "/video/xperience/8fe68e5c-be4c-4b20-8ded-ef27fae4074b__ep2__clip_003_place_pill_into_box",
+      "data_url": "/static/data/xperience/8fe68e5c-be4c-4b20-8ded-ef27fae4074b__ep2__clip_003_place_pill_into_box.npz",
+      "rgb_path": "/weka/oe-training-default/chenhaoz/xperience/8fe68e5c-be4c-4b20-8ded-ef27fae4074b/ep2/clip_003_place_pill_into_box/rgb.mp4"
+    },
+    {
+      "id": "cada1e39-503a-4262-97d0-d5a825ee0677__ep2__clip_000_pick_up_snack_packet",
+      "clip_rel": "cada1e39-503a-4262-97d0-d5a825ee0677/ep2/clip_000_pick_up_snack_packet",
+      "text": "Pick up snack packet \u2014 The person reaches into the plastic bin and grabs a single snack packet.",
+      "label": "Pick up snack packet",
+      "rgb_url": "/video/xperience/cada1e39-503a-4262-97d0-d5a825ee0677__ep2__clip_000_pick_up_snack_packet",
+      "data_url": "/static/data/xperience/cada1e39-503a-4262-97d0-d5a825ee0677__ep2__clip_000_pick_up_snack_packet.npz",
+      "rgb_path": "/weka/oe-training-default/chenhaoz/xperience/cada1e39-503a-4262-97d0-d5a825ee0677/ep2/clip_000_pick_up_snack_packet/rgb.mp4"
+    },
+    {
+      "id": "3e4a1fe6-0495-4f08-b946-36401ad43210__ep1__clip_011_cut_cardboard",
+      "clip_rel": "3e4a1fe6-0495-4f08-b946-36401ad43210/ep1/clip_011_cut_cardboard",
+      "text": "Cut cardboard \u2014 The user finishes cutting a rectangular strip of cardboard using the utility knife.",
+      "label": "Cut cardboard",
+      "rgb_url": "/video/xperience/3e4a1fe6-0495-4f08-b946-36401ad43210__ep1__clip_011_cut_cardboard",
+      "data_url": "/static/data/xperience/3e4a1fe6-0495-4f08-b946-36401ad43210__ep1__clip_011_cut_cardboard.npz",
+      "rgb_path": "/weka/oe-training-default/chenhaoz/xperience/3e4a1fe6-0495-4f08-b946-36401ad43210/ep1/clip_011_cut_cardboard/rgb.mp4"
+    },
+    {
+      "id": "bb37ad4e-5737-41da-8abc-d26fc3538a2c__ep31__clip_024_examine_puzzle_piece",
+      "clip_rel": "bb37ad4e-5737-41da-8abc-d26fc3538a2c/ep31/clip_024_examine_puzzle_piece",
+      "text": "Examine puzzle piece \u2014 The user holds a single puzzle piece, examining its shape and pattern while deciding where it fits.",
+      "label": "Examine puzzle piece",
+      "rgb_url": "/video/xperience/bb37ad4e-5737-41da-8abc-d26fc3538a2c__ep31__clip_024_examine_puzzle_piece",
+      "data_url": "/static/data/xperience/bb37ad4e-5737-41da-8abc-d26fc3538a2c__ep31__clip_024_examine_puzzle_piece.npz",
+      "rgb_path": "/weka/oe-training-default/chenhaoz/xperience/bb37ad4e-5737-41da-8abc-d26fc3538a2c/ep31/clip_024_examine_puzzle_piece/rgb.mp4"
+    },
+    {
+      "id": "7610d23b-5c25-4548-ba90-559773443c76__ep2__clip_006_remove_ruler_and_pen",
+      "clip_rel": "7610d23b-5c25-4548-ba90-559773443c76/ep2/clip_006_remove_ruler_and_pen",
+      "text": "Remove ruler and pen \u2014 The user lifts the pen away from the ruler after finishing the mark, preparing to adjust or move to the next task.",
+      "label": "Remove ruler and pen",
+      "rgb_url": "/video/xperience/7610d23b-5c25-4548-ba90-559773443c76__ep2__clip_006_remove_ruler_and_pen",
+      "data_url": "/static/data/xperience/7610d23b-5c25-4548-ba90-559773443c76__ep2__clip_006_remove_ruler_and_pen.npz",
+      "rgb_path": "/weka/oe-training-default/chenhaoz/xperience/7610d23b-5c25-4548-ba90-559773443c76/ep2/clip_006_remove_ruler_and_pen/rgb.mp4"
+    },
+    {
+      "id": "75a9d58c-b716-4ee4-8385-8340b638bc03__ep4__clip_025_sort_star-shaped_items",
+      "clip_rel": "75a9d58c-b716-4ee4-8385-8340b638bc03/ep4/clip_025_sort_star-shaped_items",
+      "text": "Sort star-shaped items \u2014 The user picks up individual small star-shaped items from the pile and organizes them into color-coded groups on the table.",
+      "label": "Sort star-shaped items",
+      "rgb_url": "/video/xperience/75a9d58c-b716-4ee4-8385-8340b638bc03__ep4__clip_025_sort_star-shaped_items",
+      "data_url": "/static/data/xperience/75a9d58c-b716-4ee4-8385-8340b638bc03__ep4__clip_025_sort_star-shaped_items.npz",
+      "rgb_path": "/weka/oe-training-default/chenhaoz/xperience/75a9d58c-b716-4ee4-8385-8340b638bc03/ep4/clip_025_sort_star-shaped_items/rgb.mp4"
+    },
+    {
+      "id": "0ec8fd93-0f5a-474a-8922-64be6388b3c5__ep4__clip_018_loading_labeler",
+      "clip_rel": "0ec8fd93-0f5a-474a-8922-64be6388b3c5/ep4/clip_018_loading_labeler",
+      "text": "Loading labeler \u2014 The person holds a price tag labeler and interacts with another person to insert a roll of price tags.",
+      "label": "Loading labeler",
+      "rgb_url": "/video/xperience/0ec8fd93-0f5a-474a-8922-64be6388b3c5__ep4__clip_018_loading_labeler",
+      "data_url": "/static/data/xperience/0ec8fd93-0f5a-474a-8922-64be6388b3c5__ep4__clip_018_loading_labeler.npz",
+      "rgb_path": "/weka/oe-training-default/chenhaoz/xperience/0ec8fd93-0f5a-474a-8922-64be6388b3c5/ep4/clip_018_loading_labeler/rgb.mp4"
+    },
+    {
+      "id": "ca728159-b233-44a0-8bba-265f5c7cc3a6__ep8__clip_003_cut_cardboard",
+      "clip_rel": "ca728159-b233-44a0-8bba-265f5c7cc3a6/ep8/clip_003_cut_cardboard",
+      "text": "Cut cardboard \u2014 The user holds a metal ruler firmly on the cardboard and moves the utility knife along the edge to make a straight cut. The user is holding a metal ruler down on a piece of cardboard and running a utility knife along the edge to make a precise cut.",
+      "label": "Cut cardboard",
+      "rgb_url": "/video/xperience/ca728159-b233-44a0-8bba-265f5c7cc3a6__ep8__clip_003_cut_cardboard",
+      "data_url": "/static/data/xperience/ca728159-b233-44a0-8bba-265f5c7cc3a6__ep8__clip_003_cut_cardboard.npz",
+      "rgb_path": "/weka/oe-training-default/chenhaoz/xperience/ca728159-b233-44a0-8bba-265f5c7cc3a6/ep8/clip_003_cut_cardboard/rgb.mp4"
+    },
+    {
+      "id": "b96afe0f-5ff8-4daf-becc-7fca706da6a1__ep19__clip_010_sort_small_items_into_container",
+      "clip_rel": "b96afe0f-5ff8-4daf-becc-7fca706da6a1/ep19/clip_010_sort_small_items_into_container",
+      "text": "Sort small items into container \u2014 The user picks up small colored items from the table and places them into the cardboard box.",
+      "label": "Sort small items into container",
+      "rgb_url": "/video/xperience/b96afe0f-5ff8-4daf-becc-7fca706da6a1__ep19__clip_010_sort_small_items_into_container",
+      "data_url": "/static/data/xperience/b96afe0f-5ff8-4daf-becc-7fca706da6a1__ep19__clip_010_sort_small_items_into_container.npz",
+      "rgb_path": "/weka/oe-training-default/chenhaoz/xperience/b96afe0f-5ff8-4daf-becc-7fca706da6a1/ep19/clip_010_sort_small_items_into_container/rgb.mp4"
+    },
+    {
+      "id": "147b3d65-65d6-421b-8944-7d13317f0c3d__ep5__clip_002_separate_paper_strip",
+      "clip_rel": "147b3d65-65d6-421b-8944-7d13317f0c3d/ep5/clip_002_separate_paper_strip",
+      "text": "Separate paper strip \u2014 The right hand pulls a single blue paper strip away from the main stack of paper. The hands hold and adjust a single light blue paper strip, preparing it for the quilling process.",
+      "label": "Separate paper strip",
+      "rgb_url": "/video/xperience/147b3d65-65d6-421b-8944-7d13317f0c3d__ep5__clip_002_separate_paper_strip",
+      "data_url": "/static/data/xperience/147b3d65-65d6-421b-8944-7d13317f0c3d__ep5__clip_002_separate_paper_strip.npz",
+      "rgb_path": "/weka/oe-training-default/chenhaoz/xperience/147b3d65-65d6-421b-8944-7d13317f0c3d/ep5/clip_002_separate_paper_strip/rgb.mp4"
+    },
+    {
+      "id": "dfb266d2-0653-43dd-bf22-d402340f7cb6__ep7__clip_003_organize_cardboard_pieces",
+      "clip_rel": "dfb266d2-0653-43dd-bf22-d402340f7cb6/ep7/clip_003_organize_cardboard_pieces",
+      "text": "Organize cardboard pieces \u2014 The user finishes cutting and begins arranging the small cardboard squares into a neat stack on the table.",
+      "label": "Organize cardboard pieces",
+      "rgb_url": "/video/xperience/dfb266d2-0653-43dd-bf22-d402340f7cb6__ep7__clip_003_organize_cardboard_pieces",
+      "data_url": "/static/data/xperience/dfb266d2-0653-43dd-bf22-d402340f7cb6__ep7__clip_003_organize_cardboard_pieces.npz",
+      "rgb_path": "/weka/oe-training-default/chenhaoz/xperience/dfb266d2-0653-43dd-bf22-d402340f7cb6/ep7/clip_003_organize_cardboard_pieces/rgb.mp4"
+    },
+    {
+      "id": "5c6418f9-f8d5-4ae3-b486-3b8b6b125fbc__ep36__clip_009_cut_newspaper_with_scissors",
+      "clip_rel": "5c6418f9-f8d5-4ae3-b486-3b8b6b125fbc/ep36/clip_009_cut_newspaper_with_scissors",
+      "text": "Cut newspaper with scissors \u2014 The user holds scissors in their right hand and uses them to cut through a newspaper spread on the table. The user continues to use scissors to cut along the edge of the newspaper laid out on the table.",
+      "label": "Cut newspaper with scissors",
+      "rgb_url": "/video/xperience/5c6418f9-f8d5-4ae3-b486-3b8b6b125fbc__ep36__clip_009_cut_newspaper_with_scissors",
+      "data_url": "/static/data/xperience/5c6418f9-f8d5-4ae3-b486-3b8b6b125fbc__ep36__clip_009_cut_newspaper_with_scissors.npz",
+      "rgb_path": "/weka/oe-training-default/chenhaoz/xperience/5c6418f9-f8d5-4ae3-b486-3b8b6b125fbc/ep36/clip_009_cut_newspaper_with_scissors/rgb.mp4"
+    },
+    {
+      "id": "836436e6-8bb0-49ea-919a-42ec2ce7023d__ep16__clip_004_sort_puzzle_pieces",
+      "clip_rel": "836436e6-8bb0-49ea-919a-42ec2ce7023d/ep16/clip_004_sort_puzzle_pieces",
+      "text": "Sort puzzle pieces \u2014 The user is actively sorting and organizing white puzzle pieces on the table, moving them around with both hands.",
+      "label": "Sort puzzle pieces",
+      "rgb_url": "/video/xperience/836436e6-8bb0-49ea-919a-42ec2ce7023d__ep16__clip_004_sort_puzzle_pieces",
+      "data_url": "/static/data/xperience/836436e6-8bb0-49ea-919a-42ec2ce7023d__ep16__clip_004_sort_puzzle_pieces.npz",
+      "rgb_path": "/weka/oe-training-default/chenhaoz/xperience/836436e6-8bb0-49ea-919a-42ec2ce7023d/ep16/clip_004_sort_puzzle_pieces/rgb.mp4"
+    },
+    {
+      "id": "1221bd5a-af5b-4bfe-b4ff-6278a9be7960__ep1__clip_016_place_smartphone_on_table",
+      "clip_rel": "1221bd5a-af5b-4bfe-b4ff-6278a9be7960/ep1/clip_016_place_smartphone_on_table",
+      "text": "Place smartphone on table \u2014 The user places the smartphone onto the table surface near the jigsaw puzzle pieces.",
+      "label": "Place smartphone on table",
+      "rgb_url": "/video/xperience/1221bd5a-af5b-4bfe-b4ff-6278a9be7960__ep1__clip_016_place_smartphone_on_table",
+      "data_url": "/static/data/xperience/1221bd5a-af5b-4bfe-b4ff-6278a9be7960__ep1__clip_016_place_smartphone_on_table.npz",
+      "rgb_path": "/weka/oe-training-default/chenhaoz/xperience/1221bd5a-af5b-4bfe-b4ff-6278a9be7960/ep1/clip_016_place_smartphone_on_table/rgb.mp4"
+    },
+    {
+      "id": "d8a4afd2-0f8f-455a-b6a1-d5e3041d9ec7__ep2__clip_024_hold_product",
+      "clip_rel": "d8a4afd2-0f8f-455a-b6a1-d5e3041d9ec7/ep2/clip_024_hold_product",
+      "text": "Hold product \u2014 The user holds the food product in their hand while looking at the shelf.",
+      "label": "Hold product",
+      "rgb_url": "/video/xperience/d8a4afd2-0f8f-455a-b6a1-d5e3041d9ec7__ep2__clip_024_hold_product",
+      "data_url": "/static/data/xperience/d8a4afd2-0f8f-455a-b6a1-d5e3041d9ec7__ep2__clip_024_hold_product.npz",
+      "rgb_path": "/weka/oe-training-default/chenhaoz/xperience/d8a4afd2-0f8f-455a-b6a1-d5e3041d9ec7/ep2/clip_024_hold_product/rgb.mp4"
+    },
+    {
+      "id": "a014bac3-6a7d-4ab8-bb50-b9ff32b3d9ce__ep22__clip_002_cut_tape",
+      "clip_rel": "a014bac3-6a7d-4ab8-bb50-b9ff32b3d9ce/ep22/clip_002_cut_tape",
+      "text": "Cut tape \u2014 One researcher holds a roll of yellow tape while the other cuts a piece of tape using scissors.",
+      "label": "Cut tape",
+      "rgb_url": "/video/xperience/a014bac3-6a7d-4ab8-bb50-b9ff32b3d9ce__ep22__clip_002_cut_tape",
+      "data_url": "/static/data/xperience/a014bac3-6a7d-4ab8-bb50-b9ff32b3d9ce__ep22__clip_002_cut_tape.npz",
+      "rgb_path": "/weka/oe-training-default/chenhaoz/xperience/a014bac3-6a7d-4ab8-bb50-b9ff32b3d9ce/ep22/clip_002_cut_tape/rgb.mp4"
+    },
+    {
+      "id": "3efd6a52-1457-4437-a3bf-9d5894614fe6__ep26__clip_018_place_finished_star_and_reach_for_paper_",
+      "clip_rel": "3efd6a52-1457-4437-a3bf-9d5894614fe6/ep26/clip_018_place_finished_star_and_reach_for_paper_",
+      "text": "Place finished star and reach for paper strip \u2014 The person moves their hands away from the center to set down the star and reaches towards the stack of paper strips.",
+      "label": "Place finished star and reach for paper strip",
+      "rgb_url": "/video/xperience/3efd6a52-1457-4437-a3bf-9d5894614fe6__ep26__clip_018_place_finished_star_and_reach_for_paper_",
+      "data_url": "/static/data/xperience/3efd6a52-1457-4437-a3bf-9d5894614fe6__ep26__clip_018_place_finished_star_and_reach_for_paper_.npz",
+      "rgb_path": "/weka/oe-training-default/chenhaoz/xperience/3efd6a52-1457-4437-a3bf-9d5894614fe6/ep26/clip_018_place_finished_star_and_reach_for_paper_/rgb.mp4"
+    },
+    {
+      "id": "a6d5e242-2b18-435a-b8c9-b77590dd5c0d__ep1__clip_001_scroll_on_smartphone",
+      "clip_rel": "a6d5e242-2b18-435a-b8c9-b77590dd5c0d/ep1/clip_001_scroll_on_smartphone",
+      "text": "Scroll on smartphone \u2014 The user holds their smartphone and scrolls through a feed on the screen with their right index finger.",
+      "label": "Scroll on smartphone",
+      "rgb_url": "/video/xperience/a6d5e242-2b18-435a-b8c9-b77590dd5c0d__ep1__clip_001_scroll_on_smartphone",
+      "data_url": "/static/data/xperience/a6d5e242-2b18-435a-b8c9-b77590dd5c0d__ep1__clip_001_scroll_on_smartphone.npz",
+      "rgb_path": "/weka/oe-training-default/chenhaoz/xperience/a6d5e242-2b18-435a-b8c9-b77590dd5c0d/ep1/clip_001_scroll_on_smartphone/rgb.mp4"
+    },
+    {
+      "id": "9f99d90e-ed8f-464e-8f2d-972d76b669c6__ep19__clip_006_reach_for_pieces",
+      "clip_rel": "9f99d90e-ed8f-464e-8f2d-972d76b669c6/ep19/clip_006_reach_for_pieces",
+      "text": "Reach for pieces \u2014 The user reaches toward the pile of unsorted puzzle pieces to pick more up. The user continues to touch and shift puzzle pieces scattered on the table with both hands to find matching connections.",
+      "label": "Reach for pieces",
+      "rgb_url": "/video/xperience/9f99d90e-ed8f-464e-8f2d-972d76b669c6__ep19__clip_006_reach_for_pieces",
+      "data_url": "/static/data/xperience/9f99d90e-ed8f-464e-8f2d-972d76b669c6__ep19__clip_006_reach_for_pieces.npz",
+      "rgb_path": "/weka/oe-training-default/chenhaoz/xperience/9f99d90e-ed8f-464e-8f2d-972d76b669c6/ep19/clip_006_reach_for_pieces/rgb.mp4"
+    },
+    {
+      "id": "95c91cfb-171f-4060-bf84-d80bc4e50aaa__ep3__clip_013_cut_newspaper_with_scissors",
+      "clip_rel": "95c91cfb-171f-4060-bf84-d80bc4e50aaa/ep3/clip_013_cut_newspaper_with_scissors",
+      "text": "Cut newspaper with scissors \u2014 The user holds a pair of scissors with the right hand and cuts along the edge of a section of the newspaper held by the left hand.",
+      "label": "Cut newspaper with scissors",
+      "rgb_url": "/video/xperience/95c91cfb-171f-4060-bf84-d80bc4e50aaa__ep3__clip_013_cut_newspaper_with_scissors",
+      "data_url": "/static/data/xperience/95c91cfb-171f-4060-bf84-d80bc4e50aaa__ep3__clip_013_cut_newspaper_with_scissors.npz",
+      "rgb_path": "/weka/oe-training-default/chenhaoz/xperience/95c91cfb-171f-4060-bf84-d80bc4e50aaa/ep3/clip_013_cut_newspaper_with_scissors/rgb.mp4"
+    },
+    {
+      "id": "3efd6a52-1457-4437-a3bf-9d5894614fe6__ep45__clip_002_sort_beads",
+      "clip_rel": "3efd6a52-1457-4437-a3bf-9d5894614fe6/ep45/clip_002_sort_beads",
+      "text": "Sort beads \u2014 The person continues to pick through the pile of beads on the table, manually separating them by color. The user is carefully selecting and arranging individual small beads, focusing on isolating them from a pile on the desk.",
+      "label": "Sort beads",
+      "rgb_url": "/video/xperience/3efd6a52-1457-4437-a3bf-9d5894614fe6__ep45__clip_002_sort_beads",
+      "data_url": "/static/data/xperience/3efd6a52-1457-4437-a3bf-9d5894614fe6__ep45__clip_002_sort_beads.npz",
+      "rgb_path": "/weka/oe-training-default/chenhaoz/xperience/3efd6a52-1457-4437-a3bf-9d5894614fe6/ep45/clip_002_sort_beads/rgb.mp4"
+    },
+    {
+      "id": "64f7bf9f-d66d-4205-ac2d-dca4525a351f__ep36__clip_009_manipulate_origami_star",
+      "clip_rel": "64f7bf9f-d66d-4205-ac2d-dca4525a351f/ep36/clip_009_manipulate_origami_star",
+      "text": "Manipulate origami star \u2014 The hands hold a small yellow origami star, adjusting its position and checking its shape.",
+      "label": "Manipulate origami star",
+      "rgb_url": "/video/xperience/64f7bf9f-d66d-4205-ac2d-dca4525a351f__ep36__clip_009_manipulate_origami_star",
+      "data_url": "/static/data/xperience/64f7bf9f-d66d-4205-ac2d-dca4525a351f__ep36__clip_009_manipulate_origami_star.npz",
+      "rgb_path": "/weka/oe-training-default/chenhaoz/xperience/64f7bf9f-d66d-4205-ac2d-dca4525a351f/ep36/clip_009_manipulate_origami_star/rgb.mp4"
+    },
+    {
+      "id": "d6ee04f1-bf31-42da-b785-ebd8ecafef5d__ep1__clip_022_pick_up_earbud_case",
+      "clip_rel": "d6ee04f1-bf31-42da-b785-ebd8ecafef5d/ep1/clip_022_pick_up_earbud_case",
+      "text": "Pick up earbud case \u2014 The user picks up the white earbud charging case from the desk surface.",
+      "label": "Pick up earbud case",
+      "rgb_url": "/video/xperience/d6ee04f1-bf31-42da-b785-ebd8ecafef5d__ep1__clip_022_pick_up_earbud_case",
+      "data_url": "/static/data/xperience/d6ee04f1-bf31-42da-b785-ebd8ecafef5d__ep1__clip_022_pick_up_earbud_case.npz",
+      "rgb_path": "/weka/oe-training-default/chenhaoz/xperience/d6ee04f1-bf31-42da-b785-ebd8ecafef5d/ep1/clip_022_pick_up_earbud_case/rgb.mp4"
+    },
+    {
+      "id": "cd752e39-4f8c-4614-9e16-9b062cbd8247__ep10__clip_013_move_smartphone",
+      "clip_rel": "cd752e39-4f8c-4614-9e16-9b062cbd8247/ep10/clip_013_move_smartphone",
+      "text": "Move smartphone \u2014 The user shifts the position of the smartphone on the cardboard surface to adjust the template or guide.",
+      "label": "Move smartphone",
+      "rgb_url": "/video/xperience/cd752e39-4f8c-4614-9e16-9b062cbd8247__ep10__clip_013_move_smartphone",
+      "data_url": "/static/data/xperience/cd752e39-4f8c-4614-9e16-9b062cbd8247__ep10__clip_013_move_smartphone.npz",
+      "rgb_path": "/weka/oe-training-default/chenhaoz/xperience/cd752e39-4f8c-4614-9e16-9b062cbd8247/ep10/clip_013_move_smartphone/rgb.mp4"
+    },
+    {
+      "id": "e97a733f-5216-4921-beff-36ce4de3f247__ep37__clip_012_sort_puzzle_pieces",
+      "clip_rel": "e97a733f-5216-4921-beff-36ce4de3f247/ep37/clip_012_sort_puzzle_pieces",
+      "text": "Sort puzzle pieces \u2014 The user sifts through and organizes puzzle pieces on the table surface to find a match. The user is actively searching through and rearranging loose puzzle pieces on the table to find specific shapes or patterns.",
+      "label": "Sort puzzle pieces",
+      "rgb_url": "/video/xperience/e97a733f-5216-4921-beff-36ce4de3f247__ep37__clip_012_sort_puzzle_pieces",
+      "data_url": "/static/data/xperience/e97a733f-5216-4921-beff-36ce4de3f247__ep37__clip_012_sort_puzzle_pieces.npz",
+      "rgb_path": "/weka/oe-training-default/chenhaoz/xperience/e97a733f-5216-4921-beff-36ce4de3f247/ep37/clip_012_sort_puzzle_pieces/rgb.mp4"
+    },
+    {
+      "id": "34e4d6f3-f2b4-4de1-b837-15a372512a90__ep3__clip_013_position_cardboard",
+      "clip_rel": "34e4d6f3-f2b4-4de1-b837-15a372512a90/ep3/clip_013_position_cardboard",
+      "text": "Position cardboard \u2014 The user adjusts and aligns a large sheet of cardboard on the table surface.",
+      "label": "Position cardboard",
+      "rgb_url": "/video/xperience/34e4d6f3-f2b4-4de1-b837-15a372512a90__ep3__clip_013_position_cardboard",
+      "data_url": "/static/data/xperience/34e4d6f3-f2b4-4de1-b837-15a372512a90__ep3__clip_013_position_cardboard.npz",
+      "rgb_path": "/weka/oe-training-default/chenhaoz/xperience/34e4d6f3-f2b4-4de1-b837-15a372512a90/ep3/clip_013_position_cardboard/rgb.mp4"
+    },
+    {
+      "id": "7977efbb-1a29-4da3-aeb7-8d73a3555d13__ep7__clip_021_reach_for_pieces",
+      "clip_rel": "7977efbb-1a29-4da3-aeb7-8d73a3555d13/ep7/clip_021_reach_for_pieces",
+      "text": "Reach for pieces \u2014 The user moves their hand toward a pile of puzzle pieces to continue sorting.",
+      "label": "Reach for pieces",
+      "rgb_url": "/video/xperience/7977efbb-1a29-4da3-aeb7-8d73a3555d13__ep7__clip_021_reach_for_pieces",
+      "data_url": "/static/data/xperience/7977efbb-1a29-4da3-aeb7-8d73a3555d13__ep7__clip_021_reach_for_pieces.npz",
+      "rgb_path": "/weka/oe-training-default/chenhaoz/xperience/7977efbb-1a29-4da3-aeb7-8d73a3555d13/ep7/clip_021_reach_for_pieces/rgb.mp4"
+    },
+    {
+      "id": "17901b9e-7d5d-475a-86f8-b4a9bc9a5709__ep47__clip_000_place_star_into_pouch",
+      "clip_rel": "17901b9e-7d5d-475a-86f8-b4a9bc9a5709/ep47/clip_000_place_star_into_pouch",
+      "text": "Place star into pouch \u2014 The person picks up a finished origami star and drops it into a small grey fabric pouch held in their other hand.",
+      "label": "Place star into pouch",
+      "rgb_url": "/video/xperience/17901b9e-7d5d-475a-86f8-b4a9bc9a5709__ep47__clip_000_place_star_into_pouch",
+      "data_url": "/static/data/xperience/17901b9e-7d5d-475a-86f8-b4a9bc9a5709__ep47__clip_000_place_star_into_pouch.npz",
+      "rgb_path": "/weka/oe-training-default/chenhaoz/xperience/17901b9e-7d5d-475a-86f8-b4a9bc9a5709/ep47/clip_000_place_star_into_pouch/rgb.mp4"
+    },
+    {
+      "id": "642fd1e7-f4b0-4a64-acfd-5c23858431d7__ep7__clip_001_pick_up_another_item",
+      "clip_rel": "642fd1e7-f4b0-4a64-acfd-5c23858431d7/ep7/clip_001_pick_up_another_item",
+      "text": "Pick up another item \u2014 The person reaches for and picks up another food container from a stack or nearby surface to prepare for shelving.",
+      "label": "Pick up another item",
+      "rgb_url": "/video/xperience/642fd1e7-f4b0-4a64-acfd-5c23858431d7__ep7__clip_001_pick_up_another_item",
+      "data_url": "/static/data/xperience/642fd1e7-f4b0-4a64-acfd-5c23858431d7__ep7__clip_001_pick_up_another_item.npz",
+      "rgb_path": "/weka/oe-training-default/chenhaoz/xperience/642fd1e7-f4b0-4a64-acfd-5c23858431d7/ep7/clip_001_pick_up_another_item/rgb.mp4"
+    },
+    {
+      "id": "b193ec94-f89a-4666-8143-719db1703caa__ep10__clip_017_place_toy_spider_in_bucket",
+      "clip_rel": "b193ec94-f89a-4666-8143-719db1703caa/ep10/clip_017_place_toy_spider_in_bucket",
+      "text": "Place toy spider in bucket \u2014 The person moves their hand toward a white bucket and places the toy spider inside it.",
+      "label": "Place toy spider in bucket",
+      "rgb_url": "/video/xperience/b193ec94-f89a-4666-8143-719db1703caa__ep10__clip_017_place_toy_spider_in_bucket",
+      "data_url": "/static/data/xperience/b193ec94-f89a-4666-8143-719db1703caa__ep10__clip_017_place_toy_spider_in_bucket.npz",
+      "rgb_path": "/weka/oe-training-default/chenhaoz/xperience/b193ec94-f89a-4666-8143-719db1703caa/ep10/clip_017_place_toy_spider_in_bucket/rgb.mp4"
+    }
+  ]
+}

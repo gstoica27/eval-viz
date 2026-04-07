@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GenTraj Visualization</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { font-size: 16px; scroll-behavior: smooth; }
+
+/* CSS custom properties for theming */
+:root {
+  --bg: #111; --bg-card: #161616; --bg-header: #1a1a1a; --bg-body: #0d0d0d;
+  --border: #222; --border-hover: #444;
+  --text: #d4d4d4; --text-heading: #f0f0f0; --text-secondary: #777; --text-muted: #555;
+  --tab-active: #f0f0f0; --tab-inactive: #666;
+  --scrollbar-track: #1a1a1a; --scrollbar-thumb: #333;
+  --three-bg: 0x0d0d0d; --grid-primary: 0x333333; --grid-secondary: 0x222222;
+}
+[data-theme="light"] {
+  --bg: #f5f5f0; --bg-card: #ffffff; --bg-header: #f0efe8; --bg-body: #eeeee8;
+  --border: #ddd; --border-hover: #bbb;
+  --text: #333; --text-heading: #111; --text-secondary: #666; --text-muted: #999;
+  --tab-active: #111; --tab-inactive: #999;
+  --scrollbar-track: #e8e8e8; --scrollbar-thumb: #ccc;
+  --three-bg: 0xeeeee8; --grid-primary: 0xcccccc; --grid-secondary: 0xdddddd;
+}
+
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  transition: background 0.25s, color 0.25s;
+}
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--scrollbar-track); }
+::-webkit-scrollbar-thumb { background: var(--scrollbar-thumb); border-radius: 3px; }
+
+.page { max-width: 1300px; margin: 0 auto; padding: 0 24px; }
+
+/* Theme toggle */
+.theme-toggle {
+  background: var(--bg-card); border: 1px solid var(--border);
+  color: var(--text-secondary); border-radius: 20px;
+  padding: 6px 14px; font-size: 0.72rem; font-family: inherit;
+  cursor: pointer; transition: all 0.15s; letter-spacing: 0.03em;
+}
+.theme-toggle:hover { border-color: var(--border-hover); color: var(--text); }
+
+/* Masthead */
+.masthead {
+  padding: 40px 0 20px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 24px;
+  display: flex; align-items: flex-start; justify-content: space-between;
+}
+.masthead-left { flex: 1; }
+.masthead h1 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--text-heading);
+  letter-spacing: -0.02em;
+}
+.masthead .subtitle {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  margin-top: 6px;
+  font-weight: 300;
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  gap: 0;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 24px;
+}
+.tab {
+  padding: 12px 24px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--tab-inactive);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: color 0.15s, border-color 0.15s;
+  user-select: none;
+}
+.tab:hover { color: var(--text); }
+.tab.active { color: var(--tab-active); border-bottom-color: var(--tab-active); }
+.tab .count {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  margin-left: 6px;
+  font-weight: 400;
+}
+.tab.active .count { color: var(--text-secondary); }
+
+/* Clip list */
+.clip-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 12px;
+  margin-bottom: 32px;
+}
+.clip-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 14px 16px;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+}
+.clip-card:hover { border-color: var(--border-hover); background: var(--bg-header); }
+.clip-card .clip-title {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 4px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.clip-card .clip-text {
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+  font-style: italic;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.clip-card .clip-group {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 4px;
+}
+
+/* Viewer */
+.viewer { display: none; margin-bottom: 40px; }
+.viewer.active { display: block; }
+
+.viewer-header {
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 16px;
+}
+.viewer-annotation {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.2rem;
+  color: var(--text-heading);
+  font-weight: 400;
+  line-height: 1.5;
+}
+.viewer-meta {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  margin-top: 6px;
+  font-family: 'SF Mono', monospace;
+}
+
+.viz-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.viz-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-header);
+}
+.card-title {
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.card-hint { font-size: 0.65rem; color: var(--text-muted); }
+.viz-body {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  background: var(--bg-body);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.viz-body video { width: 100%; height: 100%; object-fit: contain; }
+.viz-body #canvas2d {
+  position: absolute; top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none; z-index: 5;
+}
+.viz-body canvas { width: 100%; height: 100%; }
+
+/* Playback bar */
+.playback-bar {
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 16px;
+  background: var(--bg-header);
+  border-top: 1px solid var(--border);
+}
+.playback-bar button {
+  background: none; border: 1px solid var(--border);
+  color: var(--text); width: 30px; height: 30px;
+  border-radius: 50%; cursor: pointer; font-size: 11px;
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.15s;
+  flex-shrink: 0;
+}
+.playback-bar button:hover { background: var(--bg-card); }
+.playback-bar input[type=range] {
+  flex: 1; -webkit-appearance: none; appearance: none;
+  height: 3px; background: #333; border-radius: 2px; outline: none;
+}
+.playback-bar input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none; width: 12px; height: 12px;
+  border-radius: 50%; background: #e0e0e0; cursor: pointer;
+}
+.frame-label {
+  font-size: 0.7rem; color: var(--text-secondary); min-width: 50px;
+  text-align: right; font-variant-numeric: tabular-nums; flex-shrink: 0;
+}
+
+/* Loading */
+.loading-msg {
+  font-size: 0.8rem; color: var(--text-secondary); text-align: center; padding: 40px;
+}
+
+/* Footer */
+.footer {
+  padding: 24px 0; border-top: 1px solid var(--border);
+  text-align: center; font-size: 0.7rem; color: var(--text-muted);
+  margin-bottom: 24px;
+}
+
+/* Back button */
+.back-btn {
+  display: inline-block; padding: 8px 16px; margin-bottom: 16px;
+  background: var(--bg-header); border: 1px solid var(--border); border-radius: 6px;
+  color: var(--text-secondary); font-size: 0.78rem; cursor: pointer;
+  transition: background 0.15s, color 0.15s; font-family: inherit;
+}
+.back-btn:hover { background: var(--bg-card); color: var(--text); }
+
+@media (max-width: 800px) {
+  .viz-row { grid-template-columns: 1fr; }
+  .masthead h1 { font-size: 1.6rem; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+  <header class="masthead">
+    <div class="masthead-left">
+      <h1>GenTraj Visualization</h1>
+      <p class="subtitle">Interactive 3D trajectory viewer across EgoDex, HD-EPIC, and Xperience datasets</p>
+    </div>
+    <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()">Light Mode</button>
+  </header>
+
+  <!-- Tab bar -->
+  <div class="tabs" id="tabBar"></div>
+
+  <!-- Clip browser -->
+  <div id="browserView">
+    <div class="clip-list" id="clipList"></div>
+  </div>
+
+  <!-- Clip viewer -->
+  <div class="viewer" id="viewerView">
+    <button class="back-btn" onclick="closeViewer()">&larr; Back to list</button>
+    <div class="viewer-header">
+      <div class="viewer-annotation" id="viewerAnnotation"></div>
+      <div class="viewer-meta" id="viewerMeta"></div>
+    </div>
+    <div class="viz-row">
+      <div class="viz-card">
+        <div class="card-header">
+          <span class="card-title">RGB + 2D Tracks</span>
+        </div>
+        <div class="viz-body" id="rgb-box">
+          <video id="video" muted loop></video>
+          <canvas id="canvas2d"></canvas>
+        </div>
+        <div class="playback-bar">
+          <button id="playPauseBtn" onclick="togglePlay()">&#9654;</button>
+          <input type="range" id="scrubber" min="0" max="100" value="0" oninput="scrubVideo(this.value)">
+          <span class="frame-label" id="frameLabel">0 / 0</span>
+        </div>
+      </div>
+      <div class="viz-card">
+        <div class="card-header">
+          <span class="card-title">3D Scene</span>
+          <span class="card-hint">drag rotate &middot; WASD move &middot; Q/E up/down &middot; scroll zoom</span>
+        </div>
+        <div class="viz-body" id="scene3d-box">
+          <canvas id="canvas3d"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">GenTraj &middot; EgoDex &middot; HD-EPIC &middot; Xperience</footer>
+</div>
+
+<script>
+// ============================================================
+// State
+// ============================================================
+let manifest = null;
+let activeTab = 'egodex';
+let currentClip = null;  // manifest entry
+let clipData = null;     // parsed npz data
+
+const video = document.getElementById('video');
+const canvas2d = document.getElementById('canvas2d');
+const ctx2d = canvas2d.getContext('2d');
+const scrubber = document.getElementById('scrubber');
+
+const TRAIL_2D = 8;
+const TRAIL_3D = 12;
+const CAM_TRAIL = 20;
+
+// ============================================================
+// Color helpers
+// ============================================================
+// Light/pastel rainbow for trails
+function hsvPalette(N) {
+  let colors = [];
+  for (let i = 0; i < N; i++) {
+    let h = (i / N) * 360;
+    colors.push('hsl(' + h + ',60%,75%)');  // lighter, less saturated
+  }
+  return colors;
+}
+function hsvPaletteRGB(N) {
+  let colors = [];
+  for (let i = 0; i < N; i++) {
+    let h = (i / N), s = 0.5, l = 0.7;  // pastel
+    let c = (1 - Math.abs(2*l - 1)) * s;
+    let x = c * (1 - Math.abs((h*6) % 2 - 1));
+    let m = l - c/2, r, g, b;
+    let hi = Math.floor(h * 6) % 6;
+    switch(hi) {
+      case 0: r=c;g=x;b=0;break; case 1: r=x;g=c;b=0;break;
+      case 2: r=0;g=c;b=x;break; case 3: r=0;g=x;b=c;break;
+      case 4: r=x;g=0;b=c;break; default:r=c;g=0;b=x;break;
+    }
+    colors.push({r:r+m, g:g+m, b:b+m});
+  }
+  return colors;
+}
+
+// Muted rainbow for current dots (visible but not overpowering)
+function hsvPaletteMuted(N) {
+  let colors = [];
+  for (let i = 0; i < N; i++) {
+    let h = (i / N) * 360;
+    colors.push('hsl(' + h + ',50%,55%)');  // medium saturation, not too bright
+  }
+  return colors;
+}
+
+// Sample RGB from video frame at track 2D positions for 3D coloring
+let _samplerCanvas = null, _samplerCtx = null;
+function sampleVideoColors(frameIdx) {
+  if (!video.videoWidth || !video.videoHeight || !clipData || !clipData.tracks2d) return null;
+  if (!_samplerCanvas) {
+    _samplerCanvas = document.createElement('canvas');
+    _samplerCtx = _samplerCanvas.getContext('2d', {willReadFrequently: true});
+  }
+  _samplerCanvas.width = video.videoWidth;
+  _samplerCanvas.height = video.videoHeight;
+  _samplerCtx.drawImage(video, 0, 0);
+
+  const dim = clipData.dim;
+  const scaleX = video.videoWidth / dim[1];
+  const scaleY = video.videoHeight / dim[0];
+  const tracks = clipData.tracks2d;
+  const vis = clipData.vis2d;
+  const T = tracks.length;
+  const N = tracks[0].length;
+  const fi = Math.min(frameIdx, T - 1);
+
+  const results = [];
+  for (let n = 0; n < N; n++) {
+    const v = vis ? vis[fi][n] : true;
+    const p = tracks[fi][n];
+    if (!v || isNaN(p[0]) || isNaN(p[1])) {
+      results.push(null);
+      continue;
+    }
+    const px = Math.min(Math.max(Math.round(p[0] * scaleX), 0), _samplerCanvas.width - 1);
+    const py = Math.min(Math.max(Math.round(p[1] * scaleY), 0), _samplerCanvas.height - 1);
+    const pixel = _samplerCtx.getImageData(px, py, 1, 1).data;
+    results.push({r: pixel[0]/255, g: pixel[1]/255, b: pixel[2]/255});
+  }
+  return results;
+}
+
+// ============================================================
+// Theme toggle
+// ============================================================
+function toggleTheme() {
+  const html = document.documentElement;
+  const isLight = html.getAttribute('data-theme') === 'light';
+  html.setAttribute('data-theme', isLight ? 'dark' : 'light');
+  document.getElementById('themeToggle').textContent = isLight ? 'Light Mode' : 'Dark Mode';
+  localStorage.setItem('theme', isLight ? 'dark' : 'light');
+  // Update Three.js background
+  if (renderer) {
+    const bg = isLight ? 0x0d0d0d : 0xeeeee8;
+    renderer.setClearColor(bg);
+    render3D();
+  }
+}
+// Restore saved theme
+(function() {
+  const saved = localStorage.getItem('theme');
+  if (saved === 'light') {
+    document.documentElement.setAttribute('data-theme', 'light');
+    // Button text will be set after DOM loads
+  }
+})();
+
+// ============================================================
+// Data loading — JSON from server (server converts npz)
+// ============================================================
+
+// ============================================================
+// Tabs & clip list
+// ============================================================
+async function init() {
+  const resp = await fetch('/api/manifest');
+  manifest = await resp.json();
+  buildTabs();
+  showTab('egodex');
+}
+
+function buildTabs() {
+  const bar = document.getElementById('tabBar');
+  const datasets = [
+    ['egodex', 'EgoDex'],
+    ['hdepic', 'HD-EPIC'],
+    ['xperience', 'Xperience']
+  ];
+  bar.innerHTML = '';
+  for (const [key, label] of datasets) {
+    const n = (manifest[key] || []).length;
+    const tab = document.createElement('div');
+    tab.className = 'tab' + (key === activeTab ? ' active' : '');
+    tab.innerHTML = label + '<span class="count">' + n + '</span>';
+    tab.onclick = () => showTab(key);
+    bar.appendChild(tab);
+  }
+}
+
+function showTab(key) {
+  activeTab = key;
+  // Update tab UI
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tab')[['egodex','hdepic','xperience'].indexOf(key)].classList.add('active');
+  buildClipList();
+}
+
+function buildClipList() {
+  const list = document.getElementById('clipList');
+  const clips = manifest[activeTab] || [];
+  list.innerHTML = '';
+  // Group by task/participant
+  const groups = {};
+  for (const c of clips) {
+    const g = c.task || c.participant || c.label || 'clips';
+    if (!groups[g]) groups[g] = [];
+    groups[g].push(c);
+  }
+  for (const [group, items] of Object.entries(groups).sort()) {
+    for (const c of items) {
+      const card = document.createElement('div');
+      card.className = 'clip-card';
+      card.innerHTML =
+        '<div class="clip-group">' + group.replace(/_/g, ' ') + '</div>' +
+        '<div class="clip-title">' + c.id.replace(/__/g, ' / ') + '</div>' +
+        '<div class="clip-text">' + (c.text || '&mdash;') + '</div>';
+      card.onclick = () => openViewer(c);
+      list.appendChild(card);
+    }
+  }
+}
+
+// ============================================================
+// Viewer
+// ============================================================
+function openViewer(clip) {
+  currentClip = clip;
+  document.getElementById('browserView').style.display = 'none';
+  document.getElementById('viewerView').classList.add('active');
+  document.getElementById('viewerAnnotation').textContent = clip.text || 'No annotation';
+  document.getElementById('viewerMeta').textContent = clip.id.replace(/__/g, ' / ');
+
+  // Load video
+  video.src = clip.rgb_url;
+  video.load();
+
+  // Load data
+  loadClipData(clip);
+}
+
+function closeViewer() {
+  document.getElementById('viewerView').classList.remove('active');
+  document.getElementById('browserView').style.display = '';
+  video.pause();
+  video.src = '';
+  currentClip = null;
+  clipData = null;
+}
+
+async function loadClipData(clip) {
+  document.getElementById('viewerAnnotation').textContent = 'Loading 3D data...';
+  try {
+    const ds = clip.rgb_url.split('/')[2]; // extract dataset from /video/<dataset>/<id>
+    const resp = await fetch('/api/clip/' + ds + '/' + clip.id);
+    clipData = await resp.json();
+    if (clipData.error) throw new Error(clipData.error);
+    document.getElementById('viewerAnnotation').textContent = clip.text || 'No annotation';
+    prepare3DScene();
+    video.play();
+    document.getElementById('playPauseBtn').innerHTML = '&#9646;&#9646;';
+  } catch(e) {
+    console.error(e);
+    document.getElementById('viewerAnnotation').textContent = 'Error loading data: ' + e.message;
+  }
+}
+
+// ============================================================
+// Three.js 3D scene
+// ============================================================
+let scene, camera, renderer;
+let isDragging = false, prevMouse = {x:0,y:0};
+let rotX = 0.3, rotY = 0;
+let sceneMeta = null;
+let dynamicGroup = null;
+
+// FPS-style camera: position + yaw/pitch
+let camYaw = 0, camPitch = 0;
+let camTarget = new THREE.Vector3(0, 0, 0);
+let camDist = 3;
+
+function init3D() {
+  const c = document.getElementById('canvas3d');
+  renderer = new THREE.WebGLRenderer({canvas: c, antialias: true});
+  const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+  renderer.setClearColor(isLight ? 0xeeeee8 : 0x0d0d0d);
+  scene = new THREE.Scene();
+  camera = new THREE.PerspectiveCamera(50, 1, 0.01, 500);
+  camera.position.set(0, 0, 3);
+
+  c.addEventListener('mousedown', e => {
+    isDragging = true;
+    prevMouse = {x: e.clientX, y: e.clientY};
+  });
+  c.addEventListener('contextmenu', e => e.preventDefault());
+  window.addEventListener('mouseup', () => { isDragging = false; });
+  c.addEventListener('mousemove', e => {
+    if (!isDragging) return;
+    const dx = e.clientX - prevMouse.x;
+    const dy = e.clientY - prevMouse.y;
+    prevMouse = {x: e.clientX, y: e.clientY};
+    camYaw -= dx * 0.005;
+    camPitch -= dy * 0.005;
+    camPitch = Math.max(-Math.PI/2 + 0.1, Math.min(Math.PI/2 - 0.1, camPitch));
+    updateCameraFromOrbit();
+  });
+  c.addEventListener('wheel', e => {
+    camDist = Math.max(0.3, Math.min(30, camDist + e.deltaY * 0.01));
+    updateCameraFromOrbit();
+    e.preventDefault();
+  }, {passive: false});
+}
+
+function updateCameraFromOrbit() {
+  // Orbit camera around camTarget
+  camera.position.set(
+    camTarget.x + camDist * Math.sin(camYaw) * Math.cos(camPitch),
+    camTarget.y + camDist * Math.sin(camPitch),
+    camTarget.z + camDist * Math.cos(camYaw) * Math.cos(camPitch)
+  );
+  camera.lookAt(camTarget);
+  renderer.render(scene, camera);
+}
+
+function render3D() {
+  if (!scene || !renderer) return;
+  const box = document.getElementById('scene3d-box');
+  const w = box.clientWidth, h = box.clientHeight;
+  if (w === 0 || h === 0) return;
+  renderer.setSize(w, h);
+  camera.aspect = w / h;
+  camera.updateProjectionMatrix();
+  renderer.render(scene, camera);
+}
+
+function prepare3DScene() {
+  while (scene.children.length) scene.remove(scene.children[0]);
+  dynamicGroup = null;
+  sceneMeta = null;
+  if (!clipData) return;
+
+  // Point cloud (if available)
+  let hasPc = clipData.pc_xyz && clipData.pc_colors;
+  let allPts = [];
+
+  if (hasPc) {
+    const xyz = clipData.pc_xyz;  // [[x,y,z], ...]
+    const cols = clipData.pc_colors; // [[r,g,b], ...]
+    const N = xyz.length;
+    const positions = new Float32Array(N * 3);
+    const colors = new Float32Array(N * 3);
+    // OpenCV/COLMAP world (cam0=identity): +Y down, +Z forward
+    // Three.js: +Y up, -Z forward
+    // Transform: X, -Y, -Z
+    for (let i = 0; i < N; i++) {
+      positions[i*3]   = xyz[i][0];
+      positions[i*3+1] = -xyz[i][1];
+      positions[i*3+2] = -xyz[i][2];
+      colors[i*3]   = cols[i][0] / 255;
+      colors[i*3+1] = cols[i][1] / 255;
+      colors[i*3+2] = cols[i][2] / 255;
+      allPts.push([xyz[i][0], -xyz[i][1], -xyz[i][2]]);
+    }
+    const pcGeom = new THREE.BufferGeometry();
+    pcGeom.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
+    pcGeom.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
+    const pcMat = new THREE.PointsMaterial({
+      vertexColors: true, size: 0.008, sizeAttenuation: true,
+      transparent: true, opacity: 0.5,
+    });
+    scene.add(new THREE.Points(pcGeom, pcMat));
+  }
+
+  // Also collect track points for bounding box
+  if (clipData.pts3d) {
+    const pts = clipData.pts3d;  // (N, T, 3)
+    for (let n = 0; n < pts.length; n++)
+      for (let t = 0; t < pts[n].length; t++)
+        allPts.push([pts[n][t][0], -pts[n][t][1], -pts[n][t][2]]);
+  }
+
+  if (allPts.length === 0) { render3D(); return; }
+
+  // Bounding box (1st-99th percentile)
+  const xs = allPts.map(p => p[0]).filter(v => isFinite(v)).sort((a,b) => a-b);
+  const ys = allPts.map(p => p[1]).filter(v => isFinite(v)).sort((a,b) => a-b);
+  const zs = allPts.map(p => p[2]).filter(v => isFinite(v)).sort((a,b) => a-b);
+  if (xs.length === 0) { render3D(); return; }
+  const p1 = 0.01, p99 = 0.99;
+  const xmin = xs[Math.floor(xs.length*p1)], xmax = xs[Math.floor(xs.length*p99)];
+  const ymin = ys[Math.floor(ys.length*p1)], ymax = ys[Math.floor(ys.length*p99)];
+  const zmin = zs[Math.floor(zs.length*p1)], zmax = zs[Math.floor(zs.length*p99)];
+  const cx = (xmin+xmax)/2, cy = (ymin+ymax)/2, cz = (zmin+zmax)/2;
+  const interval = Math.max(xmax-xmin, ymax-ymin, zmax-zmin);
+  const half = interval / 2 * 0.75;
+
+  sceneMeta = {cx, cy, cz, half, interval};
+
+  // Floor grid at min Y (lowest point = floor after negation)
+  const yFloor = ys[0];
+  const gridHw = interval * 1.2;
+  const isLt = document.documentElement.getAttribute('data-theme') === 'light';
+  const gridHelper = new THREE.GridHelper(gridHw * 2, 20, isLt ? 0xcccccc : 0x333333, isLt ? 0xdddddd : 0x222222);
+  gridHelper.position.set(cx, yFloor, cz);
+  scene.add(gridHelper);
+
+  // Set orbit target to scene center, camera behind-right of ego view
+  camTarget.set(cx, cy, cz);
+  camDist = half * 3.5;
+
+  if (clipData.cam_pos && clipData.cam_fwd) {
+    const cf = clipData.cam_fwd[0];
+    // Camera forward in display coords
+    const cfd = [cf[0], -cf[1], -cf[2]];
+    // Yaw: angle of the ego camera forward projected onto XZ plane
+    // We want to look from behind-right, so offset by ~135 degrees
+    const fwdYaw = Math.atan2(cfd[0], cfd[2]);
+    camYaw = fwdYaw + Math.PI * 0.75;  // behind and to the right
+    camPitch = 0.4;  // slight elevation
+  } else {
+    camYaw = Math.PI * 0.25;
+    camPitch = 0.3;
+  }
+  updateCameraFromOrbit();
+
+  draw3DFrame(0);
+}
+
+function draw3DFrame(frameIdx) {
+  if (!sceneMeta || !clipData) return;
+  const {cx, cy, cz, half, interval} = sceneMeta;
+
+  if (dynamicGroup) scene.remove(dynamicGroup);
+  dynamicGroup = new THREE.Group();
+
+  // --- Query point trajectories (fully opaque) ---
+  if (clipData.pts3d) {
+    const pts = clipData.pts3d;   // (N, T, 3) world space
+    const vis = clipData.vis3d ? clipData.vis3d : null;
+    const N = pts.length;
+    const T = pts[0].length;
+    const fi = Math.min(frameIdx, T - 1);
+    const colorsRGB = hsvPaletteRGB(N);
+
+    // Trail lines
+    const trailStart = Math.max(0, fi - TRAIL_3D);
+    for (let n = 0; n < N; n++) {
+      let segment = [];
+      for (let t = trailStart; t <= fi; t++) {
+        const p = pts[n][t];
+        const v = vis ? vis[n][t] : true;
+        if (!v || isNaN(p[0]) || isNaN(p[1]) || isNaN(p[2]) ||
+            (p[0] === 0 && p[1] === 0 && p[2] === 0)) {
+          if (segment.length >= 6) {
+            const geom = new THREE.BufferGeometry();
+            geom.setAttribute('position', new THREE.Float32BufferAttribute(segment, 3));
+            const c = colorsRGB[n];
+            dynamicGroup.add(new THREE.Line(geom, new THREE.LineBasicMaterial({
+              color: new THREE.Color(c.r, c.g, c.b), linewidth: 2
+            })));
+          }
+          segment = [];
+        } else {
+          segment.push(p[0], -p[1], -p[2]);
+        }
+      }
+      if (segment.length >= 6) {
+        const geom = new THREE.BufferGeometry();
+        geom.setAttribute('position', new THREE.Float32BufferAttribute(segment, 3));
+        const c = colorsRGB[n];
+        dynamicGroup.add(new THREE.Line(geom, new THREE.LineBasicMaterial({
+          color: new THREE.Color(c.r, c.g, c.b), linewidth: 2
+        })));
+      }
+    }
+
+    // Current frame points — RGB from video
+    const rgbColors = sampleVideoColors(frameIdx);
+    const ptPos = [], ptCol = [];
+    for (let n = 0; n < N; n++) {
+      const p = pts[n][fi];
+      const v = vis ? vis[n][fi] : true;
+      if (!v || isNaN(p[0]) || isNaN(p[1]) || isNaN(p[2])) continue;
+      if (p[0] === 0 && p[1] === 0 && p[2] === 0) continue;
+      ptPos.push(p[0], -p[1], -p[2]);
+      // Use RGB from video if available, else fallback to rainbow
+      const rc = rgbColors && rgbColors[n] ? rgbColors[n] : colorsRGB[n];
+      ptCol.push(rc.r, rc.g, rc.b);
+    }
+    if (ptPos.length > 0) {
+      const g = new THREE.BufferGeometry();
+      g.setAttribute('position', new THREE.Float32BufferAttribute(ptPos, 3));
+      g.setAttribute('color', new THREE.Float32BufferAttribute(ptCol, 3));
+      dynamicGroup.add(new THREE.Points(g, new THREE.PointsMaterial({
+        vertexColors: true, size: 0.025, sizeAttenuation: true
+      })));
+    }
+  }
+
+  // --- Camera position + trail ---
+  if (clipData.cam_pos) {
+    const camPos = clipData.cam_pos;  // (T, 3)
+    const T = camPos.length;
+    const fi = Math.min(frameIdx, T - 1);
+    const trailStart = Math.max(0, fi - CAM_TRAIL);
+
+    // Camera trail + frustum — colors adapt to theme
+    const isLightTheme = document.documentElement.getAttribute('data-theme') === 'light';
+    const camTrailColor = isLightTheme ? 0x444444 : 0xcccccc;
+    const camSphereColor = isLightTheme ? 0x333333 : 0xeeeeee;
+    const camFrustumColor = isLightTheme ? 0x2266bb : 0x66aaff;
+
+    const camTrail = [];
+    for (let t = trailStart; t <= fi; t++) {
+      const p = camPos[t];
+      if (isNaN(p[0])) continue;
+      camTrail.push(p[0], -p[1], -p[2]);
+    }
+    if (camTrail.length >= 6) {
+      const g = new THREE.BufferGeometry();
+      g.setAttribute('position', new THREE.Float32BufferAttribute(camTrail, 3));
+      dynamicGroup.add(new THREE.Line(g, new THREE.LineBasicMaterial({
+        color: camTrailColor, linewidth: 2, transparent: true, opacity: 0.7
+      })));
+    }
+
+    // Camera frustum with video texture at current frame
+    const cp = camPos[fi];
+    if (!isNaN(cp[0]) && clipData.cam_fwd) {
+      const fwd_raw = clipData.cam_fwd[fi];
+      const origin = new THREE.Vector3(cp[0], -cp[1], -cp[2]);
+      const fwd = new THREE.Vector3(fwd_raw[0], -fwd_raw[1], -fwd_raw[2]).normalize();
+
+      // Build camera local axes from forward direction
+      const worldUp = new THREE.Vector3(0, 1, 0);
+      const right = new THREE.Vector3().crossVectors(fwd, worldUp).normalize();
+      if (right.length() < 0.01) right.set(1, 0, 0); // degenerate fallback
+      const up = new THREE.Vector3().crossVectors(right, fwd).normalize();
+
+      // Frustum size — small and short so it doesn't overlap the point cloud
+      const farDist = interval * 0.06;
+      const dim = clipData.dim;
+      const aspect = dim[1] / dim[0]; // W/H
+      const halfH = farDist * 0.35;
+      const halfW = halfH * aspect;
+
+      // 4 corners of the far plane
+      const c0 = origin.clone().add(fwd.clone().multiplyScalar(farDist))
+        .add(right.clone().multiplyScalar(-halfW)).add(up.clone().multiplyScalar(halfH));
+      const c1 = origin.clone().add(fwd.clone().multiplyScalar(farDist))
+        .add(right.clone().multiplyScalar(halfW)).add(up.clone().multiplyScalar(halfH));
+      const c2 = origin.clone().add(fwd.clone().multiplyScalar(farDist))
+        .add(right.clone().multiplyScalar(halfW)).add(up.clone().multiplyScalar(-halfH));
+      const c3 = origin.clone().add(fwd.clone().multiplyScalar(farDist))
+        .add(right.clone().multiplyScalar(-halfW)).add(up.clone().multiplyScalar(-halfH));
+
+      // Frustum wireframe: 4 lines from apex to corners + 4 lines for rectangle
+      const frustumPts = [
+        origin, c0, origin, c1, origin, c2, origin, c3,
+        c0, c1, c1, c2, c2, c3, c3, c0
+      ];
+      const fg = new THREE.BufferGeometry().setFromPoints(frustumPts);
+      dynamicGroup.add(new THREE.LineSegments(fg, new THREE.LineBasicMaterial({
+        color: camFrustumColor, linewidth: 1, transparent: true, opacity: 0.8
+      })));
+
+      // Video image plane on far rectangle
+      if (video.videoWidth > 0) {
+        // Capture current video frame to texture
+        if (!_samplerCanvas) {
+          _samplerCanvas = document.createElement('canvas');
+          _samplerCtx = _samplerCanvas.getContext('2d', {willReadFrequently: true});
+        }
+        _samplerCanvas.width = 128;  // low res for performance
+        _samplerCanvas.height = Math.round(128 / aspect);
+        _samplerCtx.drawImage(video, 0, 0, _samplerCanvas.width, _samplerCanvas.height);
+
+        const tex = new THREE.CanvasTexture(_samplerCanvas);
+        tex.minFilter = THREE.LinearFilter;
+
+        // Build plane geometry from the 4 corners (two triangles)
+        const planeGeo = new THREE.BufferGeometry();
+        const positions = new Float32Array([
+          c0.x, c0.y, c0.z,  c1.x, c1.y, c1.z,  c2.x, c2.y, c2.z,
+          c0.x, c0.y, c0.z,  c2.x, c2.y, c2.z,  c3.x, c3.y, c3.z,
+        ]);
+        const uvs = new Float32Array([
+          0, 1,  1, 1,  1, 0,
+          0, 1,  1, 0,  0, 0,
+        ]);
+        planeGeo.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
+        planeGeo.setAttribute('uv', new THREE.Float32BufferAttribute(uvs, 2));
+        const planeMat = new THREE.MeshBasicMaterial({
+          map: tex, side: THREE.DoubleSide, transparent: true, opacity: 0.9
+        });
+        dynamicGroup.add(new THREE.Mesh(planeGeo, planeMat));
+      }
+    }
+  }
+
+  scene.add(dynamicGroup);
+  render3D();
+}
+
+// ============================================================
+// 2D overlay
+// ============================================================
+function resize2D() {
+  const box = document.getElementById('rgb-box');
+  canvas2d.width = box.clientWidth;
+  canvas2d.height = box.clientHeight;
+}
+
+function getVideoRect() {
+  const box = document.getElementById('rgb-box');
+  const bw = box.clientWidth, bh = box.clientHeight;
+  if (!clipData || !clipData.dim) return {x:0,y:0,scaleX:1,scaleY:1};
+  const dim = clipData.dim;
+  const vw = dim[1], vh = dim[0];
+  const scale = Math.min(bw / vw, bh / vh);
+  return {x: (bw - vw*scale)/2, y: (bh - vh*scale)/2, scaleX: scale, scaleY: scale};
+}
+
+function draw2D(frameIdx) {
+  if (!clipData || !clipData.tracks2d) return;
+  resize2D();
+  const w = canvas2d.width, h = canvas2d.height;
+  ctx2d.clearRect(0, 0, w, h);
+  const rect = getVideoRect();
+
+  const tracks = clipData.tracks2d;  // (T, N, 2)
+  const vis = clipData.vis2d ? clipData.vis2d : null;
+  const T = tracks.length;
+  const N = tracks[0].length;
+  const fi = Math.min(frameIdx, T - 1);
+  const trailStart = Math.max(0, fi - TRAIL_2D);
+  const trailColors = hsvPalette(N);      // light pastel rainbow for trails
+  const dotColors = hsvPaletteMuted(N);   // muted rainbow for current dots
+
+  for (let n = 0; n < N; n++) {
+    const v = vis ? vis[fi][n] : true;
+    if (!v) continue;
+
+    // Trails: light pastel rainbow
+    ctx2d.lineWidth = 2;
+    for (let t = trailStart + 1; t <= fi; t++) {
+      const v0 = vis ? vis[t-1][n] : true;
+      const v1 = vis ? vis[t][n] : true;
+      if (!v0 || !v1) continue;
+      const px0 = tracks[t-1][n][0], py0 = tracks[t-1][n][1];
+      const px1 = tracks[t][n][0], py1 = tracks[t][n][1];
+      if (isNaN(px0) || isNaN(py0) || isNaN(px1) || isNaN(py1)) continue;
+      const alpha = (t - trailStart) / TRAIL_2D;
+      ctx2d.globalAlpha = 0.25 + 0.5 * alpha;
+      ctx2d.strokeStyle = trailColors[n];
+      ctx2d.beginPath();
+      ctx2d.moveTo(px0 * rect.scaleX + rect.x, py0 * rect.scaleY + rect.y);
+      ctx2d.lineTo(px1 * rect.scaleX + rect.x, py1 * rect.scaleY + rect.y);
+      ctx2d.stroke();
+    }
+
+    // Current dot: muted rainbow
+    const px = tracks[fi][n][0], py = tracks[fi][n][1];
+    if (isNaN(px) || isNaN(py)) continue;
+    ctx2d.globalAlpha = 0.85;
+    ctx2d.fillStyle = dotColors[n];
+    ctx2d.beginPath();
+    ctx2d.arc(px * rect.scaleX + rect.x, py * rect.scaleY + rect.y, 3, 0, Math.PI * 2);
+    ctx2d.fill();
+    ctx2d.strokeStyle = 'rgba(255,255,255,0.4)';
+    ctx2d.lineWidth = 1;
+    ctx2d.stroke();
+  }
+  ctx2d.globalAlpha = 1.0;
+}
+
+// ============================================================
+// Video controls
+// ============================================================
+function togglePlay() {
+  if (video.paused) { video.play(); document.getElementById('playPauseBtn').innerHTML = '&#9646;&#9646;'; }
+  else { video.pause(); document.getElementById('playPauseBtn').innerHTML = '&#9654;'; }
+}
+function scrubVideo(val) {
+  if (video.duration) video.currentTime = (val / 100) * video.duration;
+}
+video.addEventListener('timeupdate', () => {
+  if (!video.duration || !clipData) return;
+  const pct = (video.currentTime / video.duration) * 100;
+  scrubber.value = pct;
+  // Get T from tracks
+  let T = 0;
+  if (clipData.pts3d) T = clipData.pts3d[0].length;
+  else if (clipData.tracks2d) T = clipData.tracks2d.length;
+  const fi = Math.round((video.currentTime / video.duration) * Math.max(T - 1, 0));
+  document.getElementById('frameLabel').textContent = fi + ' / ' + T;
+  draw2D(fi);
+  draw3DFrame(fi);
+});
+
+// Keyboard — FPS-style WASD
+const keysDown = {};
+document.addEventListener('keydown', e => {
+  if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+  if (e.key === ' ') { togglePlay(); e.preventDefault(); }
+  if (e.key === 'Escape') closeViewer();
+  const k = e.key.toLowerCase();
+  if (['w','a','s','d','q','e','arrowup','arrowdown','arrowleft','arrowright'].includes(k)) {
+    keysDown[k] = true;
+    e.preventDefault();
+  }
+});
+document.addEventListener('keyup', e => {
+  keysDown[e.key.toLowerCase()] = false;
+});
+
+// FPS movement loop: WASD moves orbit target, Q/E moves up/down
+(function camMoveLoop() {
+  const speed = 0.03 * camDist;
+  let moved = false;
+  // Forward/back along camera look direction (projected onto XZ)
+  const fwdX = -Math.sin(camYaw);
+  const fwdZ = -Math.cos(camYaw);
+  // Right vector
+  const rightX = Math.cos(camYaw);
+  const rightZ = -Math.sin(camYaw);
+
+  if (keysDown['w'] || keysDown['arrowup'])    { camTarget.x += fwdX * speed; camTarget.z += fwdZ * speed; moved = true; }
+  if (keysDown['s'] || keysDown['arrowdown'])  { camTarget.x -= fwdX * speed; camTarget.z -= fwdZ * speed; moved = true; }
+  if (keysDown['a'] || keysDown['arrowleft'])  { camTarget.x -= rightX * speed; camTarget.z -= rightZ * speed; moved = true; }
+  if (keysDown['d'] || keysDown['arrowright']) { camTarget.x += rightX * speed; camTarget.z += rightZ * speed; moved = true; }
+  if (keysDown['q']) { camTarget.y -= speed; moved = true; }
+  if (keysDown['e']) { camTarget.y += speed; moved = true; }
+  if (moved) updateCameraFromOrbit();
+  requestAnimationFrame(camMoveLoop);
+})();
+
+window.addEventListener('resize', () => {
+  render3D();
+  if (clipData) draw2D(0);
+});
+
+// Init
+init3D();
+init();
+// Set theme button text
+if (document.documentElement.getAttribute('data-theme') === 'light') {
+  document.getElementById('themeToggle').textContent = 'Dark Mode';
+}
+</script>
+</body>
+</html>
