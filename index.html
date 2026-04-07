@@ -548,7 +548,7 @@ function prepare3DViewer(id) {
 
   let allPts = [];
 
-  // Point cloud
+  // Point cloud (added to scene but NOT used for bounding box)
   if (cd.pc_xyz && cd.pc_colors) {
     const xyz = cd.pc_xyz, cols = cd.pc_colors;
     const N = xyz.length;
@@ -556,7 +556,6 @@ function prepare3DViewer(id) {
     for (let i = 0; i < N; i++) {
       pos[i*3]=xyz[i][0]; pos[i*3+1]=-xyz[i][1]; pos[i*3+2]=-xyz[i][2];
       col[i*3]=cols[i][0]/255; col[i*3+1]=cols[i][1]/255; col[i*3+2]=cols[i][2]/255;
-      allPts.push([xyz[i][0], -xyz[i][1], -xyz[i][2]]);
     }
     const g = new THREE.BufferGeometry();
     g.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3));
@@ -566,6 +565,7 @@ function prepare3DViewer(id) {
     })));
   }
 
+  // Bounding box from TRACK POINTS ONLY (not point cloud — PC can be noisy/huge)
   if (cd.pts3d) {
     for (let n = 0; n < cd.pts3d.length; n++)
       for (let t = 0; t < cd.pts3d[n].length; t++)
