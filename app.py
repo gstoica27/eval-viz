@@ -14,6 +14,7 @@ app = Flask(__name__)
 
 DATA_DIR = Path(__file__).parent / "static" / "data"
 MANIFEST = None
+EVAL_MANIFEST = None
 
 
 class NumpyEncoder(json.JSONEncoder):
@@ -42,6 +43,41 @@ def get_manifest():
 @app.route("/")
 def index():
     return render_template("index.html")
+
+
+@app.route("/eval")
+def eval_page():
+    # Serve root-level eval.html (same file used by GitHub Pages)
+    return send_file(Path(__file__).parent / "eval.html")
+
+
+def get_eval_manifest():
+    global EVAL_MANIFEST
+    if EVAL_MANIFEST is None:
+        eval_path = DATA_DIR / "eval" / "manifest.json"
+        if eval_path.exists():
+            with open(eval_path) as f:
+                EVAL_MANIFEST = json.load(f)
+        else:
+            EVAL_MANIFEST = {"eval": []}
+    return EVAL_MANIFEST
+
+
+@app.route("/api/eval_manifest")
+def api_eval_manifest():
+    return jsonify(get_eval_manifest())
+
+
+@app.route("/video/eval/<clip_id>")
+def serve_eval_video(clip_id):
+    m = get_eval_manifest()
+    for c in m.get("eval", []):
+        if c["id"] == clip_id:
+            rgb_path = c["rgb_path"]
+            if os.path.exists(rgb_path):
+                return send_file(rgb_path, mimetype="video/mp4")
+            return "Video not found", 404
+    return "Clip not found", 404
 
 
 @app.route("/api/manifest")
