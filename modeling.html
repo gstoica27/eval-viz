@@ -131,6 +131,7 @@ function populateCategories() {
 function renderClips() {
   for (const id in viewers) {
     const v = viewers[id];
+    if(v._raf) cancelAnimationFrame(v._raf);
     if(v.video){v.video.pause();v.video.src='';}
     if(v.renderer) v.renderer.dispose();
   }
@@ -203,15 +204,22 @@ async function loadEntry(id) {
   v.video.src = clip.rgb_url; v.video.load();
   v.video.pause(); // don't auto-play, jumpToClip will position it
 
-  v.video.addEventListener('timeupdate', () => {
-    if(!v.video.duration||!v.clipData) return;
-    const pct = v.video.currentTime/v.video.duration*100;
-    document.getElementById(id+'_scrub').value = pct;
-    const T = v.clipData.num_frames||1;
-    const fi = Math.round(v.video.currentTime/v.video.duration*Math.max(T-1,0));
-    document.getElementById(id+'_fl').textContent = fi;
-    draw3D(id, fi);
-  });
+  // Use requestAnimationFrame for smooth per-frame 3D sync (timeupdate only fires ~4fps)
+  const tick = () => {
+    if(v.video && v.video.duration && v.clipData) {
+      const pct = v.video.currentTime/v.video.duration*100;
+      document.getElementById(id+'_scrub').value = pct;
+      const T = v.clipData.num_frames||1;
+      const fi = Math.round(v.video.currentTime/v.video.duration*Math.max(T-1,0));
+      if(fi !== v._lastFi) {
+        v._lastFi = fi;
+        document.getElementById(id+'_fl').textContent = fi;
+        draw3D(id, fi);
+      }
+    }
+    v._raf = requestAnimationFrame(tick);
+  };
+  v._raf = requestAnimationFrame(tick);
 
   document.getElementById(id+'_load').textContent = 'Loading...';
   try {
