@@ -38,7 +38,7 @@ body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--tex
 
 /* Left panel: video + config selectors */
 .left-panel { border-right: 1px solid var(--border); padding: 8px; display: flex; flex-direction: column; gap: 6px; }
-.left-panel video { width: 100%; border-radius: 4px; }
+.left-panel video { border-radius: 4px; }
 .left-panel .cfg-controls { display: flex; flex-direction: column; gap: 4px; }
 .left-panel .cfg-controls label { font-size: 0.7rem; color: var(--text-secondary); }
 .left-panel .cfg-controls select { width: 100%; font-size: 0.72rem; padding: 3px 5px; }
@@ -152,7 +152,10 @@ function renderClips() {
       </div>
       <div class="clip-body">
         <div class="left-panel">
-          <video id="${id}_vid" muted loop playsinline preload="none"></video>
+          <div style="position:relative;width:100%;">
+            <video id="${id}_vid" muted loop playsinline preload="none" style="width:100%;display:block;border-radius:4px;"></video>
+            <canvas id="${id}_c2d" style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;"></canvas>
+          </div>
           <div class="scrub-row">
             <button class="play-btn" onclick="togglePlay('${id}')">&#9654;</button>
             <input type="range" id="${id}_scrub" min="0" max="100" value="0" oninput="scrubTo('${id}',this.value)">
@@ -394,63 +397,107 @@ function draw3D(id, videoFrame) {
   const cfg = cd.configs[v.activeCfgIdx||0];
   if(!cfg) { v.scene.add(dyn); renderScene(id); return; }
 
-  const ff = cfg.future_frames; // [f1..fF]
+  const ff = cfg.future_frames;
   const P = cfg.gt_3d[0].length;
-  const gtColors = hsvPalette(P);
 
-  // Draw GT trails (green tint) and pred trails (orange tint)
-  const drawTrails = (pts3d, vis, colorMod, pointSize) => {
-    // pts3d: (F, P, 3), vis: (F, P)
-    // Find which future frames are at or before videoFrame
+  const GT_COLOR = 0x4caf50;   // solid green
+  const PRED_COLOR = 0xff9800; // solid orange
+
+  const drawTrails = (pts3d, vis, color, pointSize) => {
     let lastFi = -1;
     for(let fi=0;fi<ff.length;fi++) { if(ff[fi]<=videoFrame) lastFi=fi; }
     if(lastFi<0) return;
-
     const trailStart = Math.max(0, lastFi-TRAIL);
+    const mat = new THREE.LineBasicMaterial({color});
+
     for(let p=0;p<P;p++) {
       let seg=[];
       for(let fi=trailStart;fi<=lastFi;fi++) {
-        const vv = vis[fi][p];
-        const pt = pts3d[fi][p];
-        if(!vv||!pt||!isFinite(pt[0])) { if(seg.length>=6){addLine(seg,gtColors[p],colorMod);} seg=[]; }
-        else { seg.push(pt[0],-pt[1],-pt[2]); }
+        const vv=vis[fi][p], pt=pts3d[fi][p];
+        if(!vv||!pt||!isFinite(pt[0])) {
+          if(seg.length>=6){ const g=new THREE.BufferGeometry(); g.setAttribute('position',new THREE.Float32BufferAttribute(seg,3)); dyn.add(new THREE.Line(g,mat)); }
+          seg=[];
+        } else { seg.push(pt[0],-pt[1],-pt[2]); }
       }
-      if(seg.length>=6) addLine(seg,gtColors[p],colorMod);
+      if(seg.length>=6){ const g=new THREE.BufferGeometry(); g.setAttribute('position',new THREE.Float32BufferAttribute(seg,3)); dyn.add(new THREE.Line(g,mat)); }
     }
 
-    // Current points
+    // Current dots
     if(lastFi>=0) {
-      const ptP=[],ptC=[];
+      const ptP=[];
       for(let p=0;p<P;p++) {
         const pt=pts3d[lastFi][p], vv=vis[lastFi][p];
         if(!vv||!pt||!isFinite(pt[0])) continue;
         ptP.push(pt[0],-pt[1],-pt[2]);
-        const c=gtColors[p];
-        ptC.push(c.r*colorMod.r, c.g*colorMod.g, c.b*colorMod.b);
       }
       if(ptP.length) {
         const g=new THREE.BufferGeometry();
         g.setAttribute('position',new THREE.Float32BufferAttribute(ptP,3));
-        g.setAttribute('color',new THREE.Float32BufferAttribute(ptC,3));
-        dyn.add(new THREE.Points(g,new THREE.PointsMaterial({vertexColors:true,size:pointSize,sizeAttenuation:true})));
+        dyn.add(new THREE.Points(g,new THREE.PointsMaterial({color,size:pointSize,sizeAttenuation:true})));
       }
     }
   };
 
-  function addLine(seg, baseColor, mod) {
-    const g=new THREE.BufferGeometry();
-    g.setAttribute('position',new THREE.Float32BufferAttribute(seg,3));
-    const c=new THREE.Color(baseColor.r*mod.r, baseColor.g*mod.g, baseColor.b*mod.b);
-    dyn.add(new THREE.Line(g,new THREE.LineBasicMaterial({color:c})));
-  }
-
-  // GT: bright with green tint
-  drawTrails(cfg.gt_3d, cfg.vis, {r:0.7,g:1.0,b:0.7}, 0.018);
-  // Pred: with orange tint
-  drawTrails(cfg.pred_3d, cfg.vis, {r:1.0,g:0.8,b:0.5}, 0.014);
+  drawTrails(cfg.gt_3d, cfg.vis, GT_COLOR, 0.018);
+  drawTrails(cfg.pred_3d, cfg.vis, PRED_COLOR, 0.014);
 
   v.scene.add(dyn);
   renderScene(id);
+
+  // Draw 2D overlay on video
+  draw2D(id, videoFrame);
+}
+
+function draw2D(id, videoFrame) {
+  const v=viewers[id], cd=v.clipData;
+  const canvas = document.getElementById(id+'_c2d');
+  if(!canvas||!cd) return;
+  const video = v.video;
+  if(!video||!video.videoWidth) return;
+
+  canvas.width = video.videoWidth;
+  canvas.height = video.videoHeight;
+  const ctx = canvas.getContext('2d');
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+
+  const cfg = cd.configs[v.activeCfgIdx||0];
+  if(!cfg||!cfg.gt_2d) return;
+
+  const ff = cfg.future_frames;
+  const P = cfg.gt_3d[0].length;
+  let lastFi = -1;
+  for(let fi=0;fi<ff.length;fi++) { if(ff[fi]<=videoFrame) lastFi=fi; }
+  if(lastFi<0) return;
+
+  const W=canvas.width, H=canvas.height;
+  const r = 4;
+
+  // Draw GT 2D dots (green) and short trails
+  ctx.strokeStyle = 'rgba(76,175,80,0.6)';
+  ctx.lineWidth = 2;
+  const trailStart = Math.max(0, lastFi-4);
+  for(let p=0;p<P;p++) {
+    // Trail
+    ctx.beginPath();
+    let started=false;
+    for(let fi=trailStart;fi<=lastFi;fi++) {
+      const pt = cfg.gt_2d[fi][p];
+      if(!pt||isNaN(pt[0])) continue;
+      const x=pt[0]*W, y=pt[1]*H;
+      if(!started){ctx.moveTo(x,y);started=true;} else ctx.lineTo(x,y);
+    }
+    if(started) ctx.stroke();
+
+    // Current dot
+    const pt = cfg.gt_2d[lastFi][p];
+    if(!pt||isNaN(pt[0])) continue;
+    ctx.fillStyle = 'rgba(76,175,80,0.9)';
+    ctx.beginPath(); ctx.arc(pt[0]*W, pt[1]*H, r, 0, Math.PI*2); ctx.fill();
+    // Point index label
+    ctx.fillStyle = '#fff';
+    ctx.font = '9px Inter, sans-serif';
+    ctx.fillText(p, pt[0]*W+r+2, pt[1]*H+3);
+  }
 }
 
 init();
