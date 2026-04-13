@@ -69,6 +69,12 @@ body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--tex
   <div class="controls">
     <label>Dataset:</label>
     <select id="datasetSelect"></select>
+    <label>Split:</label>
+    <select id="splitFilter">
+      <option value="">All</option>
+      <option value="test">Test</option>
+      <option value="train">Train</option>
+    </select>
     <label>Category:</label>
     <select id="catFilter"><option value="">All</option></select>
   </div>
@@ -109,6 +115,7 @@ async function init() {
   activeDataset = Object.keys(manifest)[0] || '';
   sel.addEventListener('change', () => { activeDataset = sel.value; populateCategories(); renderClips(); });
   document.getElementById('catFilter').addEventListener('change', renderClips);
+  document.getElementById('splitFilter').addEventListener('change', renderClips);
   populateCategories();
   renderClips();
 }
@@ -130,9 +137,13 @@ function renderClips() {
   viewers = {};
 
   const catFilter = document.getElementById('catFilter').value;
+  const splitFilter = document.getElementById('splitFilter').value;
   const dsData = manifest[activeDataset];
   if(!dsData) return;
-  let clips = dsData.clips.filter(c => !catFilter || c.category === catFilter);
+  let clips = dsData.clips.filter(c =>
+    (!catFilter || c.category === catFilter) &&
+    (!splitFilter || c.split === splitFilter)
+  );
   document.getElementById('clipCount').textContent = `${clips.length} entries — ${dsData.eval_step}`;
 
   const container = document.getElementById('videoList');
@@ -148,7 +159,7 @@ function renderClips() {
           <span class="title">${clip.id.substring(0,60)}</span>
           <span style="font-size:0.7rem;color:var(--text-secondary);margin-left:8px;">${clip.category.replace(/_/g,' ')}</span>
         </div>
-        <span class="meta">L2=${clip.l2.toFixed(4)}</span>
+        <span class="meta"><span style="background:${clip.split==='train'?'#2196F3':'#4caf50'};color:#fff;padding:1px 6px;border-radius:3px;margin-right:6px;font-size:0.6rem;">${clip.split||'?'}</span>L2=${clip.l2.toFixed(4)}</span>
       </div>
       <div class="clip-body">
         <div class="left-panel">
