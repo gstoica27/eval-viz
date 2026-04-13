@@ -207,10 +207,11 @@ async function loadEntry(id) {
     const resp = await fetch(clip.data_url);
     v.clipData = await resp.json();
     document.getElementById(id+'_load').style.display = 'none';
+    document.getElementById(id+'_canvas').style.display = 'block';
     populateCfgSelectors(id);
     init3D(id);
-    // Re-render after layout settles (fixes 0-size canvas on first load)
-    setTimeout(() => { renderScene(id); jumpToClip(id); }, 100);
+    // Re-render after layout settles
+    setTimeout(() => { prepareScene(id); renderScene(id); jumpToClip(id); }, 200);
   } catch(e) { document.getElementById(id+'_load').textContent = 'Error: '+e.message; console.error(id, e); }
 }
 
@@ -364,7 +365,7 @@ function prepareScene(id) {
     const g=new THREE.BufferGeometry();
     g.setAttribute('position',new THREE.Float32BufferAttribute(pos,3));
     g.setAttribute('color',new THREE.Float32BufferAttribute(col,3));
-    v.scene.add(new THREE.Points(g,new THREE.PointsMaterial({vertexColors:true,size:0.006,sizeAttenuation:true,transparent:true,opacity:0.5})));
+    v.scene.add(new THREE.Points(g,new THREE.PointsMaterial({vertexColors:true,size:0.012,sizeAttenuation:true,transparent:true,opacity:0.7})));
   }
 
   // Bounding box from first config GT
