@@ -190,6 +190,7 @@ async function loadEntry(id) {
   const v = viewers[id], clip = v.clip;
   v.video = document.getElementById(id+'_vid');
   v.video.src = clip.rgb_url; v.video.load();
+  v.video.pause(); // don't auto-play, jumpToClip will position it
 
   v.video.addEventListener('timeupdate', () => {
     if(!v.video.duration||!v.clipData) return;
@@ -280,10 +281,17 @@ function jumpToClip(id) {
   if(!cfg) return;
   const T = cd.num_frames||1;
   const startFrame = cfg.hist_frames[0];
-  if(v.video.duration) {
+  const setTime = () => {
     v.video.currentTime = (startFrame/Math.max(T-1,1)) * v.video.duration;
+    v.video.pause();
+  };
+  if(v.video.duration) {
+    setTime();
+  } else {
+    v.video.addEventListener('loadedmetadata', setTime, {once:true});
   }
   draw3D(id, startFrame);
+  prepareScene(id); // re-center camera on this clip's points
 }
 
 function togglePlay(id) { const v=viewers[id]; if(!v||!v.video)return; if(v.video.paused)v.video.play(); else v.video.pause(); }
