@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MotionPlanner — Prediction Visualization</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --bg: #111; --bg-card: #161616; --bg-header: #1a1a1a; --bg-body: #0d0d0d;
+  --border: #222; --border-hover: #444;
+  --text: #d4d4d4; --text-heading: #f0f0f0; --text-secondary: #777; --text-muted: #555;
+  --accent-gt: #4caf50; --accent-pred: #ff9800;
+}
+body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+.page { max-width: 1600px; margin: 0 auto; padding: 0 24px; }
+.masthead { padding: 20px 0 12px; border-bottom: 1px solid var(--border); margin-bottom: 12px;
+  display: flex; align-items: center; justify-content: space-between; }
+.masthead h1 { font-family: 'Playfair Display', serif; font-size: 1.6rem; color: var(--text-heading); }
+
+.controls { display: flex; gap: 10px; align-items: center; margin-bottom: 12px; flex-wrap: wrap; }
+.controls label { font-size: 0.78rem; color: var(--text-secondary); }
+.controls select { background: var(--bg-card); border: 1px solid var(--border); color: var(--text);
+  padding: 5px 8px; border-radius: 5px; font-size: 0.78rem; font-family: inherit; }
+.controls select:focus { outline: none; border-color: var(--border-hover); }
+
+.video-list { display: flex; flex-direction: column; gap: 20px; padding-bottom: 40px; }
+
+.clip-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+.clip-header { padding: 10px 14px; border-bottom: 1px solid var(--border);
+  display: flex; justify-content: space-between; align-items: center; }
+.clip-header .title { font-weight: 600; font-size: 0.85rem; color: var(--text-heading); }
+.clip-header .meta { font-size: 0.7rem; color: var(--text-muted); font-family: monospace; }
+
+.clip-body { display: grid; grid-template-columns: 220px 1fr; gap: 0; }
+
+/* Left panel: video + config selectors */
+.left-panel { border-right: 1px solid var(--border); padding: 8px; display: flex; flex-direction: column; gap: 6px; }
+.left-panel video { width: 100%; border-radius: 4px; }
+.left-panel .cfg-controls { display: flex; flex-direction: column; gap: 4px; }
+.left-panel .cfg-controls label { font-size: 0.7rem; color: var(--text-secondary); }
+.left-panel .cfg-controls select { width: 100%; font-size: 0.72rem; padding: 3px 5px; }
+.scrub-row { display: flex; align-items: center; gap: 4px; }
+.scrub-row input[type=range] { flex: 1; }
+.scrub-row .frame-lbl { font-size: 0.65rem; color: var(--text-muted); min-width: 40px; text-align: right; }
+.play-btn { background: none; border: 1px solid var(--border); color: var(--text);
+  padding: 2px 8px; border-radius: 3px; cursor: pointer; font-size: 0.75rem; }
+.cfg-l2 { font-size: 0.68rem; color: var(--text-muted); font-family: monospace; margin-top: 2px; }
+
+/* Right panel: 3D viewer */
+.right-panel { position: relative; height: 380px; background: var(--bg-body); }
+.right-panel canvas { width: 100% !important; height: 100% !important; display: block; }
+.loading-msg { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+  color: var(--text-muted); font-size: 0.8rem; }
+.legend { position: absolute; bottom: 8px; right: 10px; font-size: 0.65rem;
+  background: rgba(0,0,0,0.6); padding: 4px 8px; border-radius: 4px; }
+.legend .gt-dot { color: #4caf50; }
+.legend .pred-dot { color: #ff9800; }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="masthead">
+    <h1>MotionPlanner — GT vs Predictions</h1>
+    <span id="clipCount" style="font-size:0.75rem;color:var(--text-muted);"></span>
+  </div>
+  <div class="controls">
+    <label>Dataset:</label>
+    <select id="datasetSelect"></select>
+    <label>Category:</label>
+    <select id="catFilter"><option value="">All</option></select>
+  </div>
+  <div class="video-list" id="videoList"></div>
+</div>
+
+<script>
+const TRAIL = 8;
+let manifest = null;
+let viewers = {};
+let activeDataset = '';
+
+function hsvPalette(n) {
+  const out = [];
+  for (let i = 0; i < n; i++) {
+    const h = (i * 137.508) % 360, s = 0.7, v = 0.9;
+    const c = v*s, x = c*(1-Math.abs((h/60)%2-1)), m = v-c;
+    let r,g,b;
+    if(h<60){r=c;g=x;b=0;}else if(h<120){r=x;g=c;b=0;}else if(h<180){r=0;g=c;b=x;}
+    else if(h<240){r=0;g=x;b=c;}else if(h<300){r=x;g=0;b=c;}else{r=c;g=0;b=x;}
+    out.push({r:r+m,g:g+m,b:b+m});
+  }
+  return out;
+}
+
+async function init() {
+  let resp;
+  try { resp = await fetch('static/data/modeling_manifest.json'); if(!resp.ok) throw 0; }
+  catch(e) { resp = await fetch('/api/modeling_manifest'); }
+  manifest = await resp.json();
+
+  const sel = document.getElementById('datasetSelect');
+  for (const ds of Object.keys(manifest)) {
+    const o = document.createElement('option');
+    o.value = ds; o.textContent = `${ds} (${manifest[ds].n_clips})`;
+    sel.appendChild(o);
+  }
+  activeDataset = Object.keys(manifest)[0] || '';
+  sel.addEventListener('change', () => { activeDataset = sel.value; populateCategories(); renderClips(); });
+  document.getElementById('catFilter').addEventListener('change', renderClips);
+  populateCategories();
+  renderClips();
+}
+
+function populateCategories() {
+  const cf = document.getElementById('catFilter');
+  cf.innerHTML = '<option value="">All</option>';
+  if (!manifest[activeDataset]) return;
+  const cats = [...new Set(manifest[activeDataset].clips.map(c=>c.category))].sort();
+  cats.forEach(c => { const o=document.createElement('option'); o.value=c; o.textContent=c.replace(/_/g,' '); cf.appendChild(o); });
+}
+
+function renderClips() {
+  for (const id in viewers) {
+    const v = viewers[id];
+    if(v.video){v.video.pause();v.video.src='';}
+    if(v.renderer) v.renderer.dispose();
+  }
+  viewers = {};
+
+  const catFilter = document.getElementById('catFilter').value;
+  const dsData = manifest[activeDataset];
+  if(!dsData) return;
+  let clips = dsData.clips.filter(c => !catFilter || c.category === catFilter);
+  document.getElementById('clipCount').textContent = `${clips.length} entries — ${dsData.eval_step}`;
+
+  const container = document.getElementById('videoList');
+  container.innerHTML = '';
+
+  clips.forEach((clip, idx) => {
+    const id = 'v_'+idx;
+    const card = document.createElement('div');
+    card.className = 'clip-card'; card.id = id;
+    card.innerHTML = `
+      <div class="clip-header">
+        <div>
+          <span class="title">${clip.id.substring(0,60)}</span>
+          <span style="font-size:0.7rem;color:var(--text-secondary);margin-left:8px;">${clip.category.replace(/_/g,' ')}</span>
+        </div>
+        <span class="meta">L2=${clip.l2.toFixed(4)}</span>
+      </div>
+      <div class="clip-body">
+        <div class="left-panel">
+          <video id="${id}_vid" muted loop playsinline preload="none"></video>
+          <div class="scrub-row">
+            <button class="play-btn" onclick="togglePlay('${id}')">&#9654;</button>
+            <input type="range" id="${id}_scrub" min="0" max="100" value="0" oninput="scrubTo('${id}',this.value)">
+            <span class="frame-lbl" id="${id}_fl">0</span>
+          </div>
+          <div class="cfg-controls">
+            <label>Object:</label>
+            <select id="${id}_obj" onchange="onCfgChange('${id}')"></select>
+            <label>Clip (t):</label>
+            <select id="${id}_clip" onchange="onCfgChange('${id}')"></select>
+            <div class="cfg-l2" id="${id}_cfg_l2"></div>
+          </div>
+          <div style="font-size:0.65rem;color:var(--text-muted);margin-top:4px;">${(clip.text||'').substring(0,120)}</div>
+        </div>
+        <div class="right-panel" id="${id}_3d">
+          <canvas id="${id}_canvas"></canvas>
+          <span class="loading-msg" id="${id}_load">Scroll to load</span>
+          <div class="legend"><span class="gt-dot">&#9679;</span> GT &nbsp; <span class="pred-dot">&#9679;</span> Pred</div>
+        </div>
+      </div>`;
+    container.appendChild(card);
+    viewers[id] = { clip, loaded: false, clipData: null, activeCfgIdx: 0 };
+  });
+
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if(e.isIntersecting) { const id=e.target.id; if(viewers[id]&&!viewers[id].loaded){viewers[id].loaded=true;loadEntry(id);} } });
+  }, {rootMargin:'300px'});
+  clips.forEach((_,i) => obs.observe(document.getElementById('v_'+i)));
+}
+
+async function loadEntry(id) {
+  const v = viewers[id], clip = v.clip;
+  v.video = document.getElementById(id+'_vid');
+  v.video.src = clip.rgb_url; v.video.load();
+
+  v.video.addEventListener('timeupdate', () => {
+    if(!v.video.duration||!v.clipData) return;
+    const pct = v.video.currentTime/v.video.duration*100;
+    document.getElementById(id+'_scrub').value = pct;
+    const T = v.clipData.num_frames||1;
+    const fi = Math.round(v.video.currentTime/v.video.duration*Math.max(T-1,0));
+    document.getElementById(id+'_fl').textContent = fi;
+    draw3D(id, fi);
+  });
+
+  document.getElementById(id+'_load').textContent = 'Loading...';
+  try {
+    const resp = await fetch(clip.data_url);
+    v.clipData = await resp.json();
+    document.getElementById(id+'_load').style.display = 'none';
+    populateCfgSelectors(id);
+    init3D(id);
+  } catch(e) { document.getElementById(id+'_load').textContent = 'Error: '+e.message; }
+}
+
+function populateCfgSelectors(id) {
+  const v = viewers[id], cd = v.clipData;
+  if(!cd||!cd.configs) return;
+
+  // Group configs by object
+  const byObj = {};
+  cd.configs.forEach((c,i) => { (byObj[c.obj_name] = byObj[c.obj_name]||[]).push({cfg:c, idx:i}); });
+  const objNames = Object.keys(byObj).sort();
+
+  const objSel = document.getElementById(id+'_obj');
+  objSel.innerHTML = '';
+  objNames.forEach(o => { const op=document.createElement('option'); op.value=o; op.textContent=o; objSel.appendChild(op); });
+
+  v._byObj = byObj;
+  v._objNames = objNames;
+  updateClipSelector(id);
+}
+
+function updateClipSelector(id) {
+  const v = viewers[id];
+  const obj = document.getElementById(id+'_obj').value;
+  const clipSel = document.getElementById(id+'_clip');
+  clipSel.innerHTML = '';
+  const cfgs = v._byObj[obj] || [];
+  cfgs.forEach((item, i) => {
+    const c = item.cfg;
+    const op = document.createElement('option');
+    op.value = item.idx;
+    op.textContent = `t=${c.t} [${c.future_frames[0]}..${c.future_frames[c.future_frames.length-1]}]`;
+    clipSel.appendChild(op);
+  });
+  if(cfgs.length) {
+    v.activeCfgIdx = cfgs[0].idx;
+    showCfgL2(id);
+    jumpToClip(id);
+  }
+}
+
+function onCfgChange(id) {
+  const v = viewers[id];
+  const obj = document.getElementById(id+'_obj').value;
+  const clipSel = document.getElementById(id+'_clip');
+
+  // If object changed, repopulate clip selector
+  const cfgs = v._byObj[obj] || [];
+  if(clipSel.options.length !== cfgs.length || (cfgs.length && parseInt(clipSel.options[0].value) !== cfgs[0].idx)) {
+    updateClipSelector(id);
+    return;
+  }
+
+  v.activeCfgIdx = parseInt(clipSel.value);
+  showCfgL2(id);
+  jumpToClip(id);
+}
+
+function showCfgL2(id) {
+  const v = viewers[id], cd = v.clipData;
+  if(!cd) return;
+  const cfg = cd.configs[v.activeCfgIdx];
+  if(cfg) document.getElementById(id+'_cfg_l2').textContent = `L2=${cfg.l2.toFixed(4)} | frames ${cfg.future_frames[0]}-${cfg.future_frames[cfg.future_frames.length-1]}`;
+}
+
+function jumpToClip(id) {
+  const v = viewers[id], cd = v.clipData;
+  if(!v.video||!cd) return;
+  const cfg = cd.configs[v.activeCfgIdx];
+  if(!cfg) return;
+  const T = cd.num_frames||1;
+  const startFrame = cfg.hist_frames[0];
+  if(v.video.duration) {
+    v.video.currentTime = (startFrame/Math.max(T-1,1)) * v.video.duration;
+  }
+  draw3D(id, startFrame);
+}
+
+function togglePlay(id) { const v=viewers[id]; if(!v||!v.video)return; if(v.video.paused)v.video.play(); else v.video.pause(); }
+function scrubTo(id,val) { const v=viewers[id]; if(v&&v.video&&v.video.duration) v.video.currentTime=(val/100)*v.video.duration; }
+
+// ── 3D ──
+function init3D(id) {
+  const v = viewers[id], cd = v.clipData;
+  const canvas = document.getElementById(id+'_canvas');
+  v.renderer = new THREE.WebGLRenderer({canvas, antialias:true});
+  v.renderer.setClearColor(0x0d0d0d);
+  v.scene = new THREE.Scene();
+  v.camera = new THREE.PerspectiveCamera(50,1,0.01,500);
+  v.camYaw=Math.PI*0.25; v.camPitch=0.35;
+  v.camTarget=new THREE.Vector3(); v.camDist=3;
+
+  let drag=false, pm={x:0,y:0};
+  canvas.addEventListener('mousedown', e=>{drag=true;pm={x:e.clientX,y:e.clientY};});
+  canvas.addEventListener('contextmenu', e=>e.preventDefault());
+  window.addEventListener('mouseup', ()=>{drag=false;});
+  canvas.addEventListener('mousemove', e=>{
+    if(!drag)return;
+    v.camYaw-=(e.clientX-pm.x)*0.005;
+    v.camPitch-=(e.clientY-pm.y)*0.005;
+    v.camPitch=Math.max(-1.5,Math.min(1.5,v.camPitch));
+    pm={x:e.clientX,y:e.clientY};
+    updateOrbit(id);
+  });
+  canvas.addEventListener('wheel', e=>{v.camDist=Math.max(0.1,Math.min(30,v.camDist+e.deltaY*0.005));updateOrbit(id);e.preventDefault();},{passive:false});
+
+  prepareScene(id);
+}
+
+function updateOrbit(id) {
+  const v=viewers[id];
+  v.camera.position.set(
+    v.camTarget.x+v.camDist*Math.sin(v.camYaw)*Math.cos(v.camPitch),
+    v.camTarget.y+v.camDist*Math.sin(v.camPitch),
+    v.camTarget.z+v.camDist*Math.cos(v.camYaw)*Math.cos(v.camPitch));
+  v.camera.lookAt(v.camTarget);
+  renderScene(id);
+}
+
+function renderScene(id) {
+  const v=viewers[id]; if(!v.renderer)return;
+  const box=document.getElementById(id+'_3d');
+  const w=box.clientWidth, h=box.clientHeight;
+  if(!w||!h)return;
+  v.renderer.setSize(w,h);
+  v.camera.aspect=w/h; v.camera.updateProjectionMatrix();
+  v.renderer.render(v.scene,v.camera);
+}
+
+function prepareScene(id) {
+  const v=viewers[id], cd=v.clipData; if(!cd)return;
+  while(v.scene.children.length) v.scene.remove(v.scene.children[0]);
+
+  // Point cloud
+  if(cd.pc_xyz&&cd.pc_colors) {
+    const N=cd.pc_xyz.length;
+    const pos=new Float32Array(N*3), col=new Float32Array(N*3);
+    for(let i=0;i<N;i++){
+      pos[i*3]=cd.pc_xyz[i][0]; pos[i*3+1]=-cd.pc_xyz[i][1]; pos[i*3+2]=-cd.pc_xyz[i][2];
+      col[i*3]=cd.pc_colors[i][0]/255; col[i*3+1]=cd.pc_colors[i][1]/255; col[i*3+2]=cd.pc_colors[i][2]/255;
+    }
+    const g=new THREE.BufferGeometry();
+    g.setAttribute('position',new THREE.Float32BufferAttribute(pos,3));
+    g.setAttribute('color',new THREE.Float32BufferAttribute(col,3));
+    v.scene.add(new THREE.Points(g,new THREE.PointsMaterial({vertexColors:true,size:0.006,sizeAttenuation:true,transparent:true,opacity:0.5})));
+  }
+
+  // Bounding box from first config GT
+  const cfg = cd.configs[v.activeCfgIdx||0];
+  if(!cfg) return;
+  const gt = cfg.gt_3d; // (F, P, 3)
+  let allPts = [];
+  for(let f=0;f<gt.length;f++) for(let p=0;p<gt[f].length;p++) {
+    const pt=gt[f][p];
+    if(pt&&isFinite(pt[0])) allPts.push([pt[0],-pt[1],-pt[2]]);
+  }
+  // Also add point cloud bounds
+  if(cd.pc_xyz) for(let i=0;i<Math.min(cd.pc_xyz.length,1000);i++) {
+    const pt=cd.pc_xyz[i];
+    if(isFinite(pt[0])) allPts.push([pt[0],-pt[1],-pt[2]]);
+  }
+  if(!allPts.length) return;
+
+  const xs=allPts.map(p=>p[0]).sort((a,b)=>a-b);
+  const ys=allPts.map(p=>p[1]).sort((a,b)=>a-b);
+  const zs=allPts.map(p=>p[2]).sort((a,b)=>a-b);
+  const p5=n=>Math.floor(n*0.02), p95=n=>Math.floor(n*0.98);
+  const cx=(xs[p5(xs.length)]+xs[p95(xs.length)])/2;
+  const cy=(ys[p5(ys.length)]+ys[p95(ys.length)])/2;
+  const cz=(zs[p5(zs.length)]+zs[p95(zs.length)])/2;
+  const interval=Math.max(xs[p95(xs.length)]-xs[p5(xs.length)], ys[p95(ys.length)]-ys[p5(ys.length)], zs[p95(zs.length)]-zs[p5(zs.length)])||1;
+
+  const grid=new THREE.GridHelper(interval*2,16,0x333333,0x222222);
+  grid.position.set(cx,ys[0],cz); v.scene.add(grid);
+
+  v.camTarget.set(cx,cy,cz);
+  v.camDist=interval*1.8;
+  updateOrbit(id);
+  draw3D(id, cfg.hist_frames[0]);
+}
+
+function draw3D(id, videoFrame) {
+  const v=viewers[id], cd=v.clipData; if(!cd||!v.scene)return;
+  const old=v.scene.getObjectByName('dyn'); if(old) v.scene.remove(old);
+  const dyn=new THREE.Group(); dyn.name='dyn';
+
+  const cfg = cd.configs[v.activeCfgIdx||0];
+  if(!cfg) { v.scene.add(dyn); renderScene(id); return; }
+
+  const ff = cfg.future_frames; // [f1..fF]
+  const P = cfg.gt_3d[0].length;
+  const gtColors = hsvPalette(P);
+
+  // Draw GT trails (green tint) and pred trails (orange tint)
+  const drawTrails = (pts3d, vis, colorMod, pointSize) => {
+    // pts3d: (F, P, 3), vis: (F, P)
+    // Find which future frames are at or before videoFrame
+    let lastFi = -1;
+    for(let fi=0;fi<ff.length;fi++) { if(ff[fi]<=videoFrame) lastFi=fi; }
+    if(lastFi<0) return;
+
+    const trailStart = Math.max(0, lastFi-TRAIL);
+    for(let p=0;p<P;p++) {
+      let seg=[];
+      for(let fi=trailStart;fi<=lastFi;fi++) {
+        const vv = vis[fi][p];
+        const pt = pts3d[fi][p];
+        if(!vv||!pt||!isFinite(pt[0])) { if(seg.length>=6){addLine(seg,gtColors[p],colorMod);} seg=[]; }
+        else { seg.push(pt[0],-pt[1],-pt[2]); }
+      }
+      if(seg.length>=6) addLine(seg,gtColors[p],colorMod);
+    }
+
+    // Current points
+    if(lastFi>=0) {
+      const ptP=[],ptC=[];
+      for(let p=0;p<P;p++) {
+        const pt=pts3d[lastFi][p], vv=vis[lastFi][p];
+        if(!vv||!pt||!isFinite(pt[0])) continue;
+        ptP.push(pt[0],-pt[1],-pt[2]);
+        const c=gtColors[p];
+        ptC.push(c.r*colorMod.r, c.g*colorMod.g, c.b*colorMod.b);
+      }
+      if(ptP.length) {
+        const g=new THREE.BufferGeometry();
+        g.setAttribute('position',new THREE.Float32BufferAttribute(ptP,3));
+        g.setAttribute('color',new THREE.Float32BufferAttribute(ptC,3));
+        dyn.add(new THREE.Points(g,new THREE.PointsMaterial({vertexColors:true,size:pointSize,sizeAttenuation:true})));
+      }
+    }
+  };
+
+  function addLine(seg, baseColor, mod) {
+    const g=new THREE.BufferGeometry();
+    g.setAttribute('position',new THREE.Float32BufferAttribute(seg,3));
+    const c=new THREE.Color(baseColor.r*mod.r, baseColor.g*mod.g, baseColor.b*mod.b);
+    dyn.add(new THREE.Line(g,new THREE.LineBasicMaterial({color:c})));
+  }
+
+  // GT: bright with green tint
+  drawTrails(cfg.gt_3d, cfg.vis, {r:0.7,g:1.0,b:0.7}, 0.018);
+  // Pred: with orange tint
+  drawTrails(cfg.pred_3d, cfg.vis, {r:1.0,g:0.8,b:0.5}, 0.014);
+
+  v.scene.add(dyn);
+  renderScene(id);
+}
+
+init();
+</script>
+</body>
+</html>

@@ -51,6 +51,52 @@ def eval_page():
     return send_file(Path(__file__).parent / "eval.html")
 
 
+@app.route("/motion")
+def motion_page():
+    return send_file(Path(__file__).parent / "motion.html")
+
+
+@app.route("/api/motion_manifest")
+def api_motion_manifest():
+    motion_path = DATA_DIR / "motion" / "motion_manifest.json"
+    if motion_path.exists():
+        with open(motion_path) as f:
+            return jsonify(json.load(f))
+    return jsonify({})
+
+
+@app.route("/modeling")
+def modeling_page():
+    return send_file(Path(__file__).parent / "modeling.html")
+
+
+MODELING_MANIFEST = None
+
+def get_modeling_manifest():
+    global MODELING_MANIFEST
+    if MODELING_MANIFEST is None:
+        p = DATA_DIR / "modeling_manifest.json"
+        if p.exists():
+            with open(p) as f:
+                MODELING_MANIFEST = json.load(f)
+        else:
+            MODELING_MANIFEST = {}
+    return MODELING_MANIFEST
+
+
+@app.route("/api/modeling_manifest")
+def api_modeling_manifest():
+    return jsonify(get_modeling_manifest())
+
+
+@app.route("/video/modeling/<dataset>/<clip_id>")
+def serve_modeling_video(dataset, clip_id):
+    vpath = Path(__file__).parent / "static" / "videos" / "modeling" / dataset / f"{clip_id}.mp4"
+    if vpath.exists():
+        return send_file(vpath, mimetype="video/mp4")
+    return "Video not found", 404
+
+
 def get_eval_manifest():
     global EVAL_MANIFEST
     if EVAL_MANIFEST is None:
