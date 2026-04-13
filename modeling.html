@@ -209,7 +209,9 @@ async function loadEntry(id) {
     document.getElementById(id+'_load').style.display = 'none';
     populateCfgSelectors(id);
     init3D(id);
-  } catch(e) { document.getElementById(id+'_load').textContent = 'Error: '+e.message; }
+    // Re-render after layout settles (fixes 0-size canvas on first load)
+    setTimeout(() => { renderScene(id); jumpToClip(id); }, 100);
+  } catch(e) { document.getElementById(id+'_load').textContent = 'Error: '+e.message; console.error(id, e); }
 }
 
 function populateCfgSelectors(id) {
@@ -346,11 +348,13 @@ function renderScene(id) {
 }
 
 function prepareScene(id) {
-  const v=viewers[id], cd=v.clipData; if(!cd)return;
+  const v=viewers[id], cd=v.clipData; if(!cd){console.warn(id,'no clipData');return;}
+  console.log(id, 'prepareScene', 'pc_xyz:', cd.pc_xyz?cd.pc_xyz.length:0, 'configs:', cd.configs?cd.configs.length:0, 'activeCfg:', v.activeCfgIdx);
   while(v.scene.children.length) v.scene.remove(v.scene.children[0]);
 
   // Point cloud
   if(cd.pc_xyz&&cd.pc_colors) {
+    console.log(id, 'adding point cloud:', cd.pc_xyz.length, 'points');
     const N=cd.pc_xyz.length;
     const pos=new Float32Array(N*3), col=new Float32Array(N*3);
     for(let i=0;i<N;i++){
