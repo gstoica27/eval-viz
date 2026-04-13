@@ -50,8 +50,8 @@ body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--tex
 .cfg-l2 { font-size: 0.68rem; color: var(--text-muted); font-family: monospace; margin-top: 2px; }
 
 /* Right panel: 3D viewer */
-.right-panel { position: relative; height: 380px; background: var(--bg-body); }
-.right-panel canvas { width: 100% !important; height: 100% !important; display: block; }
+.right-panel { position: relative; min-height: 380px; background: var(--bg-body); overflow: hidden; }
+.right-panel canvas { display: block; }
 .loading-msg { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
   color: var(--text-muted); font-size: 0.8rem; }
 .legend { position: absolute; bottom: 8px; right: 10px; font-size: 0.65rem;
@@ -304,8 +304,9 @@ function scrubTo(id,val) { const v=viewers[id]; if(v&&v.video&&v.video.duration)
 function init3D(id) {
   const v = viewers[id], cd = v.clipData;
   const canvas = document.getElementById(id+'_canvas');
-  v.renderer = new THREE.WebGLRenderer({canvas, antialias:true});
-  v.renderer.setClearColor(0x0d0d0d);
+  v.renderer = new THREE.WebGLRenderer({canvas, antialias:true, alpha:false});
+  v.renderer.setClearColor(0x1a1a1a);
+  v.renderer.setPixelRatio(window.devicePixelRatio||1);
   v.scene = new THREE.Scene();
   v.camera = new THREE.PerspectiveCamera(50,1,0.01,500);
   v.camYaw=Math.PI*0.25; v.camPitch=0.35;
@@ -341,9 +342,11 @@ function updateOrbit(id) {
 function renderScene(id) {
   const v=viewers[id]; if(!v.renderer)return;
   const box=document.getElementById(id+'_3d');
-  const w=box.clientWidth, h=box.clientHeight;
-  if(!w||!h)return;
-  v.renderer.setSize(w,h);
+  let w=box.clientWidth, h=box.clientHeight;
+  if(!w) w = box.offsetWidth || 600;
+  if(!h) h = 380;
+  v.renderer.setSize(w, h, true);
+  v.renderer.setPixelRatio(window.devicePixelRatio||1);
   v.camera.aspect=w/h; v.camera.updateProjectionMatrix();
   v.renderer.render(v.scene,v.camera);
 }
