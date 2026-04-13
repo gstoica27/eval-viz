@@ -34,7 +34,7 @@ body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--tex
 .clip-header .title { font-weight: 600; font-size: 0.85rem; color: var(--text-heading); }
 .clip-header .meta { font-size: 0.7rem; color: var(--text-muted); font-family: monospace; }
 
-.clip-body { display: grid; grid-template-columns: 220px 1fr; gap: 0; }
+.clip-body { display: grid; grid-template-columns: 380px 1fr; gap: 0; }
 
 /* Left panel: video + config selectors */
 .left-panel { border-right: 1px solid var(--border); padding: 8px; display: flex; flex-direction: column; gap: 6px; }
@@ -397,34 +397,58 @@ function draw3D(id, videoFrame) {
   const cfg = cd.configs[v.activeCfgIdx||0];
   if(!cfg) { v.scene.add(dyn); renderScene(id); return; }
 
-  const ff = cfg.future_frames;
+  const af = cfg.all_frames || cfg.future_frames; // all_frames = hist + future
+  const nHist = cfg.n_hist || 0;
   const P = cfg.gt_3d[0].length;
 
-  const GT_COLOR = 0x4caf50;   // solid green
-  const PRED_COLOR = 0xff9800; // solid orange
+  const HIST_COLOR = 0xaaaaaa;  // grey for shared history
+  const GT_COLOR = 0x4caf50;    // green for GT future
+  const PRED_COLOR = 0xff9800;  // orange for pred future
 
-  const drawTrails = (pts3d, vis, color, pointSize) => {
+  const drawTrails = (pts3d, vis, color, pointSize, histColor) => {
+    // Find last visible frame index in the all_frames array
     let lastFi = -1;
-    for(let fi=0;fi<ff.length;fi++) { if(ff[fi]<=videoFrame) lastFi=fi; }
+    for(let fi=0;fi<af.length;fi++) { if(af[fi]<=videoFrame) lastFi=fi; }
     if(lastFi<0) return;
-    const trailStart = Math.max(0, lastFi-TRAIL);
-    const mat = new THREE.LineBasicMaterial({color});
+    const trailStart = Math.max(0, lastFi-TRAIL-nHist);
 
     for(let p=0;p<P;p++) {
+      // History segment (shared, grey)
       let seg=[];
-      for(let fi=trailStart;fi<=lastFi;fi++) {
+      for(let fi=Math.max(trailStart,0);fi<nHist&&fi<=lastFi;fi++) {
         const vv=vis[fi][p], pt=pts3d[fi][p];
         if(!vv||!pt||!isFinite(pt[0])) {
-          if(seg.length>=6){ const g=new THREE.BufferGeometry(); g.setAttribute('position',new THREE.Float32BufferAttribute(seg,3)); dyn.add(new THREE.Line(g,mat)); }
+          if(seg.length>=6){ const g=new THREE.BufferGeometry(); g.setAttribute('position',new THREE.Float32BufferAttribute(seg,3)); dyn.add(new THREE.Line(g,new THREE.LineBasicMaterial({color:histColor||HIST_COLOR}))); }
           seg=[];
         } else { seg.push(pt[0],-pt[1],-pt[2]); }
       }
-      if(seg.length>=6){ const g=new THREE.BufferGeometry(); g.setAttribute('position',new THREE.Float32BufferAttribute(seg,3)); dyn.add(new THREE.Line(g,mat)); }
+      if(seg.length>=6){ const g=new THREE.BufferGeometry(); g.setAttribute('position',new THREE.Float32BufferAttribute(seg,3)); dyn.add(new THREE.Line(g,new THREE.LineBasicMaterial({color:histColor||HIST_COLOR}))); }
+
+      // Future segment (colored)
+      seg=[];
+      for(let fi=Math.max(trailStart,nHist);fi<=lastFi;fi++) {
+        const vv=vis[fi][p], pt=pts3d[fi][p];
+        if(!vv||!pt||!isFinite(pt[0])) {
+          if(seg.length>=6){ const g=new THREE.BufferGeometry(); g.setAttribute('position',new THREE.Float32BufferAttribute(seg,3)); dyn.add(new THREE.Line(g,new THREE.LineBasicMaterial({color}))); }
+          seg=[];
+        } else { seg.push(pt[0],-pt[1],-pt[2]); }
+      }
+      // Connect history end to future start
+      if(nHist>0&&nHist<=lastFi) {
+        const hpt=pts3d[nHist-1][p], fpt=pts3d[nHist][p];
+        if(hpt&&fpt&&isFinite(hpt[0])&&isFinite(fpt[0])) {
+          const bridge=[hpt[0],-hpt[1],-hpt[2],fpt[0],-fpt[1],-fpt[2]];
+          const g=new THREE.BufferGeometry(); g.setAttribute('position',new THREE.Float32BufferAttribute(bridge,3));
+          dyn.add(new THREE.Line(g,new THREE.LineBasicMaterial({color})));
+        }
+      }
+      if(seg.length>=6){ const g=new THREE.BufferGeometry(); g.setAttribute('position',new THREE.Float32BufferAttribute(seg,3)); dyn.add(new THREE.Line(g,new THREE.LineBasicMaterial({color}))); }
     }
 
     // Current dots
     if(lastFi>=0) {
       const ptP=[];
+      const dotColor = lastFi < nHist ? (histColor||HIST_COLOR) : color;
       for(let p=0;p<P;p++) {
         const pt=pts3d[lastFi][p], vv=vis[lastFi][p];
         if(!vv||!pt||!isFinite(pt[0])) continue;
@@ -433,13 +457,13 @@ function draw3D(id, videoFrame) {
       if(ptP.length) {
         const g=new THREE.BufferGeometry();
         g.setAttribute('position',new THREE.Float32BufferAttribute(ptP,3));
-        dyn.add(new THREE.Points(g,new THREE.PointsMaterial({color,size:pointSize,sizeAttenuation:true})));
+        dyn.add(new THREE.Points(g,new THREE.PointsMaterial({color:dotColor,size:pointSize,sizeAttenuation:true})));
       }
     }
   };
 
-  drawTrails(cfg.gt_3d, cfg.vis, GT_COLOR, 0.018);
-  drawTrails(cfg.pred_3d, cfg.vis, PRED_COLOR, 0.014);
+  drawTrails(cfg.gt_3d, cfg.vis, GT_COLOR, 0.018, HIST_COLOR);
+  drawTrails(cfg.pred_3d, cfg.vis, PRED_COLOR, 0.014, HIST_COLOR);
 
   v.scene.add(dyn);
   renderScene(id);
@@ -463,10 +487,10 @@ function draw2D(id, videoFrame) {
   const cfg = cd.configs[v.activeCfgIdx||0];
   if(!cfg||!cfg.gt_2d) return;
 
-  const ff = cfg.future_frames;
+  const af = cfg.all_frames || cfg.future_frames;
   const P = cfg.gt_3d[0].length;
   let lastFi = -1;
-  for(let fi=0;fi<ff.length;fi++) { if(ff[fi]<=videoFrame) lastFi=fi; }
+  for(let fi=0;fi<af.length;fi++) { if(af[fi]<=videoFrame) lastFi=fi; }
   if(lastFi<0) return;
 
   const W=canvas.width, H=canvas.height;
