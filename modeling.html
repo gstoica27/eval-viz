@@ -293,8 +293,11 @@ function jumpToClip(id) {
   } else {
     v.video.addEventListener('loadedmetadata', setTime, {once:true});
   }
-  draw3D(id, startFrame);
-  prepareScene(id); // re-center camera on this clip's points
+  // Only draw if 3D scene has been initialized
+  if(v.scene) {
+    prepareScene(id);
+    draw3D(id, startFrame);
+  }
 }
 
 function togglePlay(id) { const v=viewers[id]; if(!v||!v.video)return; if(v.video.paused)v.video.play(); else v.video.pause(); }
