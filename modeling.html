@@ -114,7 +114,8 @@ async function init() {
   });
   for (const [m, info] of entries) {
     const o = document.createElement('option');
-    o.value = m; o.textContent = `[${info.dataset||'?'}] ${m} (${info.n_clips})`;
+    const step = (info.eval_step||'').replace('eval_best_','');
+    o.value = m; o.textContent = `[${info.dataset||'?'}] ${m} @${step} (${info.n_clips})`;
     sel.appendChild(o);
   }
   activeDataset = Object.keys(manifest)[0] || '';
