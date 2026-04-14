@@ -67,7 +67,7 @@ body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--tex
     <span id="clipCount" style="font-size:0.75rem;color:var(--text-muted);"></span>
   </div>
   <div class="controls">
-    <label>Dataset:</label>
+    <label>Model:</label>
     <select id="datasetSelect"></select>
     <label>Split:</label>
     <select id="splitFilter">
@@ -107,9 +107,14 @@ async function init() {
   manifest = await resp.json();
 
   const sel = document.getElementById('datasetSelect');
-  for (const ds of Object.keys(manifest)) {
+  // Sort models by dataset then name for easier comparison
+  const entries = Object.entries(manifest).sort((a,b) => {
+    const da = a[1].dataset||'', db = b[1].dataset||'';
+    return da===db ? a[0].localeCompare(b[0]) : da.localeCompare(db);
+  });
+  for (const [m, info] of entries) {
     const o = document.createElement('option');
-    o.value = ds; o.textContent = `${ds} (${manifest[ds].n_clips})`;
+    o.value = m; o.textContent = `[${info.dataset||'?'}] ${m} (${info.n_clips})`;
     sel.appendChild(o);
   }
   activeDataset = Object.keys(manifest)[0] || '';
