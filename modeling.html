@@ -421,32 +421,29 @@ function prepareScene(id) {
   const cfg = cd.configs[v.activeCfgIdx||0];
   if(!cfg) return;
   const gt = cfg.gt_3d; // (F, P, 3)
-  let allPts = [];
+  // Camera frames only on the trajectory (no PC) so we zoom tight
+  let trajPts = [];
   for(let f=0;f<gt.length;f++) for(let p=0;p<gt[f].length;p++) {
     const pt=gt[f][p];
-    if(pt&&isFinite(pt[0])) allPts.push([pt[0],-pt[1],-pt[2]]);
+    if(pt&&isFinite(pt[0])&&(Math.abs(pt[0])>1e-8||Math.abs(pt[1])>1e-8||Math.abs(pt[2])>1e-8))
+      trajPts.push([pt[0],-pt[1],-pt[2]]);
   }
-  // Also add point cloud bounds
-  if(cd.pc_xyz) for(let i=0;i<Math.min(cd.pc_xyz.length,1000);i++) {
-    const pt=cd.pc_xyz[i];
-    if(isFinite(pt[0])) allPts.push([pt[0],-pt[1],-pt[2]]);
-  }
-  if(!allPts.length) return;
+  if(!trajPts.length) return;
 
-  const xs=allPts.map(p=>p[0]).sort((a,b)=>a-b);
-  const ys=allPts.map(p=>p[1]).sort((a,b)=>a-b);
-  const zs=allPts.map(p=>p[2]).sort((a,b)=>a-b);
-  const p5=n=>Math.floor(n*0.02), p95=n=>Math.floor(n*0.98);
-  const cx=(xs[p5(xs.length)]+xs[p95(xs.length)])/2;
-  const cy=(ys[p5(ys.length)]+ys[p95(ys.length)])/2;
-  const cz=(zs[p5(zs.length)]+zs[p95(zs.length)])/2;
-  const interval=Math.max(xs[p95(xs.length)]-xs[p5(xs.length)], ys[p95(ys.length)]-ys[p5(ys.length)], zs[p95(zs.length)]-zs[p5(zs.length)])||1;
+  const xs=trajPts.map(p=>p[0]).sort((a,b)=>a-b);
+  const ys=trajPts.map(p=>p[1]).sort((a,b)=>a-b);
+  const zs=trajPts.map(p=>p[2]).sort((a,b)=>a-b);
+  const cx=(xs[0]+xs[xs.length-1])/2;
+  const cy=(ys[0]+ys[ys.length-1])/2;
+  const cz=(zs[0]+zs[zs.length-1])/2;
+  const spread=Math.max(xs[xs.length-1]-xs[0], ys[ys.length-1]-ys[0], zs[zs.length-1]-zs[0]);
+  const interval=Math.max(spread,0.15);  // min 15cm spread for tiny motions
 
-  const grid=new THREE.GridHelper(interval*2,16,0x333333,0x222222);
-  grid.position.set(cx,ys[0],cz); v.scene.add(grid);
+  const grid=new THREE.GridHelper(interval*3,20,0x333333,0x222222);
+  grid.position.set(cx,ys[0]-0.01,cz); v.scene.add(grid);
 
   v.camTarget.set(cx,cy,cz);
-  v.camDist=interval*1.8;
+  v.camDist=interval*1.0;
   updateOrbit(id);
   draw3D(id, cfg.hist_frames[0]);
 }
