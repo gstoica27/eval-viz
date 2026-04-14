@@ -170,7 +170,15 @@ function renderClips() {
           </div>
           <div class="scrub-row">
             <button class="play-btn" onclick="togglePlay('${id}')">&#9654;</button>
-            <input type="range" id="${id}_scrub" min="0" max="100" value="0" oninput="scrubTo('${id}',this.value)">
+            <button class="play-btn" title="Previous frame" onclick="stepFrame('${id}',-1)">&#9664;|</button>
+            <button class="play-btn" title="Next frame" onclick="stepFrame('${id}',1)">|&#9654;</button>
+            <select class="play-btn" id="${id}_rate" onchange="setRate('${id}',this.value)" style="padding:2px 4px;">
+              <option value="1">1x</option>
+              <option value="0.5">0.5x</option>
+              <option value="0.25" selected>0.25x</option>
+              <option value="0.1">0.1x</option>
+            </select>
+            <input type="range" id="${id}_scrub" min="0" max="100" value="0" step="any" oninput="scrubTo('${id}',this.value)">
             <span class="frame-lbl" id="${id}_fl">0</span>
           </div>
           <div class="cfg-controls">
@@ -203,6 +211,8 @@ async function loadEntry(id) {
   v.video = document.getElementById(id+'_vid');
   v.video.src = clip.rgb_url; v.video.load();
   v.video.pause(); // don't auto-play, jumpToClip will position it
+  const rateSel = document.getElementById(id+'_rate');
+  if(rateSel) v.video.playbackRate = parseFloat(rateSel.value);
 
   // Use requestAnimationFrame for smooth per-frame 3D sync (timeupdate only fires ~4fps)
   const tick = () => {
@@ -321,6 +331,15 @@ function jumpToClip(id) {
 
 function togglePlay(id) { const v=viewers[id]; if(!v||!v.video)return; if(v.video.paused)v.video.play(); else v.video.pause(); }
 function scrubTo(id,val) { const v=viewers[id]; if(v&&v.video&&v.video.duration) v.video.currentTime=(val/100)*v.video.duration; }
+function setRate(id,rate) { const v=viewers[id]; if(v&&v.video) v.video.playbackRate=parseFloat(rate); }
+function stepFrame(id,dir) {
+  const v=viewers[id]; if(!v||!v.video||!v.clipData||!v.video.duration) return;
+  v.video.pause();
+  const T = v.clipData.num_frames||1;
+  const cur = Math.round(v.video.currentTime/v.video.duration*Math.max(T-1,0));
+  const next = Math.max(0, Math.min(T-1, cur + dir));
+  v.video.currentTime = (next/Math.max(T-1,1)) * v.video.duration;
+}
 
 // ── 3D ──
 function init3D(id) {
