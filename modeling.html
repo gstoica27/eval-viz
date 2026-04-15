@@ -77,6 +77,13 @@ body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--tex
     </select>
     <label>Category:</label>
     <select id="catFilter"><option value="">All</option></select>
+    <label>Sort:</label>
+    <select id="sortBy">
+      <option value="l2">L2 ↑</option>
+      <option value="mse">MSE ↑</option>
+      <option value="l2_desc">L2 ↓</option>
+      <option value="mse_desc">MSE ↓</option>
+    </select>
   </div>
   <div class="video-list" id="videoList"></div>
 </div>
@@ -122,6 +129,7 @@ async function init() {
   sel.addEventListener('change', () => { activeDataset = sel.value; populateCategories(); renderClips(); });
   document.getElementById('catFilter').addEventListener('change', renderClips);
   document.getElementById('splitFilter').addEventListener('change', renderClips);
+  document.getElementById('sortBy').addEventListener('change', renderClips);
   populateCategories();
   renderClips();
 }
@@ -151,7 +159,17 @@ function renderClips() {
     (!catFilter || c.category === catFilter) &&
     (!splitFilter || c.split === splitFilter)
   );
-  document.getElementById('clipCount').textContent = `${clips.length} entries — ${dsData.eval_step}`;
+  // Sort by selected metric; treat 0/NaN/missing as worst (push to end for asc)
+  const sortBy = document.getElementById('sortBy').value || 'l2';
+  const [metric, dir] = sortBy.endsWith('_desc') ? [sortBy.slice(0,-5), -1] : [sortBy, 1];
+  const bad = dir === 1 ? Infinity : -Infinity;
+  clips = clips.slice().sort((a,b) => {
+    const av = a[metric], bv = b[metric];
+    const af = (av == null || !isFinite(av) || av <= 0) ? bad : av;
+    const bf = (bv == null || !isFinite(bv) || bv <= 0) ? bad : bv;
+    return dir * (af - bf);
+  });
+  document.getElementById('clipCount').textContent = `${clips.length} entries — ${dsData.eval_step} — sorted by ${sortBy}`;
 
   const container = document.getElementById('videoList');
   container.innerHTML = '';
