@@ -79,10 +79,10 @@ body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--tex
     <select id="catFilter"><option value="">All</option></select>
     <label>Sort:</label>
     <select id="sortBy">
+      <option value="mse" selected>MSE ↑</option>
       <option value="l2">L2 ↑</option>
-      <option value="mse">MSE ↑</option>
-      <option value="l2_desc">L2 ↓</option>
       <option value="mse_desc">MSE ↓</option>
+      <option value="l2_desc">L2 ↓</option>
     </select>
   </div>
   <div class="video-list" id="videoList"></div>
@@ -160,7 +160,7 @@ function renderClips() {
     (!splitFilter || c.split === splitFilter)
   );
   // Sort by selected metric; treat 0/NaN/missing as worst (push to end for asc)
-  const sortBy = document.getElementById('sortBy').value || 'l2';
+  const sortBy = document.getElementById('sortBy').value || 'mse';
   const [metric, dir] = sortBy.endsWith('_desc') ? [sortBy.slice(0,-5), -1] : [sortBy, 1];
   const bad = dir === 1 ? Infinity : -Infinity;
   clips = clips.slice().sort((a,b) => {
